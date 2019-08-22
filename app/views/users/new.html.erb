@@ -1,0 +1,32 @@
+<%= form_for @user, local: true do |form| %>
+  <p>
+    <%= form.label :name %><br>
+    <%= form.text_field :name %>
+  </p>
+
+  <p>
+    <%= form.label :email %><br>
+    <%= form.email_field :email %>
+  </p>
+
+  <p>
+    <%= form.label :password %><br>
+    <%= form.password_field :password %>
+  </p>
+  <p>
+    <%= form.label :password_confirmation %><br>
+    <%= form.password_field :password_confirmation %>
+  </p>
+
+  <p>
+    <%= form.label :phone %><br>
+    <%= form.telephone_field :phone %>
+  </p>
+
+
+
+  <p>
+
+    <%= form.submit %>
+  </p>
+<% end %>
