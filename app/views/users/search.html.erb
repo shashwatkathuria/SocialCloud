@@ -1,0 +1,15 @@
+<div class="jumbotron" style="padding:10%;padding-top:1%;margin:10%;margin-top:0%;margin-bottom:0%;background:rgba(255,255,255,0.6);">
+
+  <div class="page-header">
+  <h2>Search Results &nbsp<small></small></h2>
+  </div>
+  <% for user in @users %>
+  <div class="jumbotron" style="color:white;padding:5%;margin-top:0%;margin-bottom:0%;background:rgba(0,0,0,0.6);">
+    <h3>Name : <%= user.name %></h3>
+    <p>Phone : <%= user.phone %></p>
+    <p>Email : <%= user.email %></p>
+  </div>
+
+  <% end %>
+
+</div>
