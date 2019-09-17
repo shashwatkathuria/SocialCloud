@@ -1,5 +1,12 @@
 Rails.application.routes.draw do
+  get '/contact_us' => 'contact_us#index'
+  get '/login' => 'sessions#new'
+  post '/login' => 'sessions#create'
+  get '/logout' => 'sessions#destroy'  
+
   get 'welcome/index'
+
+  get '/signup' => 'users#new'
 
   resources :users do
     resources :posts
@@ -9,8 +16,10 @@ Rails.application.routes.draw do
 
   # You can have the root of your site routed with "root"
   root 'welcome#index'
+  post '/search', to: "users#search"
+  get '/search', :to => redirect('/404.html')
 
-  # get '/signup' => 'users#new'
+
   # post '/users' => 'users#create'
 
   # Example of regular route:
@@ -61,4 +70,5 @@ Rails.application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
+  get '*path' => redirect('/404.html')
 end
