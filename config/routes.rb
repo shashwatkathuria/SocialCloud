@@ -1,14 +1,22 @@
 Rails.application.routes.draw do
+  devise_for :users
+  devise_scope :user do
+    get '/users/sign_out' => 'devise/sessions#destroy'
+  end
+  # devise_for :users
+  # devise_for :users do
+    # get '/users/sign_out' => 'devise/sessions#destroy'
+  # end
+  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   get '/contact_us' => 'contact_us#index'
   get '/login' => 'sessions#new'
   post '/login' => 'sessions#create'
-  get '/logout' => 'sessions#destroy'  
+  get '/logout' => 'sessions#destroy'
 
   get 'welcome/index'
-
   get '/signup' => 'users#new'
 
-  resources :users do
+  resources :users, only: [:index, :new, :create, :search] do
     resources :posts
   end
   # The priority is based upon order of creation: first created -> highest priority.
