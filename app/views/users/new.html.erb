@@ -3,43 +3,38 @@
 <div class="registrationForm" style = "padding:25%;padding-top:0%;padding-bottom:0%">
 
 <%= form_for @user, local: true do |form| %>
+
   <div class="page-header">
-  <h2>Sign Up &nbsp<small>Please fill in the details.</small></h2>
+      <h2>Sign Up &nbsp<small>Please fill in the details.</small></h2>
   </div>
 
   <div class="form-group">
 
-    <span class="glyphicon glyphicon-user" aria-hidden="true"></span>&nbsp<label for="user_name">Name</label>
-    <br>
-    <input class="form-control" type="text" name="user[name]" id="user_name" placeholder="Enter Name">
-  <!-- </div> -->
 
-  <!-- <div class="form-group"> -->
-    <span class="glyphicon glyphicon-phone" aria-hidden="true"></span>&nbsp<label for="user_phone">Phone</label>
-    <br>
-    <input class="form-control" type="tel" name="user[phone]" id="user_phone" placeholder="Enter Phone Number">
-  <!-- </div> -->
+      <span class="glyphicon glyphicon-user" aria-hidden="true"></span>&nbsp<%= form.label :name %>
+      <br>
+      <%= form.text_field :name, class: "form-control", placeholder: "Enter Name" %>
 
-  <!-- <div class="form-group"> -->
-    <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>&nbsp<label for="user_email">Email</label>
-    <br>
-    <input class="form-control" type="email" name="user[email]" id="user_email" placeholder="Enter Email">
-  <!-- </div> -->
+      <span class="glyphicon glyphicon-phone" aria-hidden="true"></span>&nbsp<%= form.label :phone %>
+      <br>
+      <%= form.telephone_field :phone, class: "form-control", placeholder: "Enter Phone Number" %>
 
-  <!-- <div class="form-group"> -->
-    <span class="glyphicon glyphicon-lock" aria-hidden="true"></span>&nbsp<label for="user_password">Password</label>
-    <br>
-    <input class="form-control" type="password" name="user[password]" id="user_password" placeholder="Enter Password">
-  <!-- </div> -->
+      <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>&nbsp<%= form.label :email %>
+      <br>
+      <%= form.email_field :email, class: "form-control", placeholder: "Enter Email" %>
 
-  <!-- <div class="form-group"> -->
-    <span class="glyphicon glyphicon-lock" aria-hidden="true"></span>&nbsp<label for="user_password_confirmation">Confirm Password</label>
-    <br>
-    <input class="form-control" type="password" name="user[password_confirmation]" id="user_password_confirmation" placeholder="Enter Password Again">
+      <span class="glyphicon glyphicon-lock" aria-hidden="true"></span>&nbsp<%= form.label :password %>
+      <br>
+      <%= form.password_field :password, class: "form-control", placeholder: "Enter Password" %>
+
+      <span class="glyphicon glyphicon-lock" aria-hidden="true"></span>&nbsp<%= form.label :password, "Confirm Password" %>
+      <br>
+      <%= form.password_field :password_confirmation, class: "form-control", placeholder: "Enter Password Again" %>
+
   </div>
 
-    <!-- <input class="btn btn-default" type="submit" name="commit" value="Create User" data-disable-with="Create User"> -->
-    <button type="submit" name="commit" class="btn btn-default center-block" data-disable-with="Create User">Create User</button>
+      <%= form.submit class:"btn btn-default center-block" %>
+
 <% end %>
 
 <% if params[:failureMessage] %>

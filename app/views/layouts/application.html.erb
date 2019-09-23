@@ -66,6 +66,26 @@
     color:gray;
     background-color:orange;
   }
+  #signUpButton
+  {
+    color:black;
+    background-color:orange;
+  }
+  #signUpButton:hover
+  {
+    color:white;
+    background-color:orange;
+  }
+  .standardButton
+  {
+    color:black;
+    background-color:orange;
+  }
+  .standardButton:hover
+  {
+    color:white !important;
+    background-color:orange;
+  }
   .buttonLink
   {
     color: black !important;
@@ -84,6 +104,10 @@
   <!-- Bootstrap -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
+  <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <!-- Include all compiled plugins (below), or include individual files as needed -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
   <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
   <!--[if lt IE 9]>
@@ -94,7 +118,7 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
-<body background="/seamless1.jpg" style="background-size: 200px 200px;">
+<body background="/seamless1.jpg" style="background-size: 150px 150px;">
 
   <nav class="navbar navbar-transparent" >
     <div class="container-fluid">
@@ -112,23 +136,31 @@
       <!-- Collect the nav links, forms, and other content for toggling -->
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav">
-          <li class="active" style="color:white;"><a href="<%= url_for '/login' %>">Login <span class="sr-only">(current)</span></a></li>
-          <li><a href="<%= url_for action: "new", controller:"users" %>">Sign Up</a></li>
+          <% if user_signed_in? %>
+            <li class="active" style="color:white;"><a href="<%= users_path %>"><strong>Hi <%= current_user.name %> !</strong><span class="sr-only">(current)</span></a></li>
+          <% else %>
+            <li class="active" style="color:white;"><a href="<%= new_user_session_path %>">Login <span class="sr-only">(current)</span></a></li>
+            <li><a href="<%= new_user_registration_path %>">Sign Up</a></li>
+          <% end %>
           <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Options <span class="caret"></span></a>
             <ul class="dropdown-menu">
-              <li><a href="#">Action</a></li>
+              <% if user_signed_in? %>
+                <li><a href="<%= users_path %>">Your Profile</a></li>
+              <% end %>
               <li><a href="#">Another action</a></li>
               <li><a href="#">Something else here</a></li>
-              <li role="separator" class="divider"></li>
-              <li><a href="#">Separated link</a></li>
-              <li role="separator" class="divider"></li>
-              <li><a href="#">One more separated link</a></li>
+              <% if user_signed_in? %>
+                <li role="separator" class="divider"></li>
+                <li><a href="<%= edit_user_registration_path %>">Edit Profile</a></li>
+                <li role="separator" class="divider"></li>
+                <li><a href="<%= destroy_user_session_path %>">Logout</a></li>
+              <% end %>
             </ul>
           </li>
         </ul>
 
-        <%= form_for :user,  url: url_for(action: 'search', controller: 'users'), html: { class:"navbar-form navbar-left" } do |f| %>
+        <%= form_for :user,  url: search_path, html: { class:"navbar-form navbar-left" } do |f| %>
           <div class="form-group">
             <input type="text" name="searchQuery" class="form-control" placeholder="Type user name here">
           </div>
@@ -136,32 +168,22 @@
 
         <% end %>
         <ul class="nav navbar-nav navbar-right">
-          <li><a href="<%= url_for action: "index", controller: "contact_us"%>">Contact Us</a></li>
-          <!-- <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
-            <ul class="dropdown-menu">
-              <li><a href="#">Action</a></li>
-              <li><a href="#">Another action</a></li>
-              <li><a href="#">Something else here</a></li>
-              <li role="separator" class="divider"></li>
-              <li><a href="#">Separated link</a></li>
-            </ul>
-          </li> -->
+          <% if user_signed_in? %>
+            <li><a href="#">Logged in as <strong><%= current_user.email %></strong>.</a></li>
+            <% end %>
+          <li><a href="<%= contact_us_path %>">Contact Us</a></li>
         </ul>
-      </div><!-- /.navbar-collapse -->
-    </div><!-- /.container-fluid -->
+      </div>
+    </div>
   </nav>
 
-
-
+  <% if notice %>
+    <p class="alert alert-success"><%= notice %></p>
+  <% end %>
+  <% if alert %>
+    <p class="alert alert-danger"><%= alert %></p>
+  <% end %>
 
 <%= yield %>
-
-
-<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-<!-- Include all compiled plugins (below), or include individual files as needed -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-
 </body>
 </html>
