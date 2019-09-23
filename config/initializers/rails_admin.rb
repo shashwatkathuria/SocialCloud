@@ -3,17 +3,23 @@ RailsAdmin.config do |config|
   ### Popular gems integration
 
   ## == Clearance ==
-  config.parent_controller = "::ApplicationController"
-
+  # config.parent_controller = "::ApplicationController"
+  #
+  # config.authorize_with do |controller|
+  #   unless current_user && current_user.email == "shashwat@gmail.com"
+  #     redirect_to(
+  #       main_app.root_path,
+  #       alert: "You are not permitted to view this page"
+  #     )
+  #   end
+  # end
   config.authorize_with do |controller|
-    unless current_user && current_user.email == "shashwat@gmail.com"
-      redirect_to(
-        main_app.root_path,
-        alert: "You are not permitted to view this page"
-      )
+    if current_user.nil?
+      redirect_to '\404.html'
+    elsif !(current_user.email == "shashwat@gmail.com")
+      redirect_to '\404.html'
     end
   end
-
   ## == Devise ==
   # config.authenticate_with do
   #   warden.authenticate! scope: :user
