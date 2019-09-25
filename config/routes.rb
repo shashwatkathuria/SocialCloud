@@ -9,9 +9,6 @@ Rails.application.routes.draw do
   # end
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   get '/contact_us' => 'contact_us#index'
-  get '/login' => 'sessions#new'
-  post '/login' => 'sessions#create'
-  get '/logout' => 'sessions#destroy'
 
   get 'welcome/index'
   get '/signup' => 'users#new'
