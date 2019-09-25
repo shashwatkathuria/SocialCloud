@@ -1,5 +1,10 @@
 <div class="jumbotron" style="padding:5%;background:rgba(255,255,255,0.6);">
-  <h1>Welcome!</h1>
-  <p>Join the website today and connect with your family and friends!</p>
-  <p><a class="btn btn-primary btn-lg" href="<%= url_for(action: 'new', controller: 'users') %>" role="button">Create Account</a></p>
+  <% if !user_signed_in? %>
+    <h1>Welcome!</h1>
+    <p>Join the website today and connect with your family and friends!</p>
+    <p><a class="btn btn-primary btn-lg" href="<%= new_user_registration_path %>" role="button">Create Account</a></p>
+  <% else %>
+    <h1>Welcome!</h1>
+    <p>You can now connect with your family and friends! Enjoy!</p>
+  <% end %>
 </div>

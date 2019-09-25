@@ -137,7 +137,7 @@
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav">
           <% if user_signed_in? %>
-            <li class="active" style="color:white;"><a href="<%= users_path %>"><strong>Hi <%= current_user.name %> !</strong><span class="sr-only">(current)</span></a></li>
+            <li class="active" style="color:white;"><a href="<%= users_path %>">Hi, <strong><%= current_user.name %></strong> !<span class="sr-only">(current)</span></a></li>
           <% else %>
             <li class="active" style="color:white;"><a href="<%= new_user_session_path %>">Login <span class="sr-only">(current)</span></a></li>
             <li><a href="<%= new_user_registration_path %>">Sign Up</a></li>
