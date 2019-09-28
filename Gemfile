@@ -31,6 +31,7 @@ gem 'devise'
 
 gem 'mongoid'
 gem 'kaminari-mongoid'
+gem "mongoid-paperclip", :require => "mongoid_paperclip"
 
 # Use Unicorn as the app server
 # gem 'unicorn'
