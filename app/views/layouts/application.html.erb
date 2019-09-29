@@ -22,15 +22,15 @@
   {
       color:orange;
   }
-  #searchButton
+  .transparentButton
   {
-    color:white;
-    background-color:transparent;
+    color:white !important;
+    background-color:transparent !important;
   }
-  #searchButton:hover
+  .transparentButton:hover
   {
-    color:orange;
-    background-color:transparent;
+    color:orange !important;
+    background-color:transparent !important;
   }
   .navbar-toggle .icon-bar
   {
@@ -147,8 +147,8 @@
             <ul class="dropdown-menu">
               <% if user_signed_in? %>
                 <li><a href="<%= users_path %>">Your Profile</a></li>
+                <li><a href="<%= posts_path %>">Your Posts</a></li>
               <% end %>
-              <li><a href="#">Another action</a></li>
               <li><a href="#">Something else here</a></li>
               <% if user_signed_in? %>
                 <li role="separator" class="divider"></li>
@@ -164,7 +164,7 @@
           <div class="form-group">
             <input type="text" name="searchQuery" class="form-control" placeholder="Type user name here">
           </div>
-          <button type="submit" id="searchButton" class="btn btn-default" >Search &nbsp<span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
+          <button type="submit" class="btn transparentButton btn-default" >Search &nbsp<span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
 
         <% end %>
         <ul class="nav navbar-nav navbar-right">
