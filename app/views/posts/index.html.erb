@@ -1,0 +1,25 @@
+<div class="jumbotron" style="padding:10%;padding-top:1%;margin:10%;margin-top:0%;margin-bottom:0%;background:rgba(255,255,255,0.6);">
+
+  <div class="page-header">
+  <h2>Your Posts &nbsp<small>All of your posts are displayed below.</small></h2>
+  </div>
+  <% if @posts.length >= 1 %>
+    <% for post in @posts %>
+      <div class="row">
+        <div class="col-sm-12 col-md-12 col-lg-12">
+          <div class="thumbnail" style="background-color:black;">
+            <img src="<%= post.post_image.url(:original) %>" alt="<%= post.image_caption %>">
+            <div class="caption" style="color:white;">
+              <h3><u><b><%= post.name %></b></u></h3>
+              <p><%= post.content %></p>
+              <p><a href="#" class="btn btn-default transparentButton" role="button"><%= post.time %></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  <% else %>
+    Oops, looks like you have no posts till now!
+  <% end %>
+
+</div>
