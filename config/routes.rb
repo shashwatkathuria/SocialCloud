@@ -7,18 +7,14 @@ Rails.application.routes.draw do
 
   get 'posts/create'
 
-  get 'posts/search'
+  post 'posts/search'
 
-  get 'posts/delete'
+  post 'posts/delete'
 
   devise_for :users
   devise_scope :user do
     get '/users/sign_out' => 'devise/sessions#destroy'
   end
-  # devise_for :users
-  # devise_for :users do
-    # get '/users/sign_out' => 'devise/sessions#destroy'
-  # end
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   get '/contact_us' => 'contact_us#index'
 
