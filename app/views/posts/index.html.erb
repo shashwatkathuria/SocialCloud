@@ -3,16 +3,32 @@
   <div class="page-header">
   <h2>Your Posts &nbsp<small>All of your posts are displayed below.</small></h2>
   </div>
+  <%= form_for :post,  url: posts_search_path, html: { class:"navbar-form navbar-left" } do |f| %>
+    <div class="form-group">
+      <input type="text" name="searchQuery" class="form-control" placeholder="Search post">
+    </div>
+    <button type="submit" class="btn transparentButton btn-default" >Search &nbsp<span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
+  <% end %>
+
   <% if @posts.length >= 1 %>
     <% for post in @posts %>
       <div class="row">
         <div class="col-sm-12 col-md-12 col-lg-12">
           <div class="thumbnail" style="background-color:black;">
+            <div class="caption" style="color:white;">
+                <p><span style="color:orange;"><span class="glyphicon glyphicon-picture" aria-hidden="true"></span> <%= post.image_heading %></span><br> <%= post.image_caption %></p>
+                <p><a href="#" class="btn btn-default disabledTransparentButton disabled"  role="button"><span class="glyphicon glyphicon-time" aria-hidden="true"></span> Posted <%= time_ago_in_words(post.time) %> ago</a>
+            </div>
             <img src="<%= post.post_image.url(:original) %>" alt="<%= post.image_caption %>">
             <div class="caption" style="color:white;">
-              <h3><u><b><%= post.name %></b></u></h3>
-              <p><%= post.content %></p>
-              <p><a href="#" class="btn btn-default transparentButton" role="button"><%= post.time %></a>
+              <%= form_for :post,  url: posts_delete_path, html: { class:"navbar-form navbar-left" } do |f| %>
+                <div class="form-group">
+                  <input type="hidden" name="deleteID" class="form-control" value="<%= post.id.to_s %>">
+                </div>
+                <button type="submit" class="btn transparentButton btn-default" ><span class="glyphicon glyphicon-delete" aria-hidden="true"></span>Delete Post&nbsp</button>
+              <% end %>
+              <br>
+              <br>
             </div>
           </div>
         </div>
