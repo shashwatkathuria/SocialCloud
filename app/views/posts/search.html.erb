@@ -1,2 +1,34 @@
-<h1>Posts#search</h1>
-<p>Find me in app/views/posts/search.html.erb</p>
+<div class="jumbotron" style="padding:10%;padding-top:1%;margin:10%;margin-top:0%;margin-bottom:0%;background:rgba(255,255,255,0.6);">
+
+  <div class="page-header">
+  <h2>Search Results &nbsp<small>Following are the search results for <span style="color:orange;" >'<%= @searchQuery %>'</span></small></h2>
+  </div>
+  <% if @posts.length >= 1 %>
+    <% for post in @posts %>
+    <div class="row">
+      <div class="col-sm-12 col-md-12 col-lg-12">
+        <div class="thumbnail" style="background-color:black;">
+          <div class="caption" style="color:white;">
+              <p><span style="color:orange;"><span class="glyphicon glyphicon-picture" aria-hidden="true"></span> <%= post.image_heading %></span><br> <%= post.image_caption %></p>
+              <p><a href="#" class="btn btn-default disabledTransparentButton disabled"  role="button"><span class="glyphicon glyphicon-time" aria-hidden="true"></span> Posted <%= time_ago_in_words(post.time) %> ago</a>
+          </div>
+          <img src="<%= post.post_image.url(:original) %>" alt="<%= post.image_caption %>">
+          <div class="caption" style="color:white;">
+            <%= form_for :post,  url: posts_delete_path, html: { class:"navbar-form navbar-left" } do |f| %>
+              <div class="form-group">
+                <input type="hidden" name="deleteID" class="form-control" value="<%= post.id.to_s %>">
+              </div>
+              <button type="submit" class="btn transparentButton btn-default" ><span class="glyphicon glyphicon-delete" aria-hidden="true"></span>Delete Post&nbsp</button>
+            <% end %>
+            <br>
+            <br>
+          </div>
+        </div>
+      </div>
+    </div>
+    <% end %>
+  <% else %>
+    Sorry, nothing is matching with your search query!
+  <% end %>
+
+</div>
