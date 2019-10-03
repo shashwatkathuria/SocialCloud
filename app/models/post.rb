@@ -1,10 +1,9 @@
 class Post
   include Mongoid::Document
   include Mongoid::Paperclip
-  field :name, type: String
-  field :content, type: String
   field :user_id, type: Integer
   field :time, type: Time, default: ->{ Time.now }
+  field :image_heading, type: String
   field :image_caption, type: String
 
   has_mongoid_attached_file :post_image
