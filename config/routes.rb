@@ -1,11 +1,11 @@
 Rails.application.routes.draw do
   get 'posts/index'
 
-  get 'posts/show'
+  post 'posts/show'
 
   get 'posts/new'
 
-  get 'posts/create'
+  post 'posts/create'
 
   post 'posts/search'
 
@@ -22,7 +22,7 @@ Rails.application.routes.draw do
   get '/signup' => 'users#new'
 
   resources :users, only: [:index, :new, :create, :search]
-  resources :posts, only: [:index, :show, :new, :create, :search, :delete]
+  resources :posts, only: [:index, :new, :create, :delete]
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
