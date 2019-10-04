@@ -32521,3 +32521,2006 @@ MONGODB | localhost:27017 | admin.endSessions | STARTED | {"endSessions"=>[{"id"
 MONGODB | localhost:27017 | admin.endSessions | SUCCEEDED | 0.000s
 MONGODB | localhost:27017 | admin.endSessions | STARTED | {"endSessions"=>[{"id"=><BSON::Binary:0x70136652397060 type=uuid data=0x16f2751cc8e444aa...>}]}
 MONGODB | localhost:27017 | admin.endSessions | SUCCEEDED | 0.001s
+DEPRECATION WARNING: ActiveRecord::Base.raise_in_transactional_callbacks= is deprecated, has no effect and will be removed without replacement. (called from <top (required)> at /home/shashwatkathuria/Desktop/SocialCloud/app/models/application_record.rb:1)
+Started GET "/" for 127.0.0.1 at 2019-10-03 11:59:14 +0530
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (2.7ms)
+Completed 200 OK in 180ms (Views: 173.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2019-10-03 11:59:23 +0530
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (0.7ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (18.7ms)
+Completed 200 OK in 70ms (Views: 50.6ms | ActiveRecord: 0.9ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2019-10-03 11:59:30 +0530
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"21tR+KF+eIxLR0uNk4P1kGzLXAcid8RV+F31HqopOT+kW9GC6r+NryYMqhvIxdh7/brK1Y2em8rIZ9KLYeNG8g==", "user"=>{"email"=>"shashwat@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Login"}
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "shashwat@gmail.com"], ["LIMIT", 1]]
+Redirected to http://localhost:3000/
+Completed 302 Found in 169ms (ActiveRecord: 1.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-10-03 11:59:30 +0530
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered welcome/index.html.erb within layouts/application (4.4ms)
+Completed 200 OK in 23ms (Views: 21.6ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2019-10-03 11:59:33 +0530
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering users/index.html.erb within layouts/application
+  Rendered users/index.html.erb within layouts/application (2.9ms)
+Completed 200 OK in 48ms (Views: 37.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2019-10-03 11:59:35 +0530
+Processing by PostsController#index as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+MONGODB | EVENT: #<TopologyOpening topology=Unknown[]>
+MONGODB | Topology type 'unknown' initializing.
+MONGODB | EVENT: #<TopologyChanged prev=Unknown[] new=Unknown[localhost:27017]>
+MONGODB | Topology type 'Unknown' changed to type 'Unknown'.
+MONGODB | EVENT: #<ServerOpening address=localhost:27017 topology=Unknown[localhost:27017]>
+MONGODB | Server localhost:27017 initializing.
+MONGODB | EVENT: #<ServerDescriptionChanged address=localhost:27017 topology=Single[localhost:27017] prev=#<Mongo::Server:Description:0x47226000796820 config={} average_round_trip_time=> new=#<Mongo::Server:Description:0x47225999806940 config={"ismaster"=>true, "maxBsonObjectSize"=>16777216, "maxMessageSizeBytes"=>48000000, "maxWriteBatchSize"=>100000, "localTime"=>2019-10-03 06:29:35 UTC, "logicalSessionTimeoutMinutes"=>30, "minWireVersion"=>0, "maxWireVersion"=>6, "readOnly"=>false, "ok"=>1.0} average_round_trip_time=0.004151675>>
+MONGODB | Server description for localhost:27017 changed from 'unknown' to 'standalone'.
+MONGODB | EVENT: #<TopologyChanged prev=Unknown[localhost:27017] new=Single[localhost:27017]>
+MONGODB | Topology type 'Unknown' changed to type 'Single'.
+MONGODB | localhost:27017 | social_cloud_development.find | STARTED | {"find"=>"posts", "filter"=>{"user_id"=>1}, "sort"=>{"time"=>-1}, "lsid"=>{"id"=><BSON::Binary:0x47225999589300 type=uuid data=0x0a9f99badfcc4a28...>}}
+MONGODB | localhost:27017 | social_cloud_development.find | SUCCEEDED | 0.001s
+  Rendering posts/index.html.erb within layouts/application
+  Rendered posts/index.html.erb within layouts/application (21.2ms)
+Completed 200 OK in 71ms (Views: 43.0ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2019-10-03 11:59:49 +0530
+Processing by PostsController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+MONGODB | localhost:27017 | social_cloud_development.find | STARTED | {"find"=>"posts", "filter"=>{"user_id"=>1}, "sort"=>{"time"=>-1}, "lsid"=>{"id"=><BSON::Binary:0x47225999589300 type=uuid data=0x0a9f99badfcc4a28...>}}
+MONGODB | localhost:27017 | social_cloud_development.find | SUCCEEDED | 0.001s
+  Rendering posts/index.html.erb within layouts/application
+  Rendered posts/index.html.erb within layouts/application (11.9ms)
+Completed 200 OK in 55ms (Views: 38.8ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2019-10-03 11:59:52 +0530
+Processing by PostsController#index as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+MONGODB | localhost:27017 | social_cloud_development.find | STARTED | {"find"=>"posts", "filter"=>{"user_id"=>1}, "sort"=>{"time"=>-1}, "lsid"=>{"id"=><BSON::Binary:0x47225999589300 type=uuid data=0x0a9f99badfcc4a28...>}}
+MONGODB | localhost:27017 | social_cloud_development.find | SUCCEEDED | 0.002s
+  Rendering posts/index.html.erb within layouts/application
+  Rendered posts/index.html.erb within layouts/application (4.4ms)
+Completed 200 OK in 52ms (Views: 36.1ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/contact_us" for 127.0.0.1 at 2019-10-03 11:59:53 +0530
+Processing by ContactUsController#index as HTML
+  Rendering contact_us/index.html.erb within layouts/application
+  Rendered contact_us/index.html.erb within layouts/application (1.4ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 48ms (Views: 37.4ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-10-03 12:00:29 +0530
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered welcome/index.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 42ms (Views: 38.2ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/users/sign_out" for 127.0.0.1 at 2019-10-03 12:00:38 +0530
+Processing by Devise::SessionsController#destroy as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 17ms (ActiveRecord: 0.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-10-03 12:00:38 +0530
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 23ms (Views: 21.4ms | ActiveRecord: 0.0ms)
+
+
+MONGODB | localhost:27017 | admin.endSessions | STARTED | {"endSessions"=>[{"id"=><BSON::Binary:0x47225999589300 type=uuid data=0x0a9f99badfcc4a28...>}]}
+MONGODB | localhost:27017 | admin.endSessions | SUCCEEDED | 0.000s
+DEPRECATION WARNING: ActiveRecord::Base.raise_in_transactional_callbacks= is deprecated, has no effect and will be removed without replacement. (called from <top (required)> at /home/shashwatkathuria/Desktop/SocialCloud/app/models/application_record.rb:1)
+DEPRECATION WARNING: ActiveRecord::Base.raise_in_transactional_callbacks= is deprecated, has no effect and will be removed without replacement. (called from <top (required)> at /home/shashwatkathuria/Desktop/SocialCloud/app/models/application_record.rb:1)
+DEPRECATION WARNING: ActiveRecord::Base.raise_in_transactional_callbacks= is deprecated, has no effect and will be removed without replacement. (called from <top (required)> at /home/shashwatkathuria/Desktop/SocialCloud/app/models/application_record.rb:1)
+Started GET "/" for 127.0.0.1 at 2019-10-04 09:49:30 +0530
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (76.5ms)
+Completed 200 OK in 5906ms (Views: 5866.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-10-04 09:49:36 +0530
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 19ms (Views: 18.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2019-10-04 09:49:48 +0530
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.5ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (515.3ms)
+Completed 200 OK in 723ms (Views: 626.3ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2019-10-04 09:49:57 +0530
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"7L5GpEkFmTqM1C7A/vs1eFcEQi2xgh7KwoVX864nqgVF1einuJ4fMHJTjKKd0D/db2v9jSezgHpyECYNcSJFxw==", "user"=>{"email"=>"shashwat@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Login"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "shashwat@gmail.com"], ["LIMIT", 1]]
+Redirected to http://localhost:3000/
+Completed 302 Found in 617ms (ActiveRecord: 0.7ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-10-04 09:49:57 +0530
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered welcome/index.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 28ms (Views: 25.8ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2019-10-04 09:50:01 +0530
+Processing by PostsController#index as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+MONGODB | EVENT: #<TopologyOpening topology=Unknown[]>
+MONGODB | Topology type 'unknown' initializing.
+MONGODB | EVENT: #<TopologyChanged prev=Unknown[] new=Unknown[localhost:27017]>
+MONGODB | Topology type 'Unknown' changed to type 'Unknown'.
+MONGODB | EVENT: #<ServerOpening address=localhost:27017 topology=Unknown[localhost:27017]>
+MONGODB | Server localhost:27017 initializing.
+MONGODB | EVENT: #<ServerDescriptionChanged address=localhost:27017 topology=Single[localhost:27017] prev=#<Mongo::Server:Description:0x47025638177240 config={} average_round_trip_time=> new=#<Mongo::Server:Description:0x47025638057180 config={"ismaster"=>true, "maxBsonObjectSize"=>16777216, "maxMessageSizeBytes"=>48000000, "maxWriteBatchSize"=>100000, "localTime"=>2019-10-04 04:20:01 UTC, "logicalSessionTimeoutMinutes"=>30, "minWireVersion"=>0, "maxWireVersion"=>6, "readOnly"=>false, "ok"=>1.0} average_round_trip_time=0.001472437>>
+MONGODB | Server description for localhost:27017 changed from 'unknown' to 'standalone'.
+MONGODB | EVENT: #<TopologyChanged prev=Unknown[localhost:27017] new=Single[localhost:27017]>
+MONGODB | Topology type 'Unknown' changed to type 'Single'.
+MONGODB | localhost:27017 | social_cloud_development.find | STARTED | {"find"=>"posts", "filter"=>{"user_id"=>1}, "sort"=>{"time"=>-1}, "lsid"=>{"id"=><BSON::Binary:0x47025637986780 type=uuid data=0xe867194b4c914e67...>}}
+MONGODB | localhost:27017 | social_cloud_development.find | SUCCEEDED | 0.001s
+  Rendering posts/index.html.erb within layouts/application
+  Rendered posts/index.html.erb within layouts/application (11.3ms)
+Completed 200 OK in 67ms (Views: 34.9ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2019-10-04 09:50:34 +0530
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering users/index.html.erb within layouts/application
+  Rendered users/index.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 43ms (Views: 35.9ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/users/edit" for 127.0.0.1 at 2019-10-04 09:50:41 +0530
+Processing by Devise::RegistrationsController#edit as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering devise/registrations/edit.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (1.4ms)
+  Rendered devise/registrations/edit.html.erb within layouts/application (28.5ms)
+Completed 200 OK in 76ms (Views: 71.1ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-10-04 09:50:43 +0530
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered welcome/index.html.erb within layouts/application (4.6ms)
+Completed 200 OK in 72ms (Views: 68.3ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2019-10-04 10:02:04 +0530
+Processing by PostsController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+MONGODB | localhost:27017 | social_cloud_development.find | STARTED | {"find"=>"posts", "filter"=>{"user_id"=>1}, "sort"=>{"time"=>-1}, "lsid"=>{"id"=><BSON::Binary:0x47025637986780 type=uuid data=0xe867194b4c914e67...>}}
+MONGODB | localhost:27017 | social_cloud_development.find | SUCCEEDED | 0.001s
+  Rendering posts/index.html.erb within layouts/application
+  Rendered posts/index.html.erb within layouts/application (8.8ms)
+Completed 200 OK in 37ms (Views: 23.3ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/posts/new" for 127.0.0.1 at 2019-10-04 10:02:06 +0530
+Processing by PostsController#new as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/new.html.erb within layouts/application (86.0ms)
+Completed 200 OK in 139ms (Views: 134.6ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/posts/new" for 127.0.0.1 at 2019-10-04 10:03:07 +0530
+Processing by PostsController#new as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/new.html.erb within layouts/application (21.2ms)
+Completed 200 OK in 100ms (Views: 93.4ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/posts/new" for 127.0.0.1 at 2019-10-04 10:05:21 +0530
+Processing by PostsController#new as HTML
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/new.html.erb within layouts/application (11.6ms)
+Completed 200 OK in 88ms (Views: 78.1ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/posts/new" for 127.0.0.1 at 2019-10-04 10:05:23 +0530
+Processing by PostsController#new as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/new.html.erb within layouts/application (14.5ms)
+Completed 200 OK in 76ms (Views: 67.4ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/posts/new" for 127.0.0.1 at 2019-10-04 10:05:23 +0530
+Processing by PostsController#new as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/new.html.erb within layouts/application (14.1ms)
+Completed 200 OK in 86ms (Views: 77.2ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/posts/new" for 127.0.0.1 at 2019-10-04 10:05:42 +0530
+Processing by PostsController#new as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/new.html.erb within layouts/application (13.1ms)
+Completed 200 OK in 84ms (Views: 73.3ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/posts/new" for 127.0.0.1 at 2019-10-04 10:06:19 +0530
+Processing by PostsController#new as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/new.html.erb within layouts/application (12.9ms)
+Completed 200 OK in 72ms (Views: 65.7ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/posts/new" for 127.0.0.1 at 2019-10-04 10:07:19 +0530
+Processing by PostsController#new as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/new.html.erb within layouts/application (15.1ms)
+Completed 200 OK in 94ms (Views: 86.0ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/posts/new" for 127.0.0.1 at 2019-10-04 10:07:46 +0530
+Processing by PostsController#new as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/new.html.erb within layouts/application (11.3ms)
+Completed 200 OK in 92ms (Views: 83.9ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/posts/new" for 127.0.0.1 at 2019-10-04 10:08:23 +0530
+Processing by PostsController#new as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/new.html.erb within layouts/application (10.4ms)
+Completed 200 OK in 94ms (Views: 86.8ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/posts/new" for 127.0.0.1 at 2019-10-04 10:08:36 +0530
+Processing by PostsController#new as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/new.html.erb within layouts/application (9.0ms)
+Completed 200 OK in 61ms (Views: 54.6ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/posts/new" for 127.0.0.1 at 2019-10-04 10:09:29 +0530
+Processing by PostsController#new as HTML
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/new.html.erb within layouts/application (9.9ms)
+Completed 200 OK in 75ms (Views: 64.7ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/posts/new" for 127.0.0.1 at 2019-10-04 10:10:21 +0530
+Processing by PostsController#new as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/new.html.erb within layouts/application (16.0ms)
+Completed 200 OK in 93ms (Views: 85.1ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/posts/new" for 127.0.0.1 at 2019-10-04 10:15:41 +0530
+Processing by PostsController#new as HTML
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/new.html.erb within layouts/application (3.7ms)
+Completed 500 Internal Server Error in 19ms (ActiveRecord: 1.2ms)
+
+
+  
+SyntaxError (/home/shashwatkathuria/Desktop/SocialCloud/app/views/posts/new.html.erb:33: syntax error, unexpected ')', expecting =>
+...holder: "Create Post", hidden );@output_buffer.safe_append='
+...                              ^
+/home/shashwatkathuria/Desktop/SocialCloud/app/views/posts/new.html.erb:35: syntax error, unexpected keyword_end, expecting ')'
+'.freeze; end 
+          ^~~
+/home/shashwatkathuria/Desktop/SocialCloud/app/views/posts/new.html.erb:45: syntax error, unexpected keyword_ensure, expecting ')'
+          ensure
+          ^~~~~~
+/home/shashwatkathuria/Desktop/SocialCloud/app/views/posts/new.html.erb:47: syntax error, unexpected keyword_end, expecting ')'
+          end
+          ^~~):
+  
+app/views/posts/new.html.erb:33: syntax error, unexpected ')', expecting =>
+app/views/posts/new.html.erb:35: syntax error, unexpected keyword_end, expecting ')'
+app/views/posts/new.html.erb:45: syntax error, unexpected keyword_ensure, expecting ')'
+app/views/posts/new.html.erb:47: syntax error, unexpected keyword_end, expecting ')'
+  Rendering /var/lib/gems/2.5.0/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /var/lib/gems/2.5.0/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /var/lib/gems/2.5.0/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (24.7ms)
+  Rendering /var/lib/gems/2.5.0/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /var/lib/gems/2.5.0/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (6.8ms)
+  Rendering /var/lib/gems/2.5.0/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /var/lib/gems/2.5.0/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.7ms)
+  Rendered /var/lib/gems/2.5.0/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (100.3ms)
+DEPRECATION WARNING: Accessing mime types via constants is deprecated. Please change `Mime::HTML` to `Mime[:html]`. (called from block in pre_process at /usr/lib/ruby/vendor_ruby/thin/connection.rb:86)
+  Rendering /var/lib/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb
+  Rendered /var/lib/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (1.1ms)
+  Rendering /var/lib/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript
+  Rendering /var/lib/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string
+  Rendered /var/lib/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (1.1ms)
+  Rendering /var/lib/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string
+  Rendered /var/lib/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (1.8ms)
+  Rendering /var/lib/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string
+  Rendered /var/lib/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (1.1ms)
+DEPRECATION WARNING: Accessing mime types via constants is deprecated. Please change `Mime::WEB_CONSOLE_V2` to `Mime[:web_console_v2]`. (called from block in pre_process at /usr/lib/ruby/vendor_ruby/thin/connection.rb:86)
+  Rendered /var/lib/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (69.9ms)
+  Rendering /var/lib/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript
+  Rendered /var/lib/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.7ms)
+  Rendering /var/lib/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript
+  Rendered /var/lib/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.9ms)
+  Rendered /var/lib/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (142.6ms)
+Started GET "/posts/new" for 127.0.0.1 at 2019-10-04 10:15:58 +0530
+Processing by PostsController#new as HTML
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/new.html.erb within layouts/application (7.0ms)
+Completed 200 OK in 70ms (Views: 57.2ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/posts/new" for 127.0.0.1 at 2019-10-04 10:16:20 +0530
+Processing by PostsController#new as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/new.html.erb within layouts/application (13.9ms)
+Completed 200 OK in 95ms (Views: 86.9ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/posts/new" for 127.0.0.1 at 2019-10-04 10:16:32 +0530
+Processing by PostsController#new as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/new.html.erb within layouts/application (4.7ms)
+Completed 500 Internal Server Error in 24ms (ActiveRecord: 0.4ms)
+
+
+  
+SyntaxError (/home/shashwatkathuria/Desktop/SocialCloud/app/views/posts/new.html.erb:28: syntax error, unexpected ')'
+...le_field :post_image, hidden: );@output_buffer.safe_append='
+...                              ^
+/home/shashwatkathuria/Desktop/SocialCloud/app/views/posts/new.html.erb:35: syntax error, unexpected keyword_end, expecting ')'
+'.freeze; end 
+          ^~~
+/home/shashwatkathuria/Desktop/SocialCloud/app/views/posts/new.html.erb:45: syntax error, unexpected keyword_ensure, expecting ')'
+          ensure
+          ^~~~~~
+/home/shashwatkathuria/Desktop/SocialCloud/app/views/posts/new.html.erb:47: syntax error, unexpected keyword_end, expecting ')'
+          end
+          ^~~):
+  
+app/views/posts/new.html.erb:28: syntax error, unexpected ')'
+app/views/posts/new.html.erb:35: syntax error, unexpected keyword_end, expecting ')'
+app/views/posts/new.html.erb:45: syntax error, unexpected keyword_ensure, expecting ')'
+app/views/posts/new.html.erb:47: syntax error, unexpected keyword_end, expecting ')'
+  Rendering /var/lib/gems/2.5.0/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /var/lib/gems/2.5.0/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /var/lib/gems/2.5.0/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (3.2ms)
+  Rendering /var/lib/gems/2.5.0/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /var/lib/gems/2.5.0/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (5.0ms)
+  Rendering /var/lib/gems/2.5.0/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /var/lib/gems/2.5.0/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.6ms)
+  Rendered /var/lib/gems/2.5.0/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (24.9ms)
+DEPRECATION WARNING: Accessing mime types via constants is deprecated. Please change `Mime::HTML` to `Mime[:html]`. (called from block in pre_process at /usr/lib/ruby/vendor_ruby/thin/connection.rb:86)
+  Rendering /var/lib/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb
+  Rendered /var/lib/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (1.0ms)
+  Rendering /var/lib/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript
+  Rendering /var/lib/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string
+  Rendered /var/lib/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendering /var/lib/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string
+  Rendered /var/lib/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendering /var/lib/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string
+  Rendered /var/lib/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.5ms)
+DEPRECATION WARNING: Accessing mime types via constants is deprecated. Please change `Mime::WEB_CONSOLE_V2` to `Mime[:web_console_v2]`. (called from block in pre_process at /usr/lib/ruby/vendor_ruby/thin/connection.rb:86)
+  Rendered /var/lib/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (16.4ms)
+  Rendering /var/lib/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript
+  Rendered /var/lib/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.4ms)
+  Rendering /var/lib/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript
+  Rendered /var/lib/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /var/lib/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (32.8ms)
+Started GET "/posts/new" for 127.0.0.1 at 2019-10-04 10:16:39 +0530
+Processing by PostsController#new as HTML
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/new.html.erb within layouts/application (11.2ms)
+Completed 200 OK in 81ms (Views: 70.9ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/posts/new" for 127.0.0.1 at 2019-10-04 10:16:57 +0530
+Processing by PostsController#new as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/new.html.erb within layouts/application (16.1ms)
+Completed 200 OK in 93ms (Views: 84.4ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/posts/new" for 127.0.0.1 at 2019-10-04 10:17:30 +0530
+Processing by PostsController#new as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/new.html.erb within layouts/application (12.8ms)
+Completed 200 OK in 68ms (Views: 59.2ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/posts/new" for 127.0.0.1 at 2019-10-04 10:18:05 +0530
+Processing by PostsController#new as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/new.html.erb within layouts/application (16.2ms)
+Completed 200 OK in 82ms (Views: 73.8ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/posts/new" for 127.0.0.1 at 2019-10-04 10:18:19 +0530
+Processing by PostsController#new as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/new.html.erb within layouts/application (16.4ms)
+Completed 200 OK in 81ms (Views: 74.1ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/posts/new" for 127.0.0.1 at 2019-10-04 10:19:07 +0530
+Processing by PostsController#new as HTML
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/new.html.erb within layouts/application (10.9ms)
+Completed 200 OK in 82ms (Views: 72.4ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/posts/new" for 127.0.0.1 at 2019-10-04 10:19:18 +0530
+Processing by PostsController#new as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/new.html.erb within layouts/application (10.9ms)
+Completed 200 OK in 93ms (Views: 85.8ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/posts/new" for 127.0.0.1 at 2019-10-04 10:19:31 +0530
+Processing by PostsController#new as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/new.html.erb within layouts/application (8.0ms)
+Completed 200 OK in 88ms (Views: 79.3ms | ActiveRecord: 0.7ms)
+
+
+Started POST "/posts/create" for 127.0.0.1 at 2019-10-04 10:21:01 +0530
+  
+ActionController::RoutingError (No route matches [POST] "/posts/create"):
+  
+actionpack (5.0.7.2) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
+web-console (2.3.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (2.3.0) lib/web_console/middleware.rb:18:in `catch'
+web-console (2.3.0) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.0.7.2) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.7.2) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.7.2) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.7.2) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.0.7.2) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.7.2) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.0.7.2) lib/rails/rack/logger.rb:24:in `call'
+actionpack (5.0.7.2) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.0.7) lib/rack/method_override.rb:22:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.7.2) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.7.2) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.7.2) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+railties (5.0.7.2) lib/rails/engine.rb:522:in `call'
+/usr/lib/ruby/vendor_ruby/thin/connection.rb:86:in `block in pre_process'
+/usr/lib/ruby/vendor_ruby/thin/connection.rb:84:in `catch'
+/usr/lib/ruby/vendor_ruby/thin/connection.rb:84:in `pre_process'
+/usr/lib/ruby/vendor_ruby/thin/connection.rb:53:in `process'
+/usr/lib/ruby/vendor_ruby/thin/connection.rb:39:in `receive_data'
+/usr/lib/ruby/vendor_ruby/eventmachine.rb:187:in `run_machine'
+/usr/lib/ruby/vendor_ruby/eventmachine.rb:187:in `run'
+/usr/lib/ruby/vendor_ruby/thin/backends/base.rb:73:in `start'
+/usr/lib/ruby/vendor_ruby/thin/server.rb:162:in `start'
+rack (2.0.7) lib/rack/handler/thin.rb:22:in `run'
+rack (2.0.7) lib/rack/server.rb:297:in `start'
+railties (5.0.7.2) lib/rails/commands/server.rb:104:in `start'
+railties (5.0.7.2) lib/rails/commands/commands_tasks.rb:90:in `block in server'
+railties (5.0.7.2) lib/rails/commands/commands_tasks.rb:85:in `tap'
+railties (5.0.7.2) lib/rails/commands/commands_tasks.rb:85:in `server'
+railties (5.0.7.2) lib/rails/commands/commands_tasks.rb:49:in `run_command!'
+railties (5.0.7.2) lib/rails/commands.rb:18:in `<top (required)>'
+bin/rails:9:in `require'
+bin/rails:9:in `<top (required)>'
+spring (2.1.0) lib/spring/client/rails.rb:28:in `load'
+spring (2.1.0) lib/spring/client/rails.rb:28:in `call'
+spring (2.1.0) lib/spring/client/command.rb:7:in `call'
+spring (2.1.0) lib/spring/client.rb:30:in `run'
+spring (2.1.0) bin/spring:49:in `<top (required)>'
+spring (2.1.0) lib/spring/binstub.rb:11:in `load'
+spring (2.1.0) lib/spring/binstub.rb:11:in `<top (required)>'
+/usr/local/lib/site_ruby/2.5.0/rubygems/core_ext/kernel_require.rb:54:in `require'
+/usr/local/lib/site_ruby/2.5.0/rubygems/core_ext/kernel_require.rb:54:in `require'
+bin/spring:15:in `<top (required)>'
+bin/rails:3:in `load'
+bin/rails:3:in `<main>'
+  Rendering /var/lib/gems/2.5.0/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout
+  Rendering /var/lib/gems/2.5.0/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /var/lib/gems/2.5.0/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.4ms)
+  Rendered collection of /var/lib/gems/2.5.0/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/routes/_route.html.erb [37 times] (93.0ms)
+  Rendered collection of /var/lib/gems/2.5.0/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/routes/_route.html.erb [10 times] (4.0ms)
+  Rendered /var/lib/gems/2.5.0/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/routes/_table.html.erb (32.7ms)
+  Rendering /var/lib/gems/2.5.0/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /var/lib/gems/2.5.0/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (4.9ms)
+  Rendered /var/lib/gems/2.5.0/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (189.0ms)
+DEPRECATION WARNING: Accessing mime types via constants is deprecated. Please change `Mime::HTML` to `Mime[:html]`. (called from block in pre_process at /usr/lib/ruby/vendor_ruby/thin/connection.rb:86)
+  Rendering /var/lib/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb
+  Rendered /var/lib/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (1.3ms)
+  Rendering /var/lib/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript
+  Rendering /var/lib/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string
+  Rendered /var/lib/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (1.1ms)
+  Rendering /var/lib/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string
+  Rendered /var/lib/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendering /var/lib/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string
+  Rendered /var/lib/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.2ms)
+DEPRECATION WARNING: Accessing mime types via constants is deprecated. Please change `Mime::WEB_CONSOLE_V2` to `Mime[:web_console_v2]`. (called from block in pre_process at /usr/lib/ruby/vendor_ruby/thin/connection.rb:86)
+  Rendered /var/lib/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (16.7ms)
+  Rendering /var/lib/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript
+  Rendered /var/lib/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (1.0ms)
+  Rendering /var/lib/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript
+  Rendered /var/lib/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.8ms)
+  Rendered /var/lib/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (41.5ms)
+Started POST "/posts/create" for 127.0.0.1 at 2019-10-04 10:21:28 +0530
+Processing by PostsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"+/IPV8uPFyUL3/JmA9ehHUnlo2FGZl/RMRDZnqpxlP3ABK9D8OqbMnzNEILKEFuoVj7GRr5vKRijNJZs3EV9/A==", "post"=>{"image_heading"=>"Jodhpur Fort", "image_caption"=>"Clicked at dawn.", "post_image"=>#<ActionDispatch::Http::UploadedFile:0x0000558a04489430 @tempfile=#<Tempfile:/tmp/RackMultipart20191004-2672-1hf83nd.jpg>, @original_filename="jdh2.jpg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"post[post_image]\"; filename=\"jdh2.jpg\"\r\nContent-Type: image/jpeg\r\n">}, "commit"=>"Create Post"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+MONGODB | localhost:27017 | social_cloud_development.insert | STARTED | {"insert"=>"posts", "ordered"=>true, "documents"=>[{"_id"=>BSON::ObjectId('5d96cfd00fa4f30a70f58046'), "user_id"=>1, "image_heading"=>nil, "image_caption"=>nil, "time"=>2019-10-04 04:51:28 UTC}], "lsid"=>{"id"=><BSON::Binary:0x47025637986780 type=uuid...
+MONGODB | localhost:27017 | social_cloud_development.insert | SUCCEEDED | 0.110s
+Redirected to http://localhost:3000/posts
+Completed 302 Found in 133ms (ActiveRecord: 1.8ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2019-10-04 10:21:29 +0530
+Processing by PostsController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+MONGODB | localhost:27017 | social_cloud_development.find | STARTED | {"find"=>"posts", "filter"=>{"user_id"=>1}, "sort"=>{"time"=>-1}, "lsid"=>{"id"=><BSON::Binary:0x47025637986780 type=uuid data=0xe867194b4c914e67...>}}
+MONGODB | localhost:27017 | social_cloud_development.find | SUCCEEDED | 0.002s
+  Rendering posts/index.html.erb within layouts/application
+  Rendered posts/index.html.erb within layouts/application (31.0ms)
+Completed 200 OK in 70ms (Views: 55.2ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/post_images/original/missing.png" for 127.0.0.1 at 2019-10-04 10:21:29 +0530
+Started GET "/admin" for 127.0.0.1 at 2019-10-04 10:22:48 +0530
+Processing by RailsAdmin::MainController#dashboard as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+MONGODB | localhost:27017 | social_cloud_development.count | STARTED | {"count"=>"posts", "query"=>{}, "lsid"=>{"id"=><BSON::Binary:0x47025637986780 type=uuid data=0xe867194b4c914e67...>}}
+MONGODB | localhost:27017 | social_cloud_development.count | SUCCEEDED | 0.001s
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  Rendering /var/lib/gems/2.5.0/gems/rails_admin-2.0.0/app/views/rails_admin/main/dashboard.html.haml within layouts/rails_admin/application
+  Rendered /var/lib/gems/2.5.0/gems/rails_admin-2.0.0/app/views/rails_admin/main/dashboard.html.haml within layouts/rails_admin/application (22.7ms)
+  Rendered /var/lib/gems/2.5.0/gems/rails_admin-2.0.0/app/views/layouts/rails_admin/_head.html.haml (1079.3ms)
+  Rendered /var/lib/gems/2.5.0/gems/rails_admin-2.0.0/app/views/layouts/rails_admin/_secondary_navigation.html.haml (8.1ms)
+  Rendered /var/lib/gems/2.5.0/gems/rails_admin-2.0.0/app/views/layouts/rails_admin/_navigation.html.haml (16.9ms)
+  Rendered /var/lib/gems/2.5.0/gems/rails_admin-2.0.0/app/views/layouts/rails_admin/_sidebar_navigation.html.haml (3.0ms)
+  Rendering /var/lib/gems/2.5.0/gems/rails_admin-2.0.0/app/views/layouts/rails_admin/pjax.html.haml
+  Rendered /var/lib/gems/2.5.0/gems/rails_admin-2.0.0/app/views/layouts/rails_admin/pjax.html.haml (9.3ms)
+Completed 200 OK in 2512ms (Views: 1177.9ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/assets/rails_admin/rails_admin.self-2f519bef7893593b0ce62381d2deeb3dde7c83f73cdccab058a2240a937257a6.css?body=1" for 127.0.0.1 at 2019-10-04 10:22:51 +0530
+Started GET "/assets/rails_admin/moment-with-locales.self-c29e385ac561ac8d380cf9a68428251c3dd6b6f0f05f6114c6ae7e8114678db8.js?body=1" for 127.0.0.1 at 2019-10-04 10:22:51 +0530
+Started GET "/assets/rails_admin/bootstrap-datetimepicker.self-9bf8b50ba86095fb5caaadd1ee11eaf661b3f4879f3ea5263d541e9804fd7b15.js?body=1" for 127.0.0.1 at 2019-10-04 10:22:51 +0530
+Started GET "/admin/post?_pjax=%5Bdata-pjax-container%5D" for 127.0.0.1 at 2019-10-04 10:22:53 +0530
+Processing by RailsAdmin::MainController#index as HTML
+  Parameters: {"_pjax"=>"[data-pjax-container]", "model_name"=>"post"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering /var/lib/gems/2.5.0/gems/rails_admin-2.0.0/app/views/rails_admin/main/index.html.haml within layouts/rails_admin/pjax
+MONGODB | localhost:27017 | social_cloud_development.find | STARTED | {"find"=>"posts", "filter"=>{}, "limit"=>20, "skip"=>0, "sort"=>{"_id"=>-1}, "lsid"=>{"id"=><BSON::Binary:0x47025637986780 type=uuid data=0xe867194b4c914e67...>}}
+MONGODB | localhost:27017 | social_cloud_development.find | SUCCEEDED | 0.001s
+MONGODB | localhost:27017 | social_cloud_development.count | STARTED | {"count"=>"posts", "query"=>{}, "lsid"=>{"id"=><BSON::Binary:0x47025637986780 type=uuid data=0xe867194b4c914e67...>}}
+MONGODB | localhost:27017 | social_cloud_development.count | SUCCEEDED | 0.001s
+MONGODB | localhost:27017 | social_cloud_development.find | STARTED | {"find"=>"posts", "filter"=>{}, "limit"=>20, "skip"=>0, "sort"=>{"_id"=>-1}, "lsid"=>{"id"=><BSON::Binary:0x47025637986780 type=uuid data=0xe867194b4c914e67...>}}
+MONGODB | localhost:27017 | social_cloud_development.find | SUCCEEDED | 0.001s
+  Rendered /var/lib/gems/2.5.0/gems/rails_admin-2.0.0/app/views/rails_admin/main/index.html.haml within layouts/rails_admin/pjax (138.7ms)
+Completed 200 OK in 222ms (Views: 194.3ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/admin/post/5d96cfd00fa4f30a70f58046?_pjax=%5Bdata-pjax-container%5D" for 127.0.0.1 at 2019-10-04 10:22:58 +0530
+Processing by RailsAdmin::MainController#show as HTML
+  Parameters: {"_pjax"=>"[data-pjax-container]", "model_name"=>"post", "id"=>"5d96cfd00fa4f30a70f58046"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+MONGODB | localhost:27017 | social_cloud_development.find | STARTED | {"find"=>"posts", "filter"=>{"_id"=>BSON::ObjectId('5d96cfd00fa4f30a70f58046')}, "lsid"=>{"id"=><BSON::Binary:0x47025637986780 type=uuid data=0xe867194b4c914e67...>}}
+MONGODB | localhost:27017 | social_cloud_development.find | SUCCEEDED | 0.001s
+  Rendering /var/lib/gems/2.5.0/gems/rails_admin-2.0.0/app/views/rails_admin/main/show.html.haml within layouts/rails_admin/pjax
+  Rendered /var/lib/gems/2.5.0/gems/rails_admin-2.0.0/app/views/rails_admin/main/show.html.haml within layouts/rails_admin/pjax (6.6ms)
+Completed 200 OK in 36ms (Views: 25.2ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/posts/create" for 127.0.0.1 at 2019-10-04 10:24:46 +0530
+Processing by PostsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"+/IPV8uPFyUL3/JmA9ehHUnlo2FGZl/RMRDZnqpxlP3ABK9D8OqbMnzNEILKEFuoVj7GRr5vKRijNJZs3EV9/A==", "post"=>{"image_heading"=>"Jodhpur Fort", "image_caption"=>"Clicked at dawn.", "post_image"=>#<ActionDispatch::Http::UploadedFile:0x0000558a0943c680 @tempfile=#<Tempfile:/tmp/RackMultipart20191004-2672-1tvvxgy.jpg>, @original_filename="jdh2.jpg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"post[post_image]\"; filename=\"jdh2.jpg\"\r\nContent-Type: image/jpeg\r\n">}, "commit"=>"Create Post"}
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+MONGODB | localhost:27017 | social_cloud_development.insert | STARTED | {"insert"=>"posts", "ordered"=>true, "documents"=>[{"_id"=>BSON::ObjectId('5d96d1150fa4f30a70f58047'), "user_id"=>1, "image_heading"=>nil, "image_caption"=>nil, "time"=>2019-10-04 04:56:53 UTC}], "lsid"=>{"id"=><BSON::Binary:0x47025637986780 type=uuid...
+MONGODB | localhost:27017 | social_cloud_development.insert | SUCCEEDED | 0.003s
+Redirected to http://localhost:3000/posts
+Completed 302 Found in 136980ms (ActiveRecord: 2.3ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2019-10-04 10:27:03 +0530
+Processing by PostsController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+MONGODB | localhost:27017 | social_cloud_development.find | STARTED | {"find"=>"posts", "filter"=>{"user_id"=>1}, "sort"=>{"time"=>-1}, "lsid"=>{"id"=><BSON::Binary:0x47025637986780 type=uuid data=0xe867194b4c914e67...>}}
+MONGODB | localhost:27017 | social_cloud_development.find | SUCCEEDED | 0.001s
+  Rendering posts/index.html.erb within layouts/application
+  Rendered posts/index.html.erb within layouts/application (15.4ms)
+Completed 200 OK in 47ms (Views: 33.0ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/post_images/original/missing.png" for 127.0.0.1 at 2019-10-04 10:27:03 +0530
+Started POST "/posts/create" for 127.0.0.1 at 2019-10-04 10:27:10 +0530
+Processing by PostsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"+/IPV8uPFyUL3/JmA9ehHUnlo2FGZl/RMRDZnqpxlP3ABK9D8OqbMnzNEILKEFuoVj7GRr5vKRijNJZs3EV9/A==", "post"=>{"image_heading"=>"Jodhpur Fort", "image_caption"=>"Clicked at dawn.", "post_image"=>#<ActionDispatch::Http::UploadedFile:0x0000558a087298d0 @tempfile=#<Tempfile:/tmp/RackMultipart20191004-2672-umfzgn.jpg>, @original_filename="jdh2.jpg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"post[post_image]\"; filename=\"jdh2.jpg\"\r\nContent-Type: image/jpeg\r\n">}, "commit"=>"Create Post"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+[paperclip] Trying to link /tmp/RackMultipart20191004-2672-umfzgn.jpg to /tmp/e7d6f3564c3a19014296572d4766e87420191004-2672-1qhw1kb.jpg
+[paperclip] Trying to link /tmp/e7d6f3564c3a19014296572d4766e87420191004-2672-1qhw1kb.jpg to /tmp/e7d6f3564c3a19014296572d4766e87420191004-2672-ugx040.jpg
+Command :: file -b --mime '/tmp/e7d6f3564c3a19014296572d4766e87420191004-2672-ugx040.jpg'
+[paperclip] Trying to link /tmp/e7d6f3564c3a19014296572d4766e87420191004-2672-1qhw1kb.jpg to /tmp/e7d6f3564c3a19014296572d4766e87420191004-2672-164nk6d.jpg
+Command :: file -b --mime '/tmp/e7d6f3564c3a19014296572d4766e87420191004-2672-164nk6d.jpg'
+MONGODB | localhost:27017 | social_cloud_development.insert | STARTED | {"insert"=>"posts", "ordered"=>true, "documents"=>[{"_id"=>BSON::ObjectId('5d96d1260fa4f30a70f58048'), "user_id"=>1, "image_heading"=>"Jodhpur Fort", "image_caption"=>"Clicked at dawn.", "post_image_file_name"=>"jdh2.jpg", "post_image_content_type"=>"...
+MONGODB | localhost:27017 | social_cloud_development.insert | SUCCEEDED | 0.002s
+Redirected to http://localhost:3000/posts
+Completed 302 Found in 313ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2019-10-04 10:27:10 +0530
+Processing by PostsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+MONGODB | localhost:27017 | social_cloud_development.find | STARTED | {"find"=>"posts", "filter"=>{"user_id"=>1}, "sort"=>{"time"=>-1}, "lsid"=>{"id"=><BSON::Binary:0x47025637986780 type=uuid data=0xe867194b4c914e67...>}}
+MONGODB | localhost:27017 | social_cloud_development.find | SUCCEEDED | 0.001s
+  Rendering posts/index.html.erb within layouts/application
+  Rendered posts/index.html.erb within layouts/application (9.1ms)
+Completed 200 OK in 37ms (Views: 25.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/post_images/original/missing.png" for 127.0.0.1 at 2019-10-04 10:27:10 +0530
+Started POST "/posts/delete" for 127.0.0.1 at 2019-10-04 10:27:15 +0530
+Processing by PostsController#delete as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"64IjcohcCrW5TGRrC7wbKwyqW7QFuvvFqBYEW5P+F6vQdINmszmGos5eho/Ce+GeE3E+k/2zjQw6Mkup5cr+qg==", "deleteID"=>"5d96d1150fa4f30a70f58047"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+MONGODB | localhost:27017 | social_cloud_development.find | STARTED | {"find"=>"posts", "filter"=>{"_id"=>BSON::ObjectId('5d96d1150fa4f30a70f58047')}, "lsid"=>{"id"=><BSON::Binary:0x47025637986780 type=uuid data=0xe867194b4c914e67...>}}
+MONGODB | localhost:27017 | social_cloud_development.find | SUCCEEDED | 0.001s
+MONGODB | localhost:27017 | social_cloud_development.delete | STARTED | {"delete"=>"posts", "ordered"=>true, "deletes"=>[{"q"=>{"_id"=>BSON::ObjectId('5d96d1150fa4f30a70f58047')}, "limit"=>1}], "lsid"=>{"id"=><BSON::Binary:0x47025637986780 type=uuid data=0xe867194b4c914e67...>}}
+MONGODB | localhost:27017 | social_cloud_development.delete | SUCCEEDED | 0.001s
+Redirected to http://localhost:3000/posts
+Completed 302 Found in 10ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2019-10-04 10:27:15 +0530
+Processing by PostsController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+MONGODB | localhost:27017 | social_cloud_development.find | STARTED | {"find"=>"posts", "filter"=>{"user_id"=>1}, "sort"=>{"time"=>-1}, "lsid"=>{"id"=><BSON::Binary:0x47025637986780 type=uuid data=0xe867194b4c914e67...>}}
+MONGODB | localhost:27017 | social_cloud_development.find | SUCCEEDED | 0.001s
+  Rendering posts/index.html.erb within layouts/application
+  Rendered posts/index.html.erb within layouts/application (7.3ms)
+Completed 200 OK in 32ms (Views: 28.8ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/post_images/original/missing.png" for 127.0.0.1 at 2019-10-04 10:27:15 +0530
+Started POST "/posts/delete" for 127.0.0.1 at 2019-10-04 10:27:17 +0530
+Processing by PostsController#delete as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"HuA20id44EainzhC6reiZqFCQGgsxUy1O/E88ziasvklFpbGHB1sUdWN2qYjcFjTvpklT9TMOnyp1XMBTq5b+A==", "deleteID"=>"5d96cfd00fa4f30a70f58046"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+MONGODB | localhost:27017 | social_cloud_development.find | STARTED | {"find"=>"posts", "filter"=>{"_id"=>BSON::ObjectId('5d96cfd00fa4f30a70f58046')}, "lsid"=>{"id"=><BSON::Binary:0x47025637986780 type=uuid data=0xe867194b4c914e67...>}}
+MONGODB | localhost:27017 | social_cloud_development.find | SUCCEEDED | 0.001s
+MONGODB | localhost:27017 | social_cloud_development.delete | STARTED | {"delete"=>"posts", "ordered"=>true, "deletes"=>[{"q"=>{"_id"=>BSON::ObjectId('5d96cfd00fa4f30a70f58046')}, "limit"=>1}], "lsid"=>{"id"=><BSON::Binary:0x47025637986780 type=uuid data=0xe867194b4c914e67...>}}
+MONGODB | localhost:27017 | social_cloud_development.delete | SUCCEEDED | 0.001s
+Redirected to http://localhost:3000/posts
+Completed 302 Found in 7ms (ActiveRecord: 0.3ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2019-10-04 10:27:17 +0530
+Processing by PostsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+MONGODB | localhost:27017 | social_cloud_development.find | STARTED | {"find"=>"posts", "filter"=>{"user_id"=>1}, "sort"=>{"time"=>-1}, "lsid"=>{"id"=><BSON::Binary:0x47025637986780 type=uuid data=0xe867194b4c914e67...>}}
+MONGODB | localhost:27017 | social_cloud_development.find | SUCCEEDED | 0.000s
+  Rendering posts/index.html.erb within layouts/application
+  Rendered posts/index.html.erb within layouts/application (5.3ms)
+Completed 200 OK in 33ms (Views: 28.7ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2019-10-04 10:28:25 +0530
+Processing by PostsController#index as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+MONGODB | localhost:27017 | social_cloud_development.find | STARTED | {"find"=>"posts", "filter"=>{"user_id"=>1}, "sort"=>{"time"=>-1}, "lsid"=>{"id"=><BSON::Binary:0x47025637986780 type=uuid data=0xe867194b4c914e67...>}}
+MONGODB | localhost:27017 | social_cloud_development.find | SUCCEEDED | 0.001s
+  Rendering posts/index.html.erb within layouts/application
+  Rendered posts/index.html.erb within layouts/application (20.6ms)
+Completed 200 OK in 71ms (Views: 56.5ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/posts/new" for 127.0.0.1 at 2019-10-04 10:28:28 +0530
+Processing by PostsController#new as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/new.html.erb within layouts/application (2.8ms)
+Completed 200 OK in 32ms (Views: 28.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2019-10-04 10:29:20 +0530
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering users/index.html.erb within layouts/application
+  Rendered users/index.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 48ms (Views: 44.1ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2019-10-04 10:29:22 +0530
+Processing by PostsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+MONGODB | localhost:27017 | social_cloud_development.find | STARTED | {"find"=>"posts", "filter"=>{"user_id"=>1}, "sort"=>{"time"=>-1}, "lsid"=>{"id"=><BSON::Binary:0x47025637986780 type=uuid data=0xe867194b4c914e67...>}}
+MONGODB | localhost:27017 | social_cloud_development.find | SUCCEEDED | 0.001s
+  Rendering posts/index.html.erb within layouts/application
+  Rendered posts/index.html.erb within layouts/application (6.5ms)
+Completed 200 OK in 48ms (Views: 42.7ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2019-10-04 10:30:38 +0530
+Processing by PostsController#index as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+MONGODB | localhost:27017 | social_cloud_development.find | STARTED | {"find"=>"posts", "filter"=>{"user_id"=>1}, "sort"=>{"time"=>-1}, "lsid"=>{"id"=><BSON::Binary:0x47025637986780 type=uuid data=0xe867194b4c914e67...>}}
+MONGODB | localhost:27017 | social_cloud_development.find | SUCCEEDED | 0.003s
+  Rendering posts/index.html.erb within layouts/application
+  Rendered posts/index.html.erb within layouts/application (12.8ms)
+Completed 200 OK in 70ms (Views: 50.2ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2019-10-04 10:30:40 +0530
+Processing by PostsController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+MONGODB | localhost:27017 | social_cloud_development.find | STARTED | {"find"=>"posts", "filter"=>{"user_id"=>1}, "sort"=>{"time"=>-1}, "lsid"=>{"id"=><BSON::Binary:0x47025637986780 type=uuid data=0xe867194b4c914e67...>}}
+MONGODB | localhost:27017 | social_cloud_development.find | SUCCEEDED | 0.002s
+  Rendering posts/index.html.erb within layouts/application
+  Rendered posts/index.html.erb within layouts/application (4.6ms)
+Completed 200 OK in 40ms (Views: 30.5ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2019-10-04 10:30:41 +0530
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering users/index.html.erb within layouts/application
+  Rendered users/index.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 61ms (Views: 53.8ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2019-10-04 10:30:42 +0530
+Processing by PostsController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+MONGODB | localhost:27017 | social_cloud_development.find | STARTED | {"find"=>"posts", "filter"=>{"user_id"=>1}, "sort"=>{"time"=>-1}, "lsid"=>{"id"=><BSON::Binary:0x47025637986780 type=uuid data=0xe867194b4c914e67...>}}
+MONGODB | localhost:27017 | social_cloud_development.find | SUCCEEDED | 0.002s
+  Rendering posts/index.html.erb within layouts/application
+  Rendered posts/index.html.erb within layouts/application (17.2ms)
+Completed 200 OK in 113ms (Views: 99.9ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2019-10-04 10:30:43 +0530
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering users/index.html.erb within layouts/application
+  Rendered users/index.html.erb within layouts/application (4.5ms)
+Completed 200 OK in 116ms (Views: 107.5ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-10-04 10:30:45 +0530
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered welcome/index.html.erb within layouts/application (5.0ms)
+Completed 200 OK in 55ms (Views: 51.4ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2019-10-04 10:30:46 +0530
+Processing by PostsController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+MONGODB | localhost:27017 | social_cloud_development.find | STARTED | {"find"=>"posts", "filter"=>{"user_id"=>1}, "sort"=>{"time"=>-1}, "lsid"=>{"id"=><BSON::Binary:0x47025637986780 type=uuid data=0xe867194b4c914e67...>}}
+MONGODB | localhost:27017 | social_cloud_development.find | SUCCEEDED | 0.001s
+  Rendering posts/index.html.erb within layouts/application
+  Rendered posts/index.html.erb within layouts/application (8.2ms)
+Completed 200 OK in 68ms (Views: 56.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2019-10-04 10:31:29 +0530
+Processing by PostsController#index as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+MONGODB | localhost:27017 | social_cloud_development.find | STARTED | {"find"=>"posts", "filter"=>{"user_id"=>1}, "sort"=>{"time"=>-1}, "lsid"=>{"id"=><BSON::Binary:0x47025637986780 type=uuid data=0xe867194b4c914e67...>}}
+MONGODB | localhost:27017 | social_cloud_development.find | SUCCEEDED | 0.001s
+  Rendering posts/index.html.erb within layouts/application
+  Rendered posts/index.html.erb within layouts/application (10.4ms)
+Completed 200 OK in 55ms (Views: 42.2ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/posts/new" for 127.0.0.1 at 2019-10-04 10:31:30 +0530
+Processing by PostsController#new as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/new.html.erb within layouts/application (11.3ms)
+Completed 200 OK in 100ms (Views: 92.9ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2019-10-04 10:31:37 +0530
+Processing by PostsController#index as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+MONGODB | localhost:27017 | social_cloud_development.find | STARTED | {"find"=>"posts", "filter"=>{"user_id"=>1}, "sort"=>{"time"=>-1}, "lsid"=>{"id"=><BSON::Binary:0x47025637986780 type=uuid data=0xe867194b4c914e67...>}}
+MONGODB | localhost:27017 | social_cloud_development.find | SUCCEEDED | 0.001s
+  Rendering posts/index.html.erb within layouts/application
+  Rendered posts/index.html.erb within layouts/application (18.4ms)
+Completed 200 OK in 109ms (Views: 92.5ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-10-04 10:31:51 +0530
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered welcome/index.html.erb within layouts/application (2.9ms)
+Completed 200 OK in 38ms (Views: 34.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2019-10-04 10:31:51 +0530
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering users/index.html.erb within layouts/application
+  Rendered users/index.html.erb within layouts/application (3.4ms)
+Completed 200 OK in 76ms (Views: 69.3ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2019-10-04 10:31:53 +0530
+Processing by PostsController#index as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+MONGODB | localhost:27017 | social_cloud_development.find | STARTED | {"find"=>"posts", "filter"=>{"user_id"=>1}, "sort"=>{"time"=>-1}, "lsid"=>{"id"=><BSON::Binary:0x47025637986780 type=uuid data=0xe867194b4c914e67...>}}
+MONGODB | localhost:27017 | social_cloud_development.find | SUCCEEDED | 0.002s
+  Rendering posts/index.html.erb within layouts/application
+  Rendered posts/index.html.erb within layouts/application (12.4ms)
+Completed 200 OK in 81ms (Views: 63.3ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/posts/new" for 127.0.0.1 at 2019-10-04 10:31:54 +0530
+Processing by PostsController#new as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/new.html.erb within layouts/application (9.1ms)
+Completed 200 OK in 97ms (Views: 88.4ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/posts/new" for 127.0.0.1 at 2019-10-04 10:32:17 +0530
+Processing by PostsController#new as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/new.html.erb within layouts/application (7.8ms)
+Completed 200 OK in 90ms (Views: 82.5ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-10-04 10:32:21 +0530
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered welcome/index.html.erb within layouts/application (2.6ms)
+Completed 200 OK in 34ms (Views: 31.5ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/users/sign_out" for 127.0.0.1 at 2019-10-04 10:32:27 +0530
+Processing by Devise::SessionsController#destroy as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 54ms (ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-10-04 10:32:27 +0530
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 22ms (Views: 21.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/posts/new" for 127.0.0.1 at 2019-10-04 10:32:30 +0530
+Processing by PostsController#new as HTML
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2019-10-04 10:32:30 +0530
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (2.8ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (6.5ms)
+Completed 200 OK in 37ms (Views: 36.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/posts/new" for 127.0.0.1 at 2019-10-04 10:33:48 +0530
+Processing by PostsController#new as HTML
+Completed 401 Unauthorized in 2ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2019-10-04 10:33:48 +0530
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.7ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (9.6ms)
+Completed 200 OK in 67ms (Views: 63.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2019-10-04 10:33:50 +0530
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (3.3ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (12.1ms)
+Completed 200 OK in 70ms (Views: 67.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2019-10-04 10:33:50 +0530
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (1.3ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (10.4ms)
+Completed 200 OK in 68ms (Views: 65.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2019-10-04 10:34:23 +0530
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (1.8ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (20.9ms)
+Completed 200 OK in 82ms (Views: 80.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-10-04 10:34:24 +0530
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 34ms (Views: 31.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2019-10-04 10:34:26 +0530
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (4.1ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (15.0ms)
+Completed 200 OK in 62ms (Views: 59.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2019-10-04 10:34:35 +0530
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Qs4roE92pvlnPmHdjy25U4qfYnXwk04UueWYntrbCKXtpNUhQbRuZZlSDtQYRUol9oNiM9UUqZTpwZV+CXNFaw==", "user"=>{"email"=>"shashwat@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Login"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "shashwat@gmail.com"], ["LIMIT", 1]]
+Redirected to http://localhost:3000/posts/new
+Completed 302 Found in 149ms (ActiveRecord: 0.6ms)
+
+
+Started GET "/posts/new" for 127.0.0.1 at 2019-10-04 10:34:36 +0530
+Processing by PostsController#new as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/new.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 16ms (Views: 14.4ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2019-10-04 10:34:39 +0530
+Processing by PostsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+MONGODB | localhost:27017 | social_cloud_development.find | STARTED | {"find"=>"posts", "filter"=>{"user_id"=>1}, "sort"=>{"time"=>-1}, "lsid"=>{"id"=><BSON::Binary:0x47025637986780 type=uuid data=0xe867194b4c914e67...>}}
+MONGODB | localhost:27017 | social_cloud_development.find | SUCCEEDED | 0.001s
+  Rendering posts/index.html.erb within layouts/application
+  Rendered posts/index.html.erb within layouts/application (4.9ms)
+Completed 200 OK in 33ms (Views: 25.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/posts/new" for 127.0.0.1 at 2019-10-04 10:34:42 +0530
+Processing by PostsController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/new.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 42ms (Views: 39.4ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-10-04 10:34:49 +0530
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered welcome/index.html.erb within layouts/application (2.9ms)
+Completed 200 OK in 37ms (Views: 33.7ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2019-10-04 10:34:53 +0530
+Processing by PostsController#index as HTML
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+MONGODB | localhost:27017 | social_cloud_development.find | STARTED | {"find"=>"posts", "filter"=>{"user_id"=>1}, "sort"=>{"time"=>-1}, "lsid"=>{"id"=><BSON::Binary:0x47025637986780 type=uuid data=0xe867194b4c914e67...>}}
+MONGODB | localhost:27017 | social_cloud_development.find | SUCCEEDED | 0.002s
+  Rendering posts/index.html.erb within layouts/application
+  Rendered posts/index.html.erb within layouts/application (7.6ms)
+Completed 200 OK in 62ms (Views: 49.6ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2019-10-04 10:35:03 +0530
+Processing by PostsController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+MONGODB | localhost:27017 | social_cloud_development.find | STARTED | {"find"=>"posts", "filter"=>{"user_id"=>1}, "sort"=>{"time"=>-1}, "lsid"=>{"id"=><BSON::Binary:0x47025637986780 type=uuid data=0xe867194b4c914e67...>}}
+MONGODB | localhost:27017 | social_cloud_development.find | SUCCEEDED | 0.001s
+  Rendering posts/index.html.erb within layouts/application
+  Rendered posts/index.html.erb within layouts/application (6.8ms)
+Completed 200 OK in 60ms (Views: 50.2ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/posts/new" for 127.0.0.1 at 2019-10-04 10:35:05 +0530
+Processing by PostsController#new as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/new.html.erb within layouts/application (9.9ms)
+Completed 200 OK in 97ms (Views: 89.8ms | ActiveRecord: 0.7ms)
+
+
+Started POST "/posts/create" for 127.0.0.1 at 2019-10-04 10:35:37 +0530
+Processing by PostsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"9UJXMCgQStFtSZAS1qkZ7DnybvPH/aFnnw6+dpRmkzG5qE0WmwpTontC3h3cHRpPLz6oAYay9ew4yMnNm30PUA==", "post"=>{"image_heading"=>"Yoyo", "image_caption"=>"yoyo", "post_image"=>#<ActionDispatch::Http::UploadedFile:0x0000558a09e93390 @tempfile=#<Tempfile:/tmp/RackMultipart20191004-2672-1p7amoz.jpg>, @original_filename="i5.jpg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"post[post_image]\"; filename=\"i5.jpg\"\r\nContent-Type: image/jpeg\r\n">}, "commit"=>"Create Post"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+[paperclip] Trying to link /tmp/RackMultipart20191004-2672-1p7amoz.jpg to /tmp/8cabafd3576ab48731c8ab59e0349a0e20191004-2672-1nxqj8q.jpg
+[paperclip] Trying to link /tmp/8cabafd3576ab48731c8ab59e0349a0e20191004-2672-1nxqj8q.jpg to /tmp/8cabafd3576ab48731c8ab59e0349a0e20191004-2672-1m5y4un.jpg
+Command :: file -b --mime '/tmp/8cabafd3576ab48731c8ab59e0349a0e20191004-2672-1m5y4un.jpg'
+[paperclip] Trying to link /tmp/8cabafd3576ab48731c8ab59e0349a0e20191004-2672-1nxqj8q.jpg to /tmp/8cabafd3576ab48731c8ab59e0349a0e20191004-2672-1n9gpcx.jpg
+Command :: file -b --mime '/tmp/8cabafd3576ab48731c8ab59e0349a0e20191004-2672-1n9gpcx.jpg'
+MONGODB | localhost:27017 | social_cloud_development.insert | STARTED | {"insert"=>"posts", "ordered"=>true, "documents"=>[{"_id"=>BSON::ObjectId('5d96d3210fa4f30a70f58049'), "user_id"=>1, "image_heading"=>"Yoyo", "image_caption"=>"yoyo", "post_image_file_name"=>"i5.jpg", "post_image_content_type"=>"image/jpeg", "post_ima...
+MONGODB | localhost:27017 | social_cloud_development.insert | SUCCEEDED | 0.001s
+Redirected to http://localhost:3000/posts
+Completed 302 Found in 25ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2019-10-04 10:35:37 +0530
+Processing by PostsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+MONGODB | localhost:27017 | social_cloud_development.find | STARTED | {"find"=>"posts", "filter"=>{"user_id"=>1}, "sort"=>{"time"=>-1}, "lsid"=>{"id"=><BSON::Binary:0x47025637986780 type=uuid data=0xe867194b4c914e67...>}}
+MONGODB | localhost:27017 | social_cloud_development.find | SUCCEEDED | 0.001s
+  Rendering posts/index.html.erb within layouts/application
+  Rendered posts/index.html.erb within layouts/application (8.1ms)
+Completed 200 OK in 29ms (Views: 24.9ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/posts/delete" for 127.0.0.1 at 2019-10-04 10:35:59 +0530
+Processing by PostsController#delete as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"q2cad4mlp8G+tOeH+ZH5kUOB6onPQ/VxriNL26cjA8PnjQBROr++sqi/qYjzJfoyVU0se44MofoJ5TxgqDifog==", "deleteID"=>"5d96d3210fa4f30a70f58049"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+MONGODB | localhost:27017 | social_cloud_development.find | STARTED | {"find"=>"posts", "filter"=>{"_id"=>BSON::ObjectId('5d96d3210fa4f30a70f58049')}, "lsid"=>{"id"=><BSON::Binary:0x47025637986780 type=uuid data=0xe867194b4c914e67...>}}
+MONGODB | localhost:27017 | social_cloud_development.find | SUCCEEDED | 0.001s
+MONGODB | localhost:27017 | social_cloud_development.delete | STARTED | {"delete"=>"posts", "ordered"=>true, "deletes"=>[{"q"=>{"_id"=>BSON::ObjectId('5d96d3210fa4f30a70f58049')}, "limit"=>1}], "lsid"=>{"id"=><BSON::Binary:0x47025637986780 type=uuid data=0xe867194b4c914e67...>}}
+MONGODB | localhost:27017 | social_cloud_development.delete | SUCCEEDED | 0.001s
+Redirected to http://localhost:3000/posts
+Completed 302 Found in 9ms (ActiveRecord: 0.3ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2019-10-04 10:35:59 +0530
+Processing by PostsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+MONGODB | localhost:27017 | social_cloud_development.find | STARTED | {"find"=>"posts", "filter"=>{"user_id"=>1}, "sort"=>{"time"=>-1}, "lsid"=>{"id"=><BSON::Binary:0x47025637986780 type=uuid data=0xe867194b4c914e67...>}}
+MONGODB | localhost:27017 | social_cloud_development.find | SUCCEEDED | 0.001s
+  Rendering posts/index.html.erb within layouts/application
+  Rendered posts/index.html.erb within layouts/application (7.6ms)
+Completed 200 OK in 27ms (Views: 22.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-10-04 10:36:01 +0530
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered welcome/index.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 33ms (Views: 31.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/posts/new" for 127.0.0.1 at 2019-10-04 10:38:02 +0530
+Processing by PostsController#new as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/new.html.erb within layouts/application (3.5ms)
+Completed 200 OK in 37ms (Views: 34.7ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/posts/new" for 127.0.0.1 at 2019-10-04 10:39:09 +0530
+Processing by PostsController#new as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/new.html.erb within layouts/application (9.4ms)
+Completed 200 OK in 87ms (Views: 79.3ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2019-10-04 10:39:33 +0530
+Processing by PostsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+MONGODB | localhost:27017 | social_cloud_development.find | STARTED | {"find"=>"posts", "filter"=>{"user_id"=>1}, "sort"=>{"time"=>-1}, "lsid"=>{"id"=><BSON::Binary:0x47025637986780 type=uuid data=0xe867194b4c914e67...>}}
+MONGODB | localhost:27017 | social_cloud_development.find | SUCCEEDED | 0.001s
+  Rendering posts/index.html.erb within layouts/application
+  Rendered posts/index.html.erb within layouts/application (9.0ms)
+Completed 200 OK in 43ms (Views: 36.7ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/posts/new" for 127.0.0.1 at 2019-10-04 10:39:35 +0530
+Processing by PostsController#new as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/new.html.erb within layouts/application (6.8ms)
+Completed 200 OK in 59ms (Views: 53.7ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/posts/new" for 127.0.0.1 at 2019-10-04 10:40:14 +0530
+Processing by PostsController#new as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/new.html.erb within layouts/application (9.9ms)
+Completed 200 OK in 89ms (Views: 82.7ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/posts/new" for 127.0.0.1 at 2019-10-04 10:40:29 +0530
+Processing by PostsController#new as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/new.html.erb within layouts/application (5.4ms)
+Completed 200 OK in 75ms (Views: 67.5ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-10-04 10:40:33 +0530
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered welcome/index.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 48ms (Views: 28.0ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2019-10-04 10:43:42 +0530
+Processing by PostsController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+MONGODB | localhost:27017 | social_cloud_development.find | STARTED | {"find"=>"posts", "filter"=>{"user_id"=>1}, "sort"=>{"time"=>-1}, "lsid"=>{"id"=><BSON::Binary:0x47025637986780 type=uuid data=0xe867194b4c914e67...>}}
+MONGODB | localhost:27017 | social_cloud_development.find | SUCCEEDED | 0.001s
+  Rendering posts/index.html.erb within layouts/application
+  Rendered posts/index.html.erb within layouts/application (9.7ms)
+Completed 200 OK in 44ms (Views: 29.6ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2019-10-04 10:43:56 +0530
+Processing by PostsController#index as HTML
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+MONGODB | localhost:27017 | social_cloud_development.find | STARTED | {"find"=>"posts", "filter"=>{"user_id"=>1}, "sort"=>{"time"=>-1}, "lsid"=>{"id"=><BSON::Binary:0x47025637986780 type=uuid data=0xe867194b4c914e67...>}}
+MONGODB | localhost:27017 | social_cloud_development.find | SUCCEEDED | 0.002s
+  Rendering posts/index.html.erb within layouts/application
+  Rendered posts/index.html.erb within layouts/application (16.6ms)
+Completed 200 OK in 76ms (Views: 55.5ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2019-10-04 10:44:29 +0530
+Processing by PostsController#index as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+MONGODB | localhost:27017 | social_cloud_development.find | STARTED | {"find"=>"posts", "filter"=>{"user_id"=>1}, "sort"=>{"time"=>-1}, "lsid"=>{"id"=><BSON::Binary:0x47025637986780 type=uuid data=0xe867194b4c914e67...>}}
+MONGODB | localhost:27017 | social_cloud_development.find | SUCCEEDED | 0.002s
+  Rendering posts/index.html.erb within layouts/application
+  Rendered posts/index.html.erb within layouts/application (14.3ms)
+Completed 200 OK in 77ms (Views: 59.1ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2019-10-04 10:44:39 +0530
+Processing by PostsController#index as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+MONGODB | localhost:27017 | social_cloud_development.find | STARTED | {"find"=>"posts", "filter"=>{"user_id"=>1}, "sort"=>{"time"=>-1}, "lsid"=>{"id"=><BSON::Binary:0x47025637986780 type=uuid data=0xe867194b4c914e67...>}}
+MONGODB | localhost:27017 | social_cloud_development.find | SUCCEEDED | 0.002s
+  Rendering posts/index.html.erb within layouts/application
+  Rendered posts/index.html.erb within layouts/application (13.9ms)
+Completed 200 OK in 90ms (Views: 75.1ms | ActiveRecord: 0.7ms)
+
+
+Started POST "/posts/search" for 127.0.0.1 at 2019-10-04 10:45:41 +0530
+Processing by PostsController#search as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"/YokV6bJ/7a/8mW5Q2+fbk0TWIrcAZW231FafxbxwwCxYD5xFdPmxan5K7ZJ25zNW9+eeJ1OwT14ly3EGepfYQ==", "searchQuery"=>"jo"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+MONGODB | localhost:27017 | social_cloud_development.find | STARTED | {"find"=>"posts", "filter"=>{"$or"=>[{"image_heading"=>/jo/i}, {"image_caption"=>/jo/i}]}, "sort"=>{"time"=>-1}, "lsid"=>{"id"=><BSON::Binary:0x47025637986780 type=uuid data=0xe867194b4c914e67...>}}
+MONGODB | localhost:27017 | social_cloud_development.find | SUCCEEDED | 0.002s
+  Rendering posts/search.html.erb within layouts/application
+  Rendered posts/search.html.erb within layouts/application (10.5ms)
+Completed 200 OK in 107ms (Views: 87.8ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/posts/search" for 127.0.0.1 at 2019-10-04 10:46:06 +0530
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"search"}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 11ms (ActiveRecord: 0.8ms)
+
+
+  
+Mongoid::Errors::InvalidFind (
+message:
+  Calling Document.find with nil is invalid.
+summary:
+  Document.find expects the parameters to be 1 or more ids, and will return a single document if 1 id is provided, otherwise an array of documents if multiple ids are provided.
+resolution:
+  Most likely this is caused by passing parameters directly through to the find, and the parameter either is not present or the key from which it is accessed is incorrect.):
+  
+app/controllers/posts_controller.rb:12:in `show'
+  Rendering /var/lib/gems/2.5.0/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /var/lib/gems/2.5.0/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /var/lib/gems/2.5.0/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (3.9ms)
+  Rendering /var/lib/gems/2.5.0/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /var/lib/gems/2.5.0/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.7ms)
+  Rendering /var/lib/gems/2.5.0/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /var/lib/gems/2.5.0/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /var/lib/gems/2.5.0/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (26.7ms)
+DEPRECATION WARNING: Accessing mime types via constants is deprecated. Please change `Mime::HTML` to `Mime[:html]`. (called from block in pre_process at /usr/lib/ruby/vendor_ruby/thin/connection.rb:86)
+  Rendering /var/lib/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb
+  Rendered /var/lib/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.5ms)
+  Rendering /var/lib/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript
+  Rendering /var/lib/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string
+  Rendered /var/lib/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendering /var/lib/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string
+  Rendered /var/lib/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (1.3ms)
+  Rendering /var/lib/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string
+  Rendered /var/lib/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.9ms)
+DEPRECATION WARNING: Accessing mime types via constants is deprecated. Please change `Mime::WEB_CONSOLE_V2` to `Mime[:web_console_v2]`. (called from block in pre_process at /usr/lib/ruby/vendor_ruby/thin/connection.rb:86)
+  Rendered /var/lib/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (21.2ms)
+  Rendering /var/lib/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript
+  Rendered /var/lib/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.6ms)
+  Rendering /var/lib/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript
+  Rendered /var/lib/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.5ms)
+  Rendered /var/lib/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (42.2ms)
+Started POST "/posts/search" for 127.0.0.1 at 2019-10-04 10:46:17 +0530
+Processing by PostsController#search as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"/YokV6bJ/7a/8mW5Q2+fbk0TWIrcAZW231FafxbxwwCxYD5xFdPmxan5K7ZJ25zNW9+eeJ1OwT14ly3EGepfYQ==", "searchQuery"=>"jo"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+MONGODB | localhost:27017 | social_cloud_development.find | STARTED | {"find"=>"posts", "filter"=>{"$or"=>[{"image_heading"=>/jo/i}, {"image_caption"=>/jo/i}]}, "sort"=>{"time"=>-1}, "lsid"=>{"id"=><BSON::Binary:0x47025637986780 type=uuid data=0xe867194b4c914e67...>}}
+MONGODB | localhost:27017 | social_cloud_development.find | SUCCEEDED | 0.003s
+  Rendering posts/search.html.erb within layouts/application
+  Rendered posts/search.html.erb within layouts/application (6.0ms)
+Completed 200 OK in 70ms (Views: 51.7ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/posts/search" for 127.0.0.1 at 2019-10-04 10:51:00 +0530
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"search"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 39ms (ActiveRecord: 0.6ms)
+
+
+  
+Mongoid::Errors::InvalidFind (
+message:
+  Calling Document.find with nil is invalid.
+summary:
+  Document.find expects the parameters to be 1 or more ids, and will return a single document if 1 id is provided, otherwise an array of documents if multiple ids are provided.
+resolution:
+  Most likely this is caused by passing parameters directly through to the find, and the parameter either is not present or the key from which it is accessed is incorrect.):
+  
+app/controllers/posts_controller.rb:12:in `show'
+  Rendering /var/lib/gems/2.5.0/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /var/lib/gems/2.5.0/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /var/lib/gems/2.5.0/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (3.1ms)
+  Rendering /var/lib/gems/2.5.0/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /var/lib/gems/2.5.0/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.2ms)
+  Rendering /var/lib/gems/2.5.0/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /var/lib/gems/2.5.0/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.2ms)
+  Rendered /var/lib/gems/2.5.0/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (23.0ms)
+DEPRECATION WARNING: Accessing mime types via constants is deprecated. Please change `Mime::HTML` to `Mime[:html]`. (called from block in pre_process at /usr/lib/ruby/vendor_ruby/thin/connection.rb:86)
+  Rendering /var/lib/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb
+  Rendered /var/lib/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.9ms)
+  Rendering /var/lib/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript
+  Rendering /var/lib/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string
+  Rendered /var/lib/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendering /var/lib/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string
+  Rendered /var/lib/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendering /var/lib/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string
+  Rendered /var/lib/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+DEPRECATION WARNING: Accessing mime types via constants is deprecated. Please change `Mime::WEB_CONSOLE_V2` to `Mime[:web_console_v2]`. (called from block in pre_process at /usr/lib/ruby/vendor_ruby/thin/connection.rb:86)
+  Rendered /var/lib/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (17.4ms)
+  Rendering /var/lib/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript
+  Rendered /var/lib/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendering /var/lib/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript
+  Rendered /var/lib/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (1.9ms)
+  Rendered /var/lib/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (42.8ms)
+Started GET "/posts/" for 127.0.0.1 at 2019-10-04 10:51:04 +0530
+Processing by PostsController#index as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+MONGODB | localhost:27017 | social_cloud_development.find | STARTED | {"find"=>"posts", "filter"=>{"user_id"=>1}, "sort"=>{"time"=>-1}, "lsid"=>{"id"=><BSON::Binary:0x47025637986780 type=uuid data=0xe867194b4c914e67...>}}
+MONGODB | localhost:27017 | social_cloud_development.find | SUCCEEDED | 0.002s
+  Rendering posts/index.html.erb within layouts/application
+  Rendered posts/index.html.erb within layouts/application (24.5ms)
+Completed 200 OK in 95ms (Views: 75.0ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/posts/" for 127.0.0.1 at 2019-10-04 10:51:14 +0530
+Processing by PostsController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+MONGODB | localhost:27017 | social_cloud_development.find | STARTED | {"find"=>"posts", "filter"=>{"user_id"=>1}, "sort"=>{"time"=>-1}, "lsid"=>{"id"=><BSON::Binary:0x47025637986780 type=uuid data=0xe867194b4c914e67...>}}
+MONGODB | localhost:27017 | social_cloud_development.find | SUCCEEDED | 0.003s
+  Rendering posts/index.html.erb within layouts/application
+  Rendered posts/index.html.erb within layouts/application (19.8ms)
+Completed 200 OK in 103ms (Views: 84.5ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/posts/show" for 127.0.0.1 at 2019-10-04 10:51:17 +0530
+Processing by PostsController#show as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"YplE5e+pYt4wu7exXH4J4nKGELVfCUpTc5aiL8BOYR0uc17DXLN7rSaw+b5WygpBZErWRx5GHtjUUNWUz1X9fA==", "showID"=>"5d96d1260fa4f30a70f58048"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+MONGODB | localhost:27017 | social_cloud_development.find | STARTED | {"find"=>"posts", "filter"=>{"_id"=>BSON::ObjectId('5d96d1260fa4f30a70f58048')}, "lsid"=>{"id"=><BSON::Binary:0x47025637986780 type=uuid data=0xe867194b4c914e67...>}}
+MONGODB | localhost:27017 | social_cloud_development.find | SUCCEEDED | 0.001s
+  Rendering posts/show.html.erb within layouts/application
+  Rendered posts/show.html.erb within layouts/application (595.3ms)
+Completed 500 Internal Server Error in 607ms (ActiveRecord: 0.2ms)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `post' for #<#<Class:0x0000558a07456f00>:0x0000558a09fd9cb8>
+Did you mean?  @post):
+    2:   <div class="col-sm-12 col-md-12 col-lg-12">
+    3:     <div class="thumbnail" style="background-color:black;">
+    4:       <div class="caption" style="color:white;">
+    5:           <p><span style="color:orange;"><span class="glyphicon glyphicon-picture" aria-hidden="true"></span> <%= @post.image_heading %></span><br> <%= post.image_caption %></p>
+    6:           <p><a href="#" class="btn btn-default disabledTransparentButton disabled"  role="button"><span class="glyphicon glyphicon-time" aria-hidden="true"></span> Posted <%= time_ago_in_words(post.time) %> ago</a>
+    7:       </div>
+    8:       <img src="<%= @post.post_image.url(:original) %>" alt="<%= @post.image_caption %>">
+  
+app/views/posts/show.html.erb:5:in `_app_views_posts_show_html_erb___849492684895008874_47025680732960'
+  Rendering /var/lib/gems/2.5.0/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
+  Rendering /var/lib/gems/2.5.0/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /var/lib/gems/2.5.0/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (8.9ms)
+  Rendering /var/lib/gems/2.5.0/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /var/lib/gems/2.5.0/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.0ms)
+  Rendering /var/lib/gems/2.5.0/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /var/lib/gems/2.5.0/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.2ms)
+  Rendered /var/lib/gems/2.5.0/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (42.7ms)
+DEPRECATION WARNING: #original_exception is deprecated. Use #cause instead. (called from block in pre_process at /usr/lib/ruby/vendor_ruby/thin/connection.rb:86)
+DEPRECATION WARNING: Accessing mime types via constants is deprecated. Please change `Mime::HTML` to `Mime[:html]`. (called from block in pre_process at /usr/lib/ruby/vendor_ruby/thin/connection.rb:86)
+  Rendering /var/lib/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb
+  Rendered /var/lib/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.3ms)
+  Rendering /var/lib/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript
+  Rendering /var/lib/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string
+  Rendered /var/lib/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendering /var/lib/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string
+  Rendered /var/lib/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendering /var/lib/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string
+  Rendered /var/lib/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.2ms)
+DEPRECATION WARNING: Accessing mime types via constants is deprecated. Please change `Mime::WEB_CONSOLE_V2` to `Mime[:web_console_v2]`. (called from block in pre_process at /usr/lib/ruby/vendor_ruby/thin/connection.rb:86)
+  Rendered /var/lib/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (17.5ms)
+  Rendering /var/lib/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript
+  Rendered /var/lib/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendering /var/lib/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript
+  Rendered /var/lib/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.6ms)
+  Rendered /var/lib/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (34.1ms)
+Started GET "/posts/" for 127.0.0.1 at 2019-10-04 10:51:45 +0530
+Processing by PostsController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+MONGODB | localhost:27017 | social_cloud_development.find | STARTED | {"find"=>"posts", "filter"=>{"user_id"=>1}, "sort"=>{"time"=>-1}, "lsid"=>{"id"=><BSON::Binary:0x47025637986780 type=uuid data=0xe867194b4c914e67...>}}
+MONGODB | localhost:27017 | social_cloud_development.find | SUCCEEDED | 0.002s
+  Rendering posts/index.html.erb within layouts/application
+  Rendered posts/index.html.erb within layouts/application (19.9ms)
+Completed 200 OK in 93ms (Views: 73.5ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/posts/show" for 127.0.0.1 at 2019-10-04 10:51:48 +0530
+Processing by PostsController#show as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"MsF7dHsSz9PKde+94KgL5D+0AIUXLyDbpCPyeXGtuLx+K2FSyAjWoNx+obLqHAhHKXjGd1ZgdFAD5YXCfrYk3Q==", "showID"=>"5d96d1260fa4f30a70f58048"}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+MONGODB | localhost:27017 | social_cloud_development.find | STARTED | {"find"=>"posts", "filter"=>{"_id"=>BSON::ObjectId('5d96d1260fa4f30a70f58048')}, "lsid"=>{"id"=><BSON::Binary:0x47025637986780 type=uuid data=0xe867194b4c914e67...>}}
+MONGODB | localhost:27017 | social_cloud_development.find | SUCCEEDED | 0.001s
+  Rendering posts/show.html.erb within layouts/application
+  Rendered posts/show.html.erb within layouts/application (583.5ms)
+Completed 500 Internal Server Error in 599ms (ActiveRecord: 0.9ms)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `post' for #<#<Class:0x0000558a07456f00>:0x0000558a085dfa88>
+Did you mean?  @post):
+    2:   <div class="col-sm-12 col-md-12 col-lg-12">
+    3:     <div class="thumbnail" style="background-color:black;">
+    4:       <div class="caption" style="color:white;">
+    5:           <p><span style="color:orange;"><span class="glyphicon glyphicon-picture" aria-hidden="true"></span> <%= @post.image_heading %></span><br> <%= post.image_caption %></p>
+    6:           <p><a href="#" class="btn btn-default disabledTransparentButton disabled"  role="button"><span class="glyphicon glyphicon-time" aria-hidden="true"></span> Posted <%= time_ago_in_words(post.time) %> ago</a>
+    7:       </div>
+    8:       <img src="<%= @post.post_image.url(:original) %>" alt="<%= @post.image_caption %>">
+  
+app/views/posts/show.html.erb:5:in `_app_views_posts_show_html_erb___849492684895008874_47025667047920'
+  Rendering /var/lib/gems/2.5.0/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
+  Rendering /var/lib/gems/2.5.0/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /var/lib/gems/2.5.0/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (4.3ms)
+  Rendering /var/lib/gems/2.5.0/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /var/lib/gems/2.5.0/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.1ms)
+  Rendering /var/lib/gems/2.5.0/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /var/lib/gems/2.5.0/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /var/lib/gems/2.5.0/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (20.5ms)
+DEPRECATION WARNING: #original_exception is deprecated. Use #cause instead. (called from block in pre_process at /usr/lib/ruby/vendor_ruby/thin/connection.rb:86)
+DEPRECATION WARNING: Accessing mime types via constants is deprecated. Please change `Mime::HTML` to `Mime[:html]`. (called from block in pre_process at /usr/lib/ruby/vendor_ruby/thin/connection.rb:86)
+  Rendering /var/lib/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb
+  Rendered /var/lib/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.3ms)
+  Rendering /var/lib/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript
+  Rendering /var/lib/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string
+  Rendered /var/lib/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.5ms)
+  Rendering /var/lib/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string
+  Rendered /var/lib/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.2ms)
+  Rendering /var/lib/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string
+  Rendered /var/lib/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.2ms)
+DEPRECATION WARNING: Accessing mime types via constants is deprecated. Please change `Mime::WEB_CONSOLE_V2` to `Mime[:web_console_v2]`. (called from block in pre_process at /usr/lib/ruby/vendor_ruby/thin/connection.rb:86)
+  Rendered /var/lib/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (15.5ms)
+  Rendering /var/lib/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript
+  Rendered /var/lib/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.2ms)
+  Rendering /var/lib/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript
+  Rendered /var/lib/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.2ms)
+  Rendered /var/lib/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (32.0ms)
+Started POST "/posts/show" for 127.0.0.1 at 2019-10-04 10:52:08 +0530
+Processing by PostsController#show as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"MsF7dHsSz9PKde+94KgL5D+0AIUXLyDbpCPyeXGtuLx+K2FSyAjWoNx+obLqHAhHKXjGd1ZgdFAD5YXCfrYk3Q==", "showID"=>"5d96d1260fa4f30a70f58048"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+MONGODB | localhost:27017 | social_cloud_development.find | STARTED | {"find"=>"posts", "filter"=>{"_id"=>BSON::ObjectId('5d96d1260fa4f30a70f58048')}, "lsid"=>{"id"=><BSON::Binary:0x47025637986780 type=uuid data=0xe867194b4c914e67...>}}
+MONGODB | localhost:27017 | social_cloud_development.find | SUCCEEDED | 0.003s
+  Rendering posts/show.html.erb within layouts/application
+  Rendered posts/show.html.erb within layouts/application (656.2ms)
+Completed 500 Internal Server Error in 692ms (ActiveRecord: 0.6ms)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `post' for #<#<Class:0x0000558a07456f00>:0x0000558a09ee3728>
+Did you mean?  @post):
+    2:   <div class="col-sm-12 col-md-12 col-lg-12">
+    3:     <div class="thumbnail" style="background-color:black;">
+    4:       <div class="caption" style="color:white;">
+    5:           <p><span style="color:orange;"><span class="glyphicon glyphicon-picture" aria-hidden="true"></span> <%= @post.image_heading %></span><br> <%= post.image_caption %></p>
+    6:           <p><a href="#" class="btn btn-default disabledTransparentButton disabled"  role="button"><span class="glyphicon glyphicon-time" aria-hidden="true"></span> Posted <%= time_ago_in_words(post.time) %> ago</a>
+    7:       </div>
+    8:       <img src="<%= @post.post_image.url(:original) %>" alt="<%= @post.image_caption %>">
+  
+app/views/posts/show.html.erb:5:in `_app_views_posts_show_html_erb___849492684895008874_47025680253060'
+  Rendering /var/lib/gems/2.5.0/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
+  Rendering /var/lib/gems/2.5.0/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /var/lib/gems/2.5.0/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (2.7ms)
+  Rendering /var/lib/gems/2.5.0/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /var/lib/gems/2.5.0/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.9ms)
+  Rendering /var/lib/gems/2.5.0/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /var/lib/gems/2.5.0/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /var/lib/gems/2.5.0/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (20.2ms)
+DEPRECATION WARNING: #original_exception is deprecated. Use #cause instead. (called from block in pre_process at /usr/lib/ruby/vendor_ruby/thin/connection.rb:86)
+DEPRECATION WARNING: Accessing mime types via constants is deprecated. Please change `Mime::HTML` to `Mime[:html]`. (called from block in pre_process at /usr/lib/ruby/vendor_ruby/thin/connection.rb:86)
+  Rendering /var/lib/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb
+  Rendered /var/lib/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (1.1ms)
+  Rendering /var/lib/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript
+  Rendering /var/lib/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string
+  Rendered /var/lib/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendering /var/lib/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string
+  Rendered /var/lib/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.5ms)
+  Rendering /var/lib/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string
+  Rendered /var/lib/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+DEPRECATION WARNING: Accessing mime types via constants is deprecated. Please change `Mime::WEB_CONSOLE_V2` to `Mime[:web_console_v2]`. (called from block in pre_process at /usr/lib/ruby/vendor_ruby/thin/connection.rb:86)
+  Rendered /var/lib/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (15.1ms)
+  Rendering /var/lib/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript
+  Rendered /var/lib/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.2ms)
+  Rendering /var/lib/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript
+  Rendered /var/lib/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.2ms)
+  Rendered /var/lib/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (31.0ms)
+Started POST "/posts/show" for 127.0.0.1 at 2019-10-04 10:52:27 +0530
+Processing by PostsController#show as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"MsF7dHsSz9PKde+94KgL5D+0AIUXLyDbpCPyeXGtuLx+K2FSyAjWoNx+obLqHAhHKXjGd1ZgdFAD5YXCfrYk3Q==", "showID"=>"5d96d1260fa4f30a70f58048"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+MONGODB | localhost:27017 | social_cloud_development.find | STARTED | {"find"=>"posts", "filter"=>{"_id"=>BSON::ObjectId('5d96d1260fa4f30a70f58048')}, "lsid"=>{"id"=><BSON::Binary:0x47025637986780 type=uuid data=0xe867194b4c914e67...>}}
+MONGODB | localhost:27017 | social_cloud_development.find | SUCCEEDED | 0.001s
+  Rendering posts/show.html.erb within layouts/application
+  Rendered posts/show.html.erb within layouts/application (533.1ms)
+Completed 500 Internal Server Error in 556ms (ActiveRecord: 0.6ms)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `post' for #<#<Class:0x0000558a07456f00>:0x0000558a0824d2d0>
+Did you mean?  @post):
+    3:     <div class="thumbnail" style="background-color:black;">
+    4:       <div class="caption" style="color:white;">
+    5:           <p><span style="color:orange;"><span class="glyphicon glyphicon-picture" aria-hidden="true"></span> <%= @post.image_heading %></span><br> <%= @post.image_caption %></p>
+    6:           <p><a href="#" class="btn btn-default disabledTransparentButton disabled"  role="button"><span class="glyphicon glyphicon-time" aria-hidden="true"></span> Posted <%= time_ago_in_words(post.time) %> ago</a>
+    7:       </div>
+    8:       <img src="<%= @post.post_image.url(:original) %>" alt="<%= @post.image_caption %>">
+    9:       <div class="caption" style="color:white;">
+  
+app/views/posts/show.html.erb:6:in `_app_views_posts_show_html_erb___849492684895008874_47025665240820'
+  Rendering /var/lib/gems/2.5.0/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
+  Rendering /var/lib/gems/2.5.0/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /var/lib/gems/2.5.0/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (5.8ms)
+  Rendering /var/lib/gems/2.5.0/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /var/lib/gems/2.5.0/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.8ms)
+  Rendering /var/lib/gems/2.5.0/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /var/lib/gems/2.5.0/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /var/lib/gems/2.5.0/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (24.8ms)
+DEPRECATION WARNING: #original_exception is deprecated. Use #cause instead. (called from block in pre_process at /usr/lib/ruby/vendor_ruby/thin/connection.rb:86)
+DEPRECATION WARNING: Accessing mime types via constants is deprecated. Please change `Mime::HTML` to `Mime[:html]`. (called from block in pre_process at /usr/lib/ruby/vendor_ruby/thin/connection.rb:86)
+  Rendering /var/lib/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb
+  Rendered /var/lib/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.3ms)
+  Rendering /var/lib/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript
+  Rendering /var/lib/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string
+  Rendered /var/lib/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.2ms)
+  Rendering /var/lib/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string
+  Rendered /var/lib/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.2ms)
+  Rendering /var/lib/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string
+  Rendered /var/lib/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.8ms)
+DEPRECATION WARNING: Accessing mime types via constants is deprecated. Please change `Mime::WEB_CONSOLE_V2` to `Mime[:web_console_v2]`. (called from block in pre_process at /usr/lib/ruby/vendor_ruby/thin/connection.rb:86)
+  Rendered /var/lib/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (16.3ms)
+  Rendering /var/lib/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript
+  Rendered /var/lib/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.4ms)
+  Rendering /var/lib/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript
+  Rendered /var/lib/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /var/lib/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (34.7ms)
+Started POST "/posts/show" for 127.0.0.1 at 2019-10-04 10:52:45 +0530
+Processing by PostsController#show as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"MsF7dHsSz9PKde+94KgL5D+0AIUXLyDbpCPyeXGtuLx+K2FSyAjWoNx+obLqHAhHKXjGd1ZgdFAD5YXCfrYk3Q==", "showID"=>"5d96d1260fa4f30a70f58048"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+MONGODB | localhost:27017 | social_cloud_development.find | STARTED | {"find"=>"posts", "filter"=>{"_id"=>BSON::ObjectId('5d96d1260fa4f30a70f58048')}, "lsid"=>{"id"=><BSON::Binary:0x47025637986780 type=uuid data=0xe867194b4c914e67...>}}
+MONGODB | localhost:27017 | social_cloud_development.find | SUCCEEDED | 0.001s
+  Rendering posts/show.html.erb within layouts/application
+  Rendered posts/show.html.erb within layouts/application (7.7ms)
+Completed 200 OK in 94ms (Views: 74.0ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/posts/show" for 127.0.0.1 at 2019-10-04 10:53:05 +0530
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"show"}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 11ms (ActiveRecord: 0.9ms)
+
+
+  
+Mongoid::Errors::InvalidFind (
+message:
+  Calling Document.find with nil is invalid.
+summary:
+  Document.find expects the parameters to be 1 or more ids, and will return a single document if 1 id is provided, otherwise an array of documents if multiple ids are provided.
+resolution:
+  Most likely this is caused by passing parameters directly through to the find, and the parameter either is not present or the key from which it is accessed is incorrect.):
+  
+app/controllers/posts_controller.rb:12:in `show'
+  Rendering /var/lib/gems/2.5.0/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /var/lib/gems/2.5.0/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /var/lib/gems/2.5.0/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (2.9ms)
+  Rendering /var/lib/gems/2.5.0/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /var/lib/gems/2.5.0/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.3ms)
+  Rendering /var/lib/gems/2.5.0/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /var/lib/gems/2.5.0/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /var/lib/gems/2.5.0/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (23.1ms)
+DEPRECATION WARNING: Accessing mime types via constants is deprecated. Please change `Mime::HTML` to `Mime[:html]`. (called from block in pre_process at /usr/lib/ruby/vendor_ruby/thin/connection.rb:86)
+  Rendering /var/lib/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb
+  Rendered /var/lib/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (1.1ms)
+  Rendering /var/lib/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript
+  Rendering /var/lib/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string
+  Rendered /var/lib/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (1.1ms)
+  Rendering /var/lib/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string
+  Rendered /var/lib/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.6ms)
+  Rendering /var/lib/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string
+  Rendered /var/lib/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.4ms)
+DEPRECATION WARNING: Accessing mime types via constants is deprecated. Please change `Mime::WEB_CONSOLE_V2` to `Mime[:web_console_v2]`. (called from block in pre_process at /usr/lib/ruby/vendor_ruby/thin/connection.rb:86)
+  Rendered /var/lib/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (20.0ms)
+  Rendering /var/lib/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript
+  Rendered /var/lib/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (1.3ms)
+  Rendering /var/lib/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript
+  Rendered /var/lib/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /var/lib/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (43.5ms)
+DEPRECATION WARNING: ActiveRecord::Base.raise_in_transactional_callbacks= is deprecated, has no effect and will be removed without replacement. (called from <top (required)> at /home/shashwatkathuria/Desktop/SocialCloud/app/models/application_record.rb:1)
+Started GET "/posts/" for 127.0.0.1 at 2019-10-04 10:53:46 +0530
+Processing by PostsController#index as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+MONGODB | localhost:27017 | social_cloud_development.find | STARTED | {"find"=>"posts", "filter"=>{"user_id"=>1}, "sort"=>{"time"=>-1}, "lsid"=>{"id"=><BSON::Binary:0x47025637986780 type=uuid data=0xe867194b4c914e67...>}}
+MONGODB | localhost:27017 | social_cloud_development.find | SUCCEEDED | 0.002s
+  Rendering posts/index.html.erb within layouts/application
+  Rendered posts/index.html.erb within layouts/application (16.6ms)
+Completed 200 OK in 87ms (Views: 71.1ms | ActiveRecord: 0.7ms)
+
+
+Started POST "/posts/show" for 127.0.0.1 at 2019-10-04 10:53:49 +0530
+Processing by PostsController#show as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"A1xPdD+IP3GLmHjZoMky2lnVdQXUmZXNRSeD1nxsQq1PtlVSjJImAp2TNtaqfTF5Txmz95XWwUbi4fRtc3fezA==", "showID"=>"5d96d1260fa4f30a70f58048"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+MONGODB | localhost:27017 | social_cloud_development.find | STARTED | {"find"=>"posts", "filter"=>{"_id"=>BSON::ObjectId('5d96d1260fa4f30a70f58048')}, "lsid"=>{"id"=><BSON::Binary:0x47025637986780 type=uuid data=0xe867194b4c914e67...>}}
+MONGODB | localhost:27017 | social_cloud_development.find | SUCCEEDED | 0.002s
+  Rendering posts/show.html.erb within layouts/application
+  Rendered posts/show.html.erb within layouts/application (3.2ms)
+Completed 200 OK in 46ms (Views: 35.3ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/posts/show" for 127.0.0.1 at 2019-10-04 10:53:53 +0530
+Processing by PostsController#show as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Yk55hXTMbQquQ/bB42vQlxb0vF5fGp6FSDBIyhw1b0cupGOjx9Z0ebhIuM7p39M0ADh6rB5Vyg7v9j9xEy7zJg==", "showID"=>"5d96d1260fa4f30a70f58048"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+MONGODB | localhost:27017 | social_cloud_development.find | STARTED | {"find"=>"posts", "filter"=>{"_id"=>BSON::ObjectId('5d96d1260fa4f30a70f58048')}, "lsid"=>{"id"=><BSON::Binary:0x47025637986780 type=uuid data=0xe867194b4c914e67...>}}
+MONGODB | localhost:27017 | social_cloud_development.find | SUCCEEDED | 0.001s
+  Rendering posts/show.html.erb within layouts/application
+  Rendered posts/show.html.erb within layouts/application (2.8ms)
+Completed 200 OK in 45ms (Views: 35.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/posts/show" for 127.0.0.1 at 2019-10-04 10:53:57 +0530
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"show"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 0.7ms)
+
+
+  
+Mongoid::Errors::InvalidFind (
+message:
+  Calling Document.find with nil is invalid.
+summary:
+  Document.find expects the parameters to be 1 or more ids, and will return a single document if 1 id is provided, otherwise an array of documents if multiple ids are provided.
+resolution:
+  Most likely this is caused by passing parameters directly through to the find, and the parameter either is not present or the key from which it is accessed is incorrect.):
+  
+app/controllers/posts_controller.rb:12:in `show'
+  Rendering /var/lib/gems/2.5.0/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /var/lib/gems/2.5.0/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /var/lib/gems/2.5.0/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (4.0ms)
+  Rendering /var/lib/gems/2.5.0/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /var/lib/gems/2.5.0/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.7ms)
+  Rendering /var/lib/gems/2.5.0/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /var/lib/gems/2.5.0/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.6ms)
+  Rendered /var/lib/gems/2.5.0/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (25.8ms)
+DEPRECATION WARNING: Accessing mime types via constants is deprecated. Please change `Mime::HTML` to `Mime[:html]`. (called from block in pre_process at /usr/lib/ruby/vendor_ruby/thin/connection.rb:86)
+  Rendering /var/lib/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb
+  Rendered /var/lib/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.6ms)
+  Rendering /var/lib/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript
+  Rendering /var/lib/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string
+  Rendered /var/lib/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.2ms)
+  Rendering /var/lib/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string
+  Rendered /var/lib/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.2ms)
+  Rendering /var/lib/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string
+  Rendered /var/lib/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.2ms)
+DEPRECATION WARNING: Accessing mime types via constants is deprecated. Please change `Mime::WEB_CONSOLE_V2` to `Mime[:web_console_v2]`. (called from block in pre_process at /usr/lib/ruby/vendor_ruby/thin/connection.rb:86)
+  Rendered /var/lib/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (11.7ms)
+  Rendering /var/lib/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript
+  Rendered /var/lib/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.2ms)
+  Rendering /var/lib/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript
+  Rendered /var/lib/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.3ms)
+  Rendered /var/lib/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (28.4ms)
+Started GET "/posts/show" for 127.0.0.1 at 2019-10-04 10:54:29 +0530
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"show"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.3ms)
+
+
+  
+Mongoid::Errors::InvalidFind (
+message:
+  Calling Document.find with nil is invalid.
+summary:
+  Document.find expects the parameters to be 1 or more ids, and will return a single document if 1 id is provided, otherwise an array of documents if multiple ids are provided.
+resolution:
+  Most likely this is caused by passing parameters directly through to the find, and the parameter either is not present or the key from which it is accessed is incorrect.):
+  
+app/controllers/posts_controller.rb:12:in `show'
+  Rendering /var/lib/gems/2.5.0/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /var/lib/gems/2.5.0/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /var/lib/gems/2.5.0/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (5.2ms)
+  Rendering /var/lib/gems/2.5.0/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /var/lib/gems/2.5.0/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.4ms)
+  Rendering /var/lib/gems/2.5.0/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /var/lib/gems/2.5.0/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.3ms)
+  Rendered /var/lib/gems/2.5.0/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (28.5ms)
+DEPRECATION WARNING: Accessing mime types via constants is deprecated. Please change `Mime::HTML` to `Mime[:html]`. (called from block in pre_process at /usr/lib/ruby/vendor_ruby/thin/connection.rb:86)
+  Rendering /var/lib/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb
+  Rendered /var/lib/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.6ms)
+  Rendering /var/lib/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript
+  Rendering /var/lib/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string
+  Rendered /var/lib/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendering /var/lib/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string
+  Rendered /var/lib/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendering /var/lib/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string
+  Rendered /var/lib/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+DEPRECATION WARNING: Accessing mime types via constants is deprecated. Please change `Mime::WEB_CONSOLE_V2` to `Mime[:web_console_v2]`. (called from block in pre_process at /usr/lib/ruby/vendor_ruby/thin/connection.rb:86)
+  Rendered /var/lib/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (20.1ms)
+  Rendering /var/lib/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript
+  Rendered /var/lib/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendering /var/lib/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript
+  Rendered /var/lib/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.8ms)
+  Rendered /var/lib/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (41.1ms)
+Started GET "/posts/show" for 127.0.0.1 at 2019-10-04 10:55:04 +0530
+DEPRECATION WARNING: ActiveRecord::Base.raise_in_transactional_callbacks= is deprecated, has no effect and will be removed without replacement. (called from <top (required)> at /home/shashwatkathuria/Desktop/SocialCloud/app/models/application_record.rb:1)
+DEPRECATION WARNING: ActiveRecord::Base.raise_in_transactional_callbacks= is deprecated, has no effect and will be removed without replacement. (called from <top (required)> at /home/shashwatkathuria/Desktop/SocialCloud/app/models/application_record.rb:1)
+DEPRECATION WARNING: ActiveRecord::Base.raise_in_transactional_callbacks= is deprecated, has no effect and will be removed without replacement. (called from <top (required)> at /home/shashwatkathuria/Desktop/SocialCloud/app/models/application_record.rb:1)
+Started GET "/posts" for 127.0.0.1 at 2019-10-04 11:01:02 +0530
+Started GET "/posts" for 127.0.0.1 at 2019-10-04 11:01:06 +0530
+Started GET "/" for 127.0.0.1 at 2019-10-04 11:01:10 +0530
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered welcome/index.html.erb within layouts/application (46.6ms)
+Completed 500 Internal Server Error in 578ms (ActiveRecord: 4.6ms)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `posts_path' for #<#<Class:0x0000558a07fa5460>:0x0000558a07fa42b8>
+Did you mean?  posts_new_path):
+    152:         <ul class="nav navbar-nav">
+    153:           <% if user_signed_in? %>
+    154:             <li class="active" style="color:white;"><a href="<%= users_path %>">Hi, <strong><%= current_user.name %></strong> !</a></li>
+    155:             <li class="active" style="color:white;"><a href="<%= posts_path %>">Your Posts</a></li>
+    156:           <% else %>
+    157:             <li class="active" style="color:white;"><a href="<%= new_user_session_path %>">Login <span class="sr-only">(current)</span></a></li>
+    158:             <li><a href="<%= new_user_registration_path %>">Sign Up</a></li>
+  
+app/views/layouts/application.html.erb:155:in `_app_views_layouts_application_html_erb___2944939600165989623_47025663814480'
+  Rendering /var/lib/gems/2.5.0/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
+  Rendering /var/lib/gems/2.5.0/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /var/lib/gems/2.5.0/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (6.2ms)
+  Rendering /var/lib/gems/2.5.0/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /var/lib/gems/2.5.0/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.0ms)
+  Rendering /var/lib/gems/2.5.0/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /var/lib/gems/2.5.0/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.4ms)
+  Rendered /var/lib/gems/2.5.0/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (30.4ms)
+DEPRECATION WARNING: #original_exception is deprecated. Use #cause instead. (called from block in pre_process at /usr/lib/ruby/vendor_ruby/thin/connection.rb:86)
+DEPRECATION WARNING: Accessing mime types via constants is deprecated. Please change `Mime::HTML` to `Mime[:html]`. (called from block in pre_process at /usr/lib/ruby/vendor_ruby/thin/connection.rb:86)
+  Rendering /var/lib/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb
+  Rendered /var/lib/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.5ms)
+  Rendering /var/lib/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript
+  Rendering /var/lib/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string
+  Rendered /var/lib/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.5ms)
+  Rendering /var/lib/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string
+  Rendered /var/lib/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.6ms)
+  Rendering /var/lib/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string
+  Rendered /var/lib/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.6ms)
+DEPRECATION WARNING: Accessing mime types via constants is deprecated. Please change `Mime::WEB_CONSOLE_V2` to `Mime[:web_console_v2]`. (called from block in pre_process at /usr/lib/ruby/vendor_ruby/thin/connection.rb:86)
+  Rendered /var/lib/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (21.9ms)
+  Rendering /var/lib/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript
+  Rendered /var/lib/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.4ms)
+  Rendering /var/lib/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript
+  Rendered /var/lib/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /var/lib/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (42.6ms)
+Started GET "/" for 127.0.0.1 at 2019-10-04 11:01:33 +0530
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered welcome/index.html.erb within layouts/application (9.0ms)
+Completed 500 Internal Server Error in 634ms (ActiveRecord: 1.2ms)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `posts_path' for #<#<Class:0x0000558a07fa5460>:0x0000558a08659f90>
+Did you mean?  posts_new_path):
+    152:         <ul class="nav navbar-nav">
+    153:           <% if user_signed_in? %>
+    154:             <li class="active" style="color:white;"><a href="<%= users_path %>">Hi, <strong><%= current_user.name %></strong> !</a></li>
+    155:             <li class="active" style="color:white;"><a href="<%= posts_path %>">Your Posts</a></li>
+    156:           <% else %>
+    157:             <li class="active" style="color:white;"><a href="<%= new_user_session_path %>">Login <span class="sr-only">(current)</span></a></li>
+    158:             <li><a href="<%= new_user_registration_path %>">Sign Up</a></li>
+  
+app/views/layouts/application.html.erb:155:in `_app_views_layouts_application_html_erb___2944939600165989623_47025662842400'
+  Rendering /var/lib/gems/2.5.0/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
+  Rendering /var/lib/gems/2.5.0/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /var/lib/gems/2.5.0/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (2.7ms)
+  Rendering /var/lib/gems/2.5.0/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /var/lib/gems/2.5.0/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.3ms)
+  Rendering /var/lib/gems/2.5.0/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /var/lib/gems/2.5.0/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.5ms)
+  Rendered /var/lib/gems/2.5.0/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (19.1ms)
+DEPRECATION WARNING: #original_exception is deprecated. Use #cause instead. (called from block in pre_process at /usr/lib/ruby/vendor_ruby/thin/connection.rb:86)
+DEPRECATION WARNING: Accessing mime types via constants is deprecated. Please change `Mime::HTML` to `Mime[:html]`. (called from block in pre_process at /usr/lib/ruby/vendor_ruby/thin/connection.rb:86)
+  Rendering /var/lib/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb
+  Rendered /var/lib/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.5ms)
+  Rendering /var/lib/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript
+  Rendering /var/lib/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string
+  Rendered /var/lib/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendering /var/lib/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string
+  Rendered /var/lib/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendering /var/lib/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string
+  Rendered /var/lib/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.5ms)
+DEPRECATION WARNING: Accessing mime types via constants is deprecated. Please change `Mime::WEB_CONSOLE_V2` to `Mime[:web_console_v2]`. (called from block in pre_process at /usr/lib/ruby/vendor_ruby/thin/connection.rb:86)
+  Rendered /var/lib/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (17.0ms)
+  Rendering /var/lib/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript
+  Rendered /var/lib/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.2ms)
+  Rendering /var/lib/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript
+  Rendered /var/lib/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /var/lib/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (33.7ms)
+DEPRECATION WARNING: ActiveRecord::Base.raise_in_transactional_callbacks= is deprecated, has no effect and will be removed without replacement. (called from <top (required)> at /home/shashwatkathuria/Desktop/SocialCloud/app/models/application_record.rb:1)
+Started GET "/" for 127.0.0.1 at 2019-10-04 11:02:18 +0530
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered welcome/index.html.erb within layouts/application (13.4ms)
+Completed 500 Internal Server Error in 673ms (ActiveRecord: 0.6ms)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `posts_new_path' for #<#<Class:0x0000558a0745cb58>:0x0000558a0744ef80>
+Did you mean?  posts_path
+               posts_show_path):
+    163:             <ul class="dropdown-menu">
+    164:                 <li><a href="<%= users_path %>">Your Profile</a></li>
+    165:                 <li><a href="<%= posts_path %>">Your Posts</a></li>
+    166:                 <li><a href="<%= posts_new_path %>">New Post</a></li>
+    167:                 <li role="separator" class="divider"></li>
+    168:                 <li><a href="<%= edit_user_registration_path %>">Edit Profile</a></li>
+    169:                 <li role="separator" class="divider"></li>
+  
+app/views/layouts/application.html.erb:166:in `_app_views_layouts_application_html_erb___2944939600165989623_47025657966340'
+  Rendering /var/lib/gems/2.5.0/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
+  Rendering /var/lib/gems/2.5.0/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /var/lib/gems/2.5.0/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (5.2ms)
+  Rendering /var/lib/gems/2.5.0/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /var/lib/gems/2.5.0/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.9ms)
+  Rendering /var/lib/gems/2.5.0/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /var/lib/gems/2.5.0/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.6ms)
+  Rendered /var/lib/gems/2.5.0/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (24.0ms)
+DEPRECATION WARNING: #original_exception is deprecated. Use #cause instead. (called from block in pre_process at /usr/lib/ruby/vendor_ruby/thin/connection.rb:86)
+DEPRECATION WARNING: Accessing mime types via constants is deprecated. Please change `Mime::HTML` to `Mime[:html]`. (called from block in pre_process at /usr/lib/ruby/vendor_ruby/thin/connection.rb:86)
+  Rendering /var/lib/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb
+  Rendered /var/lib/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.7ms)
+  Rendering /var/lib/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript
+  Rendering /var/lib/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string
+  Rendered /var/lib/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (1.2ms)
+  Rendering /var/lib/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string
+  Rendered /var/lib/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendering /var/lib/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string
+  Rendered /var/lib/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.2ms)
+DEPRECATION WARNING: Accessing mime types via constants is deprecated. Please change `Mime::WEB_CONSOLE_V2` to `Mime[:web_console_v2]`. (called from block in pre_process at /usr/lib/ruby/vendor_ruby/thin/connection.rb:86)
+  Rendered /var/lib/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (16.7ms)
+  Rendering /var/lib/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript
+  Rendered /var/lib/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.6ms)
+  Rendering /var/lib/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript
+  Rendered /var/lib/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.7ms)
+  Rendered /var/lib/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (35.2ms)
+DEPRECATION WARNING: ActiveRecord::Base.raise_in_transactional_callbacks= is deprecated, has no effect and will be removed without replacement. (called from <top (required)> at /home/shashwatkathuria/Desktop/SocialCloud/app/models/application_record.rb:1)
+Started GET "/" for 127.0.0.1 at 2019-10-04 11:03:13 +0530
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered welcome/index.html.erb within layouts/application (9.6ms)
+Completed 200 OK in 39ms (Views: 36.8ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2019-10-04 11:03:15 +0530
+Processing by PostsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+MONGODB | localhost:27017 | social_cloud_development.find | STARTED | {"find"=>"posts", "filter"=>{"user_id"=>1}, "sort"=>{"time"=>-1}, "lsid"=>{"id"=><BSON::Binary:0x47025637986780 type=uuid data=0xe867194b4c914e67...>}}
+MONGODB | localhost:27017 | social_cloud_development.find | SUCCEEDED | 0.001s
+  Rendering posts/index.html.erb within layouts/application
+  Rendered posts/index.html.erb within layouts/application (19.7ms)
+Completed 200 OK in 64ms (Views: 38.1ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/posts/search" for 127.0.0.1 at 2019-10-04 11:03:18 +0530
+Processing by PostsController#search as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Cl6j/lFv3VUgOLlRE026RUS1FfjsTncEbzwROrYSi95GtLnY4nXEJjYz914Z+bnmUnnTCq0BI4/I+maBuQkXvw==", "searchQuery"=>"jo"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+MONGODB | localhost:27017 | social_cloud_development.find | STARTED | {"find"=>"posts", "filter"=>{"$or"=>[{"image_heading"=>/jo/i}, {"image_caption"=>/jo/i}]}, "sort"=>{"time"=>-1}, "lsid"=>{"id"=><BSON::Binary:0x47025637986780 type=uuid data=0xe867194b4c914e67...>}}
+MONGODB | localhost:27017 | social_cloud_development.find | SUCCEEDED | 0.002s
+  Rendering posts/search.html.erb within layouts/application
+  Rendered posts/search.html.erb within layouts/application (20.8ms)
+Completed 200 OK in 122ms (Views: 104.5ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/posts/show" for 127.0.0.1 at 2019-10-04 11:03:22 +0530
+Processing by PostsController#show as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"TPjjFW6UrvzS6U+y5RENwih1+oYgh1D3UX6HCM56yUIAEvkz3Y63j8TiAb3vpQ5hPrk8dGHIBHz2uPCzwWFVIw==", "showID"=>"5d8b31b10fa4f341101c7077"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+MONGODB | localhost:27017 | social_cloud_development.find | STARTED | {"find"=>"posts", "filter"=>{"_id"=>BSON::ObjectId('5d8b31b10fa4f341101c7077')}, "lsid"=>{"id"=><BSON::Binary:0x47025637986780 type=uuid data=0xe867194b4c914e67...>}}
+MONGODB | localhost:27017 | social_cloud_development.find | SUCCEEDED | 0.001s
+  Rendering posts/show.html.erb within layouts/application
+  Rendered posts/show.html.erb within layouts/application (2.9ms)
+Completed 200 OK in 42ms (Views: 33.7ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/users/edit" for 127.0.0.1 at 2019-10-04 11:03:34 +0530
+Processing by Devise::RegistrationsController#edit as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering devise/registrations/edit.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (1.4ms)
+  Rendered devise/registrations/edit.html.erb within layouts/application (8.7ms)
+Completed 200 OK in 39ms (Views: 37.4ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/posts/new" for 127.0.0.1 at 2019-10-04 11:03:36 +0530
+Processing by PostsController#new as HTML
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/new.html.erb within layouts/application (16.3ms)
+Completed 200 OK in 84ms (Views: 73.4ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2019-10-04 11:03:38 +0530
+Processing by PostsController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+MONGODB | localhost:27017 | social_cloud_development.find | STARTED | {"find"=>"posts", "filter"=>{"user_id"=>1}, "sort"=>{"time"=>-1}, "lsid"=>{"id"=><BSON::Binary:0x47025637986780 type=uuid data=0xe867194b4c914e67...>}}
+MONGODB | localhost:27017 | social_cloud_development.find | SUCCEEDED | 0.001s
+  Rendering posts/index.html.erb within layouts/application
+  Rendered posts/index.html.erb within layouts/application (16.6ms)
+Completed 200 OK in 57ms (Views: 47.0ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2019-10-04 11:03:41 +0530
+Processing by PostsController#index as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+MONGODB | localhost:27017 | social_cloud_development.find | STARTED | {"find"=>"posts", "filter"=>{"user_id"=>1}, "sort"=>{"time"=>-1}, "lsid"=>{"id"=><BSON::Binary:0x47025637986780 type=uuid data=0xe867194b4c914e67...>}}
+MONGODB | localhost:27017 | social_cloud_development.find | SUCCEEDED | 0.001s
+  Rendering posts/index.html.erb within layouts/application
+  Rendered posts/index.html.erb within layouts/application (12.4ms)
+Completed 200 OK in 49ms (Views: 37.3ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/posts/new" for 127.0.0.1 at 2019-10-04 11:03:43 +0530
+Processing by PostsController#new as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/new.html.erb within layouts/application (11.8ms)
+Completed 200 OK in 104ms (Views: 95.6ms | ActiveRecord: 0.7ms)
+
+
+Started POST "/posts/create" for 127.0.0.1 at 2019-10-04 11:03:48 +0530
+Processing by PostsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"svQdyHYyy8BQHSCs+8/0Db8l4yp28JQTeFquBD+ioCX+HgfuxSjSs0YWbqPxe/euqekl2De/wJjfnNm/MLk8RA==", "post"=>{"image_heading"=>"", "image_caption"=>"", "post_image"=>#<ActionDispatch::Http::UploadedFile:0x0000558a07dd0d88 @tempfile=#<Tempfile:/tmp/RackMultipart20191004-2672-1orh9wz.jpg>, @original_filename="jdh8.jpg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"post[post_image]\"; filename=\"jdh8.jpg\"\r\nContent-Type: image/jpeg\r\n">}, "commit"=>"Create Post"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+[paperclip] Trying to link /tmp/RackMultipart20191004-2672-1orh9wz.jpg to /tmp/8aa83a6046d8c84c60030c4479da5e6520191004-2672-1soavfk.jpg
+[paperclip] Trying to link /tmp/8aa83a6046d8c84c60030c4479da5e6520191004-2672-1soavfk.jpg to /tmp/8aa83a6046d8c84c60030c4479da5e6520191004-2672-ih3dxp.jpg
+Command :: file -b --mime '/tmp/8aa83a6046d8c84c60030c4479da5e6520191004-2672-ih3dxp.jpg'
+[paperclip] Trying to link /tmp/8aa83a6046d8c84c60030c4479da5e6520191004-2672-1soavfk.jpg to /tmp/8aa83a6046d8c84c60030c4479da5e6520191004-2672-z6g3ed.jpg
+Command :: file -b --mime '/tmp/8aa83a6046d8c84c60030c4479da5e6520191004-2672-z6g3ed.jpg'
+MONGODB | localhost:27017 | social_cloud_development.insert | STARTED | {"insert"=>"posts", "ordered"=>true, "documents"=>[{"_id"=>BSON::ObjectId('5d96d9bc0fa4f30a70f5804a'), "user_id"=>1, "image_heading"=>"", "image_caption"=>"", "post_image_file_name"=>"jdh8.jpg", "post_image_content_type"=>"image/jpeg", "post_image_fil...
+MONGODB | localhost:27017 | social_cloud_development.insert | SUCCEEDED | 0.001s
+Redirected to http://localhost:3000/posts
+Completed 302 Found in 35ms (ActiveRecord: 0.4ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2019-10-04 11:03:48 +0530
+Processing by PostsController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+MONGODB | localhost:27017 | social_cloud_development.find | STARTED | {"find"=>"posts", "filter"=>{"user_id"=>1}, "sort"=>{"time"=>-1}, "lsid"=>{"id"=><BSON::Binary:0x47025637986780 type=uuid data=0xe867194b4c914e67...>}}
+MONGODB | localhost:27017 | social_cloud_development.find | SUCCEEDED | 0.001s
+  Rendering posts/index.html.erb within layouts/application
+  Rendered posts/index.html.erb within layouts/application (4.9ms)
+Completed 200 OK in 30ms (Views: 26.1ms | ActiveRecord: 0.1ms)
+
+
+Started POST "/posts/delete" for 127.0.0.1 at 2019-10-04 11:03:52 +0530
+Processing by PostsController#delete as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"vvQ+PF9WLR5jTv90jGRvhZriYm5Gtk1daBI6f383rpvyHiQa7Ew0bXVFsXuG0GwmjC6knAf5GdbP1E3EcCwy+g==", "deleteID"=>"5d96d9bc0fa4f30a70f5804a"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+MONGODB | localhost:27017 | social_cloud_development.find | STARTED | {"find"=>"posts", "filter"=>{"_id"=>BSON::ObjectId('5d96d9bc0fa4f30a70f5804a')}, "lsid"=>{"id"=><BSON::Binary:0x47025637986780 type=uuid data=0xe867194b4c914e67...>}}
+MONGODB | localhost:27017 | social_cloud_development.find | SUCCEEDED | 0.000s
+MONGODB | localhost:27017 | social_cloud_development.delete | STARTED | {"delete"=>"posts", "ordered"=>true, "deletes"=>[{"q"=>{"_id"=>BSON::ObjectId('5d96d9bc0fa4f30a70f5804a')}, "limit"=>1}], "lsid"=>{"id"=><BSON::Binary:0x47025637986780 type=uuid data=0xe867194b4c914e67...>}}
+MONGODB | localhost:27017 | social_cloud_development.delete | SUCCEEDED | 0.001s
+Redirected to http://localhost:3000/posts
+Completed 302 Found in 9ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2019-10-04 11:03:52 +0530
+Processing by PostsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+MONGODB | localhost:27017 | social_cloud_development.find | STARTED | {"find"=>"posts", "filter"=>{"user_id"=>1}, "sort"=>{"time"=>-1}, "lsid"=>{"id"=><BSON::Binary:0x47025637986780 type=uuid data=0xe867194b4c914e67...>}}
+MONGODB | localhost:27017 | social_cloud_development.find | SUCCEEDED | 0.001s
+  Rendering posts/index.html.erb within layouts/application
+  Rendered posts/index.html.erb within layouts/application (6.5ms)
+Completed 200 OK in 35ms (Views: 29.1ms | ActiveRecord: 0.2ms)
+
+
+MONGODB | localhost:27017 | admin.endSessions | STARTED | {"endSessions"=>[{"id"=><BSON::Binary:0x47025637986780 type=uuid data=0xe867194b4c914e67...>}]}
+MONGODB | localhost:27017 | admin.endSessions | SUCCEEDED | 0.002s
