@@ -25,7 +25,13 @@
                 <div class="form-group">
                   <input type="hidden" name="deleteID" class="form-control" value="<%= post.id.to_s %>">
                 </div>
-                <button type="submit" class="btn transparentButton btn-default" ><span class="glyphicon glyphicon-delete" aria-hidden="true"></span>Delete Post&nbsp</button>
+                <button type="submit" class="btn transparentButton btn-default" >Delete Post&nbsp<span class="glyphicon glyphicon-remove" style="color:white;" aria-hidden="true"></span></button>
+              <% end %>
+              <%= form_for :post,  url: posts_show_path, html: { class:"navbar-form navbar-left" } do |f| %>
+                <div class="form-group">
+                  <input type="hidden" name="showID" class="form-control" value="<%= post.id.to_s %>">
+                </div>
+                <button type="submit" class="btn transparentButton btn-default" >Show Post&nbsp<span class="glyphicon glyphicon-picture" aria-hidden="true"></span></button>
               <% end %>
               <br>
               <br>
