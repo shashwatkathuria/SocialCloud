@@ -8,12 +8,19 @@ class PostsController < ApplicationController
   end
 
   def show
+    @showID = params[:showID]
+    @post = Post.find(@showID)
   end
 
   def new
+    @post = Post.new
   end
 
   def create
+    @params = params[:post]
+    @post = Post.new(user_id: current_user.id, image_heading: @params[:image_heading], image_caption: @params[:image_caption], post_image: @params[:post_image])
+    @post.save
+    redirect_to posts_path
   end
 
   def search
