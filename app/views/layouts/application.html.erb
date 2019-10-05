@@ -17,6 +17,9 @@
   .jumbotron {
     border-radius: 30px !important;
   }
+  [hidden] {
+  display: none !important;
+}
   .thumbnail {
     border-radius: 10px !important;
   }
@@ -89,13 +92,13 @@
   }
   .standardButton
   {
-    color:black;
-    background-color:orange;
+    color:black !important;
+    background-color:orange !important;
   }
   .standardButton:hover
   {
     color:white !important;
-    background-color:orange;
+    background-color:orange !important;
   }
   .buttonLink
   {
@@ -148,25 +151,24 @@
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav">
           <% if user_signed_in? %>
-            <li class="active" style="color:white;"><a href="<%= users_path %>">Hi, <strong><%= current_user.name %></strong> !<span class="sr-only">(current)</span></a></li>
+            <li class="active" style="color:white;"><a href="<%= users_path %>">Hi, <strong><%= current_user.name %></strong> !</a></li>
+            <li class="active" style="color:white;"><a href="<%= posts_path %>">Your Posts</a></li>
           <% else %>
             <li class="active" style="color:white;"><a href="<%= new_user_session_path %>">Login <span class="sr-only">(current)</span></a></li>
             <li><a href="<%= new_user_registration_path %>">Sign Up</a></li>
           <% end %>
+          <% if user_signed_in? %>
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Options <span class="caret"></span></a>
             <ul class="dropdown-menu">
-              <% if user_signed_in? %>
                 <li><a href="<%= users_path %>">Your Profile</a></li>
                 <li><a href="<%= posts_path %>">Your Posts</a></li>
-              <% end %>
-              <li><a href="#">Something else here</a></li>
-              <% if user_signed_in? %>
+                <li><a href="<%= posts_new_path %>">New Post</a></li>
                 <li role="separator" class="divider"></li>
                 <li><a href="<%= edit_user_registration_path %>">Edit Profile</a></li>
                 <li role="separator" class="divider"></li>
                 <li><a href="<%= destroy_user_session_path %>">Logout</a></li>
-              <% end %>
+          <% end %>
             </ul>
           </li>
         </ul>
