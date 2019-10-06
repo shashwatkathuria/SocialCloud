@@ -1,2 +1,27 @@
-<h1>Posts#show</h1>
-<p>Find me in app/views/posts/show.html.erb</p>
+<div class="row" style="margin:5%">
+  <div class="col-sm-12 col-md-12 col-lg-12">
+    <div class="thumbnail" style="background-color:black;">
+      <div class="caption" style="color:white;">
+          <p><span style="color:orange;"><span class="glyphicon glyphicon-picture" aria-hidden="true"></span> <%= @post.image_heading %></span><br> <%= @post.image_caption %></p>
+          <p><a href="#" class="btn btn-default disabledTransparentButton disabled"  role="button"><span class="glyphicon glyphicon-time" aria-hidden="true"></span> Posted <%= time_ago_in_words(@post.time) %> ago</a>
+      </div>
+      <img src="<%= @post.post_image.url(:original) %>" alt="<%= @post.image_caption %>">
+      <div class="caption" style="color:white;">
+        <%= form_for :post,  url: posts_delete_path, html: { class:"navbar-form navbar-left" } do |f| %>
+          <div class="form-group">
+            <input type="hidden" name="deleteID" class="form-control" value="<%= @post.id.to_s %>">
+          </div>
+          <button type="submit" class="btn transparentButton btn-default" >Delete Post&nbsp<span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
+        <% end %>
+        <%= form_for :post,  url: posts_show_path, html: { class:"navbar-form navbar-left" } do |f| %>
+          <div class="form-group">
+            <input type="hidden" name="showID" class="form-control" value="<%= @post.id.to_s %>">
+          </div>
+          <button type="submit" class="btn transparentButton btn-default" >Show Post&nbsp<span class="glyphicon glyphicon-picture" aria-hidden="true"></span></button>
+        <% end %>
+        <br>
+        <br>
+      </div>
+    </div>
+  </div>
+</div>
