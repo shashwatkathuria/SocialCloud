@@ -1,2 +1,40 @@
-<h1>Posts#new</h1>
-<p>Find me in app/views/posts/new.html.erb</p>
+<div class="jumbotron" style="padding-top:1%;margin:10%;margin-top:0%;margin-bottom:0%;background:rgba(255,255,255,0.6);">
+
+<div class="newPostForm" style = "padding:25%;padding-top:0%;padding-bottom:0%">
+
+<%= form_for @post, local: true, url: posts_create_path do |form| %>
+
+  <div class="page-header">
+      <h2>New Post &nbsp<small>Please fill the requested details.</small></h2>
+  </div>
+
+  <div class="form-group">
+
+
+      <span class="glyphicon glyphicon-user" aria-hidden="true"></span>&nbsp<%= form.label :image_heading, "Heading" %>
+      <br>
+      <%= form.text_field :image_heading, class: "form-control", placeholder: "Enter Image Heading" %>
+
+      <span class="glyphicon glyphicon-phone" aria-hidden="true"></span>&nbsp<%= form.label :image_caption, "Caption" %>
+      <br>
+      <%= form.telephone_field :image_caption, class: "form-control", placeholder: "Enter Image Caption" %>
+
+      <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>&nbsp<%= form.label :post_image, "Image File" %>
+      <br>
+      <label class="btn btn-default standardButton">
+                Browser<%= form.file_field :post_image, hidden: "hidden" %>
+      </label>
+
+  </div>
+
+      <%= form.submit class:"btn btn-default center-block standardButton", placeholder: "Create Post" %>
+
+<% end %>
+
+<% if params[:failureMessage] %>
+  <br>
+  <div class="alert alert-danger" style="text-align:center" role="alert"><%= params[:failureMessage] %></div>
+<% end %>
+
+</div>
+</div>
