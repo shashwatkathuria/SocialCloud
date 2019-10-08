@@ -5,7 +5,7 @@
     <h2>Your Profile &nbsp<small>Your information is displayed below.</small></h2>
     </div>
 
-    <p><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Name : <%= current_user.name %></p>
+    <p><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Name : <%= current_user.first_name + " " + current_user.last_name %></p>
     <p><span class="glyphicon glyphicon-earphone" aria-hidden="true"></span> Phone : <%= current_user.phone %></p>
     <p><span class="glyphicon glyphicon-inbox" aria-hidden="true"></span> Email : <%= current_user.email %></p>
     <p><span class="glyphicon glyphicon-certificate" aria-hidden="true"></span> Member Since : <%= time_ago_in_words(current_user.created_at) %></p>
