@@ -1,14 +1,20 @@
 <div class="jumbotron" style="padding:10%;padding-top:1%;margin:10%;margin-top:0%;margin-bottom:0%;background:rgba(255,255,255,0.6);">
 
-  <div class="page-header">
-  <h2>Your Posts &nbsp<small>All of your posts are displayed below.</small></h2>
+  <div class="page-header" style="margin-top:0;text-align:center;">
+      <h2>Your Posts</h2>
+      <h2><small>All of your posts are displayed below.</small></h2>
+      <div class="container center_div">
+        <%= form_for :post,  url: posts_search_path, html: { class:"navbar-form navbar-left" } do |f| %>
+          <div class="form-group" style="text-align:center;">
+            <input type="text" name="searchQuery" class="form-control" placeholder="Search Post">
+          </div>
+          <button type="submit" class="btn standardButton btn-default" >Search &nbsp<span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
+        <% end %>
+      </div>
   </div>
-  <%= form_for :post,  url: posts_search_path, html: { class:"navbar-form navbar-left" } do |f| %>
-    <div class="form-group">
-      <input type="text" name="searchQuery" class="form-control" placeholder="Search post">
-    </div>
-    <button type="submit" class="btn transparentButton btn-default" >Search &nbsp<span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
-  <% end %>
+
+
+
 
   <% if @posts.length >= 1 %>
     <% for post in @posts %>
