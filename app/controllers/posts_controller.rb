@@ -1,7 +1,7 @@
 class PostsController < ApplicationController
   def index
     if current_user
-      @posts = Post.where(user_id:current_user.id).order_by(time: :desc).to_a
+      @posts = Post.where(user_id:current_user.id).order(:time=> 'asc').to_a
     else
       redirect_to '\login'
     end
@@ -25,12 +25,19 @@ class PostsController < ApplicationController
 
   def search
       @searchQuery = params[:searchQuery]
-      @posts = Post.any_of({image_heading: /#{@searchQuery}/i}, {image_caption: /#{@searchQuery}/i}).order_by(time: :desc).to_a
+      @posts = Post.where(user_id:current_user.id).any_of({image_heading: /#{@searchQuery}/i}, {image_caption: /#{@searchQuery}/i}).order(:time=> 'asc').to_a
   end
 
   def delete
       @deleteID = params[:deleteID]
-      Post.find(@deleteID).delete
-      redirect_to posts_path
+      @post = Post.find(@deleteID)
+      if @post.user_id == current_user.id
+        @post.delete
+        flash[:notice] = "Post successfully deleted."
+        redirect_to posts_path
+      else
+        flash[:alert] = "You are not authorized to delete this post."
+        redirect_to root_path
+      end
   end
 end
