@@ -1,15 +1,15 @@
 class PostsController < ApplicationController
   def index
-    if current_user
-      @posts = Post.where(user_id:current_user.id).order(:time=> 'asc').to_a
-    else
-      redirect_to '\login'
-    end
+    @posts = Post.where(user_id:current_user.id).order_by(time: :desc)
   end
 
   def show
-    @showID = params[:showID]
-    @post = Post.find(@showID)
+      @post = Post.find(params[:id])
+      if @post.user_id != current_user.id
+        flash[:alert] = "Invalid post."
+        redirect_to posts_path
+      end
+
   end
 
   def new
