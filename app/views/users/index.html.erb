@@ -1,14 +1,20 @@
 <div class="jumbotron" style="padding:10%;padding-top:1%;margin:10%;margin-top:0%;margin-bottom:0%;background:rgba(255,255,255,0.6);">
 
   <% if current_user %>
-    <div class="page-header">
-    <h2>Your Profile &nbsp<small>Your information is displayed below.</small></h2>
+    <div class="page-header" style="margin-top:0;text-align:center;">
+      <h2><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Your Profile<br><small>Your information is displayed below.</small></h2>
     </div>
 
-    <p><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Name : <%= current_user.first_name + " " + current_user.last_name %></p>
-    <p><span class="glyphicon glyphicon-earphone" aria-hidden="true"></span> Phone : <%= current_user.phone %></p>
-    <p><span class="glyphicon glyphicon-inbox" aria-hidden="true"></span> Email : <%= current_user.email %></p>
-    <p><span class="glyphicon glyphicon-certificate" aria-hidden="true"></span> Member Since : <%= time_ago_in_words(current_user.created_at) %></p>
+    <div class="well well-lg">
+      <p><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Name : <%= current_user.first_name + " " + current_user.last_name %></p>
+      <hr>
+      <p><span class="glyphicon glyphicon-earphone" aria-hidden="true"></span> Phone : <%= current_user.phone %></p>
+      <hr>
+      <p><span class="glyphicon glyphicon-inbox" aria-hidden="true"></span> Email : <%= current_user.email %></p>
+      <hr>
+      <p><span class="glyphicon glyphicon-certificate" aria-hidden="true"></span> Member Since : <%= time_ago_in_words(current_user.created_at) %></p>
+    </div>
+
 
   <% else %>
     <br>
