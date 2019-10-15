@@ -15,6 +15,15 @@
   .navbar-transparent li a:hover {
     color: black;
   }
+  .well-lg hr
+  {
+    border-color:yellow;
+  }
+  .well-lg
+  {
+    background-color:black !important;
+    color:orange !important;
+  }
   .navbar-transparent li a:active {
     color: black;
   }
@@ -89,6 +98,16 @@
     color: blue !important;
     text-decoration: none;
   }
+  .whiteLink
+  {
+    color:white !important;
+    text-decoration: none;
+  }
+  .whiteLink:hover
+  {
+    color:orange !important;
+    text-decoration: none;
+  }
 
   </style>
   <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
@@ -145,22 +164,22 @@
         <ul class="nav navbar-nav">
           <% if user_signed_in? %>
             <li class="active" style="color:white;"><a href="<%= users_path %>">Hi, <strong><%= current_user.first_name %></strong> !</a></li>
-            <li class="active" style="color:white;"><a href="<%= posts_path %>"> <span class="glyphicon glyphicon-camera" aria-hidden="true"></span> Your Posts </a></li>
+            <li class="active" style="color:white;"><a href="<%= posts_path %>"> <span class="glyphicon glyphicon-picture" aria-hidden="true"></span> Your Posts </a></li>
           <% else %>
-            <li class="active" style="color:white;"><a href="<%= new_user_session_path %>">Login <span class="sr-only">(current)</span></a></li>
-            <li><a href="<%= new_user_registration_path %>">Sign Up</a></li>
+            <li class="active" style="color:white;"><a href="<%= new_user_session_path %>"><span class="glyphicon glyphicon-log-in" aria-hidden="true"></span> Login <span class="sr-only">(current)</span></a></li>
+            <li><a href="<%= new_user_registration_path %>"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Sign Up</a></li>
           <% end %>
           <% if user_signed_in? %>
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-align-justify" aria-hidden="true"></span> Options <span class="caret"></span></a>
             <ul class="dropdown-menu">
-                <li><a href="<%= users_path %>">Your Profile</a></li>
-                <li><a href="<%= posts_path %>">Your Posts</a></li>
-                <li><a href="<%= posts_new_path %>">New Post</a></li>
+                <li><a href="<%= users_path %>"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Your Profile</a></li>
+                <li><a href="<%= posts_path %>"><span class="glyphicon glyphicon-picture" aria-hidden="true"></span> Your Posts</a></li>
+                <li><a href="<%= posts_new_path %>"><span class="glyphicon glyphicon-camera" aria-hidden="true"></span> New Post</a></li>
                 <li role="separator" class="divider"></li>
-                <li><a href="<%= edit_user_registration_path %>">Edit Profile</a></li>
+                <li><a href="<%= edit_user_registration_path %>"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span> Edit Profile</a></li>
                 <li role="separator" class="divider"></li>
-                <li><a href="<%= destroy_user_session_path %>">Logout</a></li>
+                <li><a href="<%= destroy_user_session_path %>"><span class="glyphicon glyphicon-log-out" aria-hidden="true"></span> Logout</a></li>
           <% end %>
             </ul>
           </li>
@@ -177,7 +196,7 @@
           <% if user_signed_in? %>
             <li><a class="dontHighlightNavBarLink" href="#">Logged in as <strong><%= current_user.email %></strong>.</a></li>
             <% end %>
-          <li><a href="<%= contact_us_path %>">Contact Us</a></li>
+          <li><a href="<%= contact_us_path %>"><span class="glyphicon glyphicon-send" aria-hidden="true"></span> Contact Us</a></li>
         </ul>
       </div>
     </div>
