@@ -21,9 +21,11 @@
 
       <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>&nbsp<%= form.label :post_image, "Image File" %>
       <br>
-      <label class="btn btn-default standardButton">
-                <span class="glyphicon glyphicon-upload" aria-hidden="true"></span> Upload Image<%= form.file_field :post_image, hidden: "hidden", onchange:"readURL(this);" %>
-      </label>
+      <div class="col-md-4 col-md-offset-4">
+        <label class="btn btn-default standardButton center-block">
+                  <span class="glyphicon glyphicon-upload" aria-hidden="true"></span> Choose Image<%= form.file_field :post_image, hidden: "hidden", onchange:"readURL(this);" %>
+        </label>
+      </div>
       <br>
       <br>
       <div class="row">
@@ -36,8 +38,8 @@
 
   </div>
 
-      <div class="text-center">
-        <label class="btn btn-default standardButton">
+      <div class="text-center col-md-4 col-md-offset-4">
+        <label class="btn btn-default standardButton center-block">
           <span class="glyphicon glyphicon-cloud-upload" aria-hidden="true"></span> Create Post <%= form.submit hidden: 'hidden' %>
         </label>
       </div>

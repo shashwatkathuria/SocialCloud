@@ -1,7 +1,7 @@
 <div class="jumbotron" style="padding:10%;padding-top:1%;margin:10%;margin-top:0%;margin-bottom:0%;background:rgba(255,255,255,0.6);">
 
   <div class="page-header" style="margin-top:0;text-align:center;">
-      <h2>Your Posts</h2>
+      <h2><span class="glyphicon glyphicon-picture" aria-hidden="true"></span> Your Posts</h2>
       <h2><small>All of your posts are displayed below.</small></h2>
       <div class="container center_div">
         <%= form_for :post,  url: posts_search_path, html: { class:"navbar-form navbar-left" } do |f| %>
@@ -13,16 +13,13 @@
       </div>
   </div>
 
-
-
-
   <% if @posts.length >= 1 %>
     <% for post in @posts %>
       <div class="row">
         <div class="col-sm-12 col-md-12 col-lg-12">
           <div class="thumbnail" style="background-color:black;">
-            <div class="caption" style="color:white;">
-                <p><span style="color:orange;"><span class="glyphicon glyphicon-picture" aria-hidden="true"></span> <%= post.image_heading %></span><br> <%= post.image_caption %></p>
+            <div class="caption" style="color:white;text-align:center;">
+                <h4><span style="color:orange;"><span class="glyphicon glyphicon-picture" aria-hidden="true"></span> <%= post.image_heading %></span><hr> <%= post.image_caption %></h4>
                 <p><a href="#" class="btn btn-default disabledTransparentButton disabled"  role="button"><span class="glyphicon glyphicon-time" aria-hidden="true"></span> Posted <%= time_ago_in_words(post.time) %> ago</a>
             </div>
             <img src="<%= post.post_image.url(:original) %>" alt="<%= post.image_caption %>">
@@ -31,16 +28,9 @@
                 <div class="form-group">
                   <input type="hidden" name="deleteID" class="form-control" value="<%= post.id.to_s %>">
                 </div>
-                <button type="submit" class="btn transparentButton btn-default" >Delete Post&nbsp<span class="glyphicon glyphicon-remove" style="color:white;" aria-hidden="true"></span></button>
+                <button type="submit" class="btn transparentButton btn-default" >Delete Post&nbsp<span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
               <% end %>
-              <%= form_for :post,  url: posts_show_path, html: { class:"navbar-form navbar-left" } do |f| %>
-                <div class="form-group">
-                  <input type="hidden" name="showID" class="form-control" value="<%= post.id.to_s %>">
-                </div>
-                <button type="submit" class="btn transparentButton btn-default" >Show Post&nbsp<span class="glyphicon glyphicon-picture" aria-hidden="true"></span></button>
-              <% end %>
-              <br>
-              <br>
+                <a href="<%= post_path(post) %>" class="btn transparentButton btn-default" style="margin-top:8px;margin-bottom:8px;" role="button">Show Post <span class="glyphicon glyphicon-picture" aria-hidden="true"></span></a>
             </div>
           </div>
         </div>
