@@ -27,7 +27,7 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
   root 'welcome#index'
   post '/search', to: "users#search"
-  get '/search', :to => redirect('/404.html')
+  get '/search/:searchQuery', to: "users#search"
 
 
   # post '/users' => 'users#create'
