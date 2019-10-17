@@ -13,11 +13,20 @@ class UsersController < ApplicationController
     end
 
     def search
-        if params[:searchQuery] == ""
-          flash[:alert] = "No search query entered."
-          redirect_to root_path
+        if request.method == "POST"
+          if params[:searchQuery] == ""
+            flash[:alert] = "No search query entered."
+            redirect_to root_path
+          else
+            redirect_to url_for action: "search", controller: "users", searchQuery: params[:searchQuery]
+          end
         else
-          @users = User.where("first_name like ? or last_name like ?", "%" + params[:searchQuery] + "%", "%" + params[:searchQuery] + "%")
+          if params[:searchQuery] == ""
+            flash[:alert] = "No search query entered."
+            redirect_to root_path
+          else
+            @users = User.where("first_name like ? or last_name like ?", "%" + params[:searchQuery] + "%", "%" + params[:searchQuery] + "%")
+          end
         end
     end
 
