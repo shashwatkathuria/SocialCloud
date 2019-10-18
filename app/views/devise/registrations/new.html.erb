@@ -6,8 +6,14 @@
 
   <div class="field">
     <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
-    <%= f.label :name %><br />
-    <%= f.text_field :name, autofocus: true, autocomplete: "name", class: "form-control", placeholder:"Enter Name" %>
+    <%= f.label :first_name %><br />
+    <%= f.text_field :first_name, autofocus: true, autocomplete: "first-name", class: "form-control", placeholder:"Enter First Name" %>
+  </div>
+
+  <div class="field">
+    <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+    <%= f.label :last_name %><br />
+    <%= f.text_field :last_name, autofocus: true, autocomplete: "last-name", class: "form-control", placeholder:"Enter Last Name" %>
   </div>
 
   <div class="field">
