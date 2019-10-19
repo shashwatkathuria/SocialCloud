@@ -4,11 +4,13 @@
   <h2>Search Results &nbsp<small></small></h2>
   </div>
   <% for user in @users %>
-  <div class="jumbotron" style="color:white;padding:5%;margin-top:0%;background:rgba(0,0,0,0.6);">
-    <p>Name : <%= user.first_name + " " + user.last_name %></p>
-    <p>Phone : <%= user.phone %></p>
-    <p>Email : <%= user.email %></p>
-  </div>
+    <div class="well well-lg">
+      <p><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Name : <%= user.first_name + " " + user.last_name %></p>
+      <hr>
+      <p><span class="glyphicon glyphicon-earphone" aria-hidden="true"></span> Phone : <%= user.phone %></p>
+      <hr>
+      <p><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span> Email : <%= user.email %></p>
+    </div>
 
   <% end %>
 
