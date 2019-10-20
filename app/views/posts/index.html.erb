@@ -15,26 +15,7 @@
 
   <% if @posts.length >= 1 %>
     <% for post in @posts %>
-      <div class="row">
-        <div class="col-sm-12 col-md-12 col-lg-12">
-          <div class="thumbnail">
-            <div class="caption">
-                <h4><span style="color:orange;"><span class="glyphicon glyphicon-picture" aria-hidden="true"></span> <%= post.image_heading %></span><hr> <%= post.image_caption %></h4>
-                <p><a href="#" class="btn btn-default disabledTransparentButton disabled"  role="button"><span class="glyphicon glyphicon-time" aria-hidden="true"></span> Posted <%= time_ago_in_words(post.time) %> ago</a>
-            </div>
-            <img src="<%= post.post_image.url(:original) %>" alt="<%= post.image_caption %>">
-            <div class="caption">
-              <%= form_for :post,  url: posts_delete_path, html: { class:"navbar-form navbar-left" } do |f| %>
-                <div class="form-group">
-                  <input type="hidden" name="deleteID" class="form-control" value="<%= post.id.to_s %>">
-                </div>
-                <button type="submit" class="btn transparentButton btn-default" >Delete Post&nbsp<span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
-              <% end %>
-                <a href="<%= post_path(post) %>" class="btn transparentButton btn-default" style="margin-top:8px;margin-bottom:8px;" role="button">Show Post <span class="glyphicon glyphicon-picture" aria-hidden="true"></span></a>
-            </div>
-          </div>
-        </div>
-      </div>
+      <%= render template: 'layouts/post', :locals => { post: post, index: true, search: false, show: false } %>
     <% end %>
   <% else %>
     Oops, looks like you have no posts till now!

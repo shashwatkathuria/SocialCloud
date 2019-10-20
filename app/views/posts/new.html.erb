@@ -4,14 +4,14 @@
 
 <%= form_for @post, local: true, url: posts_create_path do |form| %>
 
-  <div class="page-header">
-      <h2>New Post &nbsp<small>Please fill the requested details.</small></h2>
+  <div class="page-header" style="text-align:center;">
+      <h2><span class="glyphicon glyphicon-camera" aria-hidden="true"></span> New Post &nbsp</h2>
   </div>
 
   <div class="form-group">
 
 
-      <span class="glyphicon glyphicon-user" aria-hidden="true"></span>&nbsp<%= form.label :image_heading, "Heading" %>
+      <span class="glyphicon glyphicon-hand-right" aria-hidden="true"></span>&nbsp<%= form.label :image_heading, "Heading" %>
       <br>
       <%= form.text_field :image_heading, class: "form-control", placeholder: "Enter Image Heading" %>
 
