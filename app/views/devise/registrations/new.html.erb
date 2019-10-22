@@ -29,6 +29,12 @@
   </div>
 
   <div class="field">
+    <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+    <%= f.label :username %><br />
+    <%= f.text_field :username, autofocus: true, autocomplete: "username", class: "form-control", placeholder:"Enter User Name" %>
+  </div>
+
+  <div class="field">
     <span class="glyphicon glyphicon-lock" aria-hidden="true"></span>
     <%= f.label :password %>
     <% if @minimum_password_length %>

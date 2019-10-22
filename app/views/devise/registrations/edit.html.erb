@@ -25,6 +25,12 @@
   </div>
 
   <div class="field">
+    <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+    <%= f.label :username %><br />
+    <%= f.text_field :username, autofocus: true, autocomplete: "username", class: "form-control", placeholder:"Enter User Name" %>
+  </div>
+
+  <div class="field">
     <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
     <%= f.label :email %><br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %>
@@ -68,10 +74,8 @@
 <br>
 <br>
 <hr>
-<h3>Cancel my account</h3>
 
-
-<p>Unhappy? <%= link_to raw("<span class=\"glyphicon glyphicon-remove-circle\" aria-hidden=\"true\"></span>") + " Cancel my account",
+<p><%= link_to raw("<span class=\"glyphicon glyphicon-remove-circle\" aria-hidden=\"true\"></span>") + " Unhappy? Delete Account",
           registration_path(resource_name),
           data: { confirm: "Are you sure?" },
           method: :delete,
