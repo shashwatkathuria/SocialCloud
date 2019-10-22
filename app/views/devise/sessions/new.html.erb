@@ -4,8 +4,8 @@
 <hr>
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control", placeholder: "Enter Email Address" %>
+    <%= f.label :login %><br />
+    <%= f.text_field :login, autofocus: true, autocomplete: "email", class: "form-control", placeholder: "Enter Username or Email Address" %>
   </div>
 
   <div class="field">
