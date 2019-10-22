@@ -4,134 +4,8 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <style media="screen">
-    .navbar-transparent li a {
-    color: white;
-  }
-  .thumbnail
-  {
-      background-color:black !important;
-  }
-  img
-  {
-      border-radius:10px !important;
-  }
-  .caption
-  {
-      color:white !important;
-      text-align:center !important;
-  }
-  .center_div{
-    margin: 0 auto !important;
-    width:44% !important;/* value of your choice which suits your alignment */
-  }
-  .navbar-transparent li a:hover {
-    color: black;
-  }
-  .well-lg hr
-  {
-    border-color:yellow;
-  }
-  .well-lg
-  {
-    background-color:black !important;
-    color:orange !important;
-  }
-  .well-sm hr
-  {
-    border-color:yellow;
-  }
-  .well-sm
-  {
-    background-color:black !important;
-    color:orange !important;
-  }
-  .navbar-transparent li a:active {
-    color: black;
-  }
-  .jumbotron {
-    border-radius: 30px !important;
-  }
-  [hidden] {
-  display: none !important;
-}
-  .thumbnail {
-    border-radius: 10px !important;
-  }
-  .dontHighlightNavBarLink:hover
-  {
-    color:white !important;
-    background-color:transparent !important;
-  }
-  #brandLogo
-  {
-    color:white;
-  }
-  #brandLogo:hover
-  {
-      color:orange;
-  }
-  .transparentButton
-  {
-    color:white !important;
-    background-color:transparent !important;
-  }
-  .transparentButton:hover
-  {
-    color:orange !important;
-    background-color:transparent !important;
-  }
-  .disabledTransparentButton
-  {
-    color:orange !important;
-    background-color:transparent !important;
-  }
-  .navbar-toggle .icon-bar
-  {
-    background-color: white;
-  }
-  .contactUsButton
-  {
-    color:black !important;
-    background-color:orange !important;
-  }
-  .contactUsButton:hover
-  {
-    color:gray !important;
-    background-color:orange !important;
-  }
-  .standardButton
-  {
-    color:black !important;
-    background-color:orange !important;
-  }
-  .standardButton:hover
-  {
-    color:white !important;
-    background-color:orange !important;
-  }
-  .buttonLink
-  {
-    color: black !important;
-    text-decoration: none;
-  }
-  .buttonLink:hover
-  {
-    color: blue !important;
-    text-decoration: none;
-  }
-  .whiteLink
-  {
-    color:white !important;
-    text-decoration: none;
-  }
-  .whiteLink:hover
-  {
-    color:orange !important;
-    text-decoration: none;
-  }
-
-  </style>
+  <!-- <style media="screen"> -->
+  <!-- </style> -->
   <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
   <title>SocialCloud</title>
 
@@ -148,20 +22,6 @@
     <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
   <![endif]-->
-  <script type="text/javascript">
-    function readURL(input) {
-        if (input.files && input.files[0]) {
-            var reader = new FileReader();
-
-            reader.onload = function (e) {
-                $('#selectedImage')
-                    .attr('src', e.target.result);
-            };
-
-            reader.readAsDataURL(input.files[0]);
-        }
-    }
-  </script>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
