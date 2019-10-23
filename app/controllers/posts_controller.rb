@@ -9,7 +9,6 @@ class PostsController < ApplicationController
         flash[:alert] = "Invalid post."
         redirect_to posts_path
       end
-
   end
 
   def new
@@ -24,8 +23,12 @@ class PostsController < ApplicationController
   end
 
   def search
+    if request.method == "POST"
+      redirect_to url_for action: "search", controller: "posts", searchQuery: params[:searchQuery]
+    elsif request.method == "GET"
       @searchQuery = params[:searchQuery]
-      @posts = Post.where(user_id:current_user.id).any_of({image_heading: /#{@searchQuery}/i}, {image_caption: /#{@searchQuery}/i}).order(:time=> 'asc').to_a
+      @posts = Post.where(user_id:current_user.id).any_of({image_heading: /#{@searchQuery}/i}, {image_caption: /#{@searchQuery}/i}).order(:time=> 'asc')
+    end
   end
 
   def delete

@@ -5,7 +5,9 @@ Rails.application.routes.draw do
 
   post 'posts/create'
 
+  get 'posts/search/:searchQuery', to: "posts#search"
   post 'posts/search'
+  get 'posts/search', to: "welcome#index"
 
   post 'posts/delete'
 
