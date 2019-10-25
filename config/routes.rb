@@ -31,7 +31,7 @@ Rails.application.routes.draw do
   post '/search', to: "users#search"
   get '/search/:searchQuery', to: "users#search"
 
-
+  get 'users/:username', to: "users#show_profile"
   # post '/users' => 'users#create'
 
   # Example of regular route:
