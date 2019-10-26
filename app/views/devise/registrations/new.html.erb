@@ -1,6 +1,7 @@
 <div class="jumbotron" style="padding:10%;padding-top:1%;margin:10%;margin-top:0%;margin-bottom:0%;background:rgba(255,255,255,0.6);">
-<h2>Sign Up</h2>
-<hr>
+<div class="page-header" style="margin-top:0;text-align:center;">
+  <h2><span class="glyphicon glyphicon-new-window" aria-hidden="true"></span> Sign Up</h2>
+</div>
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
 
