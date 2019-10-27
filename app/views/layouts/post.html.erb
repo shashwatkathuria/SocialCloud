@@ -8,8 +8,8 @@
       <div class="caption">
           <% if index %>
             <h4><span style="color:orange;"><span class="glyphicon glyphicon-picture" aria-hidden="true"></span> <%= post.image_heading %></span><hr> <%= post.image_caption %></h4>
-          <% elsif search %>
-            <p><span style="color:orange;"><span class="glyphicon glyphicon-picture" aria-hidden="true"></span> <%= post.image_heading %></span><br> <%= post.image_caption %></p>
+          <% elsif search || show_profile %>
+            <h3><span style="color:orange;"><span class="glyphicon glyphicon-picture" aria-hidden="true"></span> <%= post.image_heading %></span><hr> <%= post.image_caption %></h3>
           <% elsif show %>
             <h3><span style="color:orange;"><span class="glyphicon glyphicon-picture" aria-hidden="true"></span> <%= @post.image_heading %></span><hr> <%= @post.image_caption %></h3>
           <% end %>
@@ -17,23 +17,25 @@
       </div>
       <img src="<%= post.post_image.url(:original) %>" alt="<%= post.image_caption %>">
       <div class="caption">
-        <% if show %>
-        <div class="col-md-5 col-md-offset-5">
-        <% end %>
-          <%= form_for :post,  url: posts_delete_path, html: { class:"navbar-form navbar-left" }, data: {confirm: "Are you sure that you want to delete this post?"} do |f| %>
-            <div class="form-group">
-              <input type="hidden" name="deleteID" class="form-control" value="<%= post.id.to_s %>">
-            </div>
-            <button type="submit" class="btn transparentButton btn-default" >Delete Post&nbsp<span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
+        <% if !show_profile %>
+          <% if show %>
+          <div class="col-md-5 col-md-offset-5">
           <% end %>
-        <% if show %>
-          </div>
+            <%= form_for :post,  url: posts_delete_path, html: { class:"navbar-form navbar-left" }, data: {confirm: "Are you sure that you want to delete this post?"} do |f| %>
+              <div class="form-group">
+                <input type="hidden" name="deleteID" class="form-control" value="<%= post.id.to_s %>">
+              </div>
+              <button type="submit" class="btn transparentButton btn-default" >Delete Post&nbsp<span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
+            <% end %>
+          <% if show %>
+            </div>
+            <br>
+            <br>
+          <% end %>
+          <% if not show %>
+            <a href="<%= post_path(post) %>" class="btn transparentButton btn-default" style="margin-top:8px;margin-bottom:8px;" role="button">Show Post <span class="glyphicon glyphicon-picture" aria-hidden="true"></span></a>
+          <% end %>
         <% end %>
-        <% if not show %>
-          <a href="<%= post_path(post) %>" class="btn transparentButton btn-default" style="margin-top:8px;margin-bottom:8px;" role="button">Show Post <span class="glyphicon glyphicon-picture" aria-hidden="true"></span></a>
-        <% end %>
-        <br>
-        <br>
       </div>
     </div>
   </div>

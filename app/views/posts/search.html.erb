@@ -5,7 +5,7 @@
   </div>
   <% if @posts.length >= 1 %>
     <% for post in @posts %>
-    <%= render template: 'layouts/post', :locals => { post: post, index: false, search: true, show: false } %>
+    <%= render template: 'layouts/post', :locals => { post: post, index: false, search: true, show: false, show_profile: false } %>
     <% end %>
   <% else %>
     Sorry, nothing is matching with your search query!
