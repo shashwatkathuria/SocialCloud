@@ -1,0 +1,29 @@
+<div class="jumbotron" style="padding:10%;padding-top:1%;margin:10%;margin-top:0%;margin-bottom:0%;background:rgba(255,255,255,0.6);">
+
+<% if @user != nil%>
+  <div class="well well-lg" >
+        <h2><span class="glyphicon glyphicon-picture" aria-hidden="true"></span> <%= @user.first_name + " " + @user.last_name %></h2>
+        <hr>
+        <h2><small>@<%= @user.username %></small></h2>
+  </div>
+
+  <% if @posts.length >= 1 %>
+    <% for post in @posts %>
+      <%= render template: 'layouts/post', :locals => { post: post, index: false, search: false, show: false, show_profile: true } %>
+    <% end %>
+  <% else %>
+    Oops, looks like @<%= @@user.username %> has no posts till now!
+  <% end %>
+
+<% else %>
+
+  <div class="page-header" style="margin-top:0;text-align:center;">
+      <h2><span class="glyphicon glyphicon-picture" aria-hidden="true"></span> Oops! No one found with the username.</h2>
+      <h2><small></small></h2>
+  </div>
+
+<% end %>
+
+
+
+</div>
