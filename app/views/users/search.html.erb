@@ -1,15 +1,12 @@
 <div class="jumbotron" style="padding:10%;padding-top:1%;margin:10%;margin-top:0%;margin-bottom:0%;background:rgba(255,255,255,0.6);">
 
-  <div class="page-header">
-  <h2>Search Results &nbsp<small></small></h2>
+  <div class="page-header" style="text-align:center;">
+  <h2><span class="glyphicon glyphicon-list" aria-hidden="true"></span> Search Results </h2>
   </div>
   <% for user in @users %>
     <div class="well well-lg">
-      <p><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Name : <%= user.first_name + " " + user.last_name %></p>
-      <hr>
-      <p><span class="glyphicon glyphicon-earphone" aria-hidden="true"></span> Phone : <%= user.phone %></p>
-      <hr>
-      <p><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span> Email : <%= user.email %></p>
+          <h2><span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span> <%= user.first_name + " " + user.last_name %> <small>@<%= user.username %></small></h2>
+          <a href="<%= url_for action:"show_profile", controller: "users", username: user.username %>" class="btn transparentButton btn-default center-block" style="margin-top:8px;margin-bottom:8px;" role="button">Show <%= user.first_name + "'s'" %> Profile <span class="glyphicon glyphicon-hand-right" aria-hidden="true"></span></a>
     </div>
 
   <% end %>
