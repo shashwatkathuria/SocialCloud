@@ -8,6 +8,8 @@ Rails.application.routes.draw do
   get 'posts/search/:searchQuery', to: "posts#search"
   post 'posts/search'
   get 'posts/search', to: "welcome#index"
+  get 'users/follow/:username', to: "users#follow"
+  get 'users/unfollow/:username', to: "users#unfollow"
 
   post 'posts/delete'
 
