@@ -5,6 +5,14 @@
         <h2><span class="glyphicon glyphicon-picture" aria-hidden="true"></span> <%= @user.first_name + " " + @user.last_name %></h2>
         <hr>
         <h2><small>@<%= @user.username %></small></h2>
+        <br>
+        <% if current_user && current_user.id != @user.id %>
+          <% if current_user.following.include? @user.id %>
+            <a href="<%= url_for action:"unfollow", controller: "users", username: @user.username %>" class="btn transparentButton btn-default center-block" style="margin-top:8px;margin-bottom:8px;" role="button">Unfollow</a>
+          <% else %>
+            <a href="<%= url_for action:"follow", controller: "users", username: @user.username %>" class="btn transparentButton btn-default center-block" style="margin-top:8px;margin-bottom:8px;" role="button">Follow</a>
+          <% end %>
+        <% end %>
   </div>
 
   <% if @posts.length >= 1 %>
@@ -12,7 +20,7 @@
       <%= render template: 'layouts/post', :locals => { post: post, index: false, search: false, show: false, show_profile: true } %>
     <% end %>
   <% else %>
-    Oops, looks like @<%= @@user.username %> has no posts till now!
+    Oops, looks like @<%= @user.username %> has no posts till now!
   <% end %>
 
 <% else %>
