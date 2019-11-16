@@ -35,4 +35,8 @@ class User < ApplicationRecord
     end
   end
 
+  def self.fields
+    self.column_names
+  end
+
 end
