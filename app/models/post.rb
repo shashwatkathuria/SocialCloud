@@ -8,4 +8,7 @@ class Post
 
   has_mongoid_attached_file :post_image
   validates_attachment_content_type :post_image, :content_type => ["image/jpg", "image/jpeg", "image/png", "image/gif"]
+  def self.column_names
+    self.attribute_names
+  end
 end
