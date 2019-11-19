@@ -1,6 +1,0 @@
-<div ng-if="$ctrl.searchResults.search_results.length > 0" class="well well-lg" ng-repeat="user in $ctrl.searchResults.search_results">
-      <h2><span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span> {{ user.first_name + " " + user.last_name }} <small>@{{ user.username }}</small></h2>
-      <a href="{{ user.show_profile }}" class="btn transparentButton btn-default center-block" style="margin-top:8px;margin-bottom:8px;" role="button">Show {{ user.first_name + "'s" }}  Profile <span class="glyphicon glyphicon-hand-right" aria-hidden="true"></span></a>
-</div>
-
-<p ng-if="$ctrl.searchResults.search_results.length == 0">No search results found.</p>
