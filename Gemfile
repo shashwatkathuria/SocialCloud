@@ -28,7 +28,6 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '>= 0.4.0', group: :doc
 
 gem 'angularjs-rails'
-gem 'bootstrap3-rails', :git => 'https://github.com/benjamincanac/bootstrap3-rails.git'
 
 gem 'devise'
 # Use ActiveModel has_secure_password

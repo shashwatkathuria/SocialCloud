@@ -1,10 +1,3 @@
-GIT
-  remote: https://github.com/benjamincanac/bootstrap3-rails.git
-  revision: 84ce32d7a6e88a31f96d22a2de9dc73f33635545
-  specs:
-    bootstrap3-rails (3.2.0)
-      rails (>= 4.0.0)
-
 GEM
   remote: https://rubygems.org/
   specs:
@@ -321,7 +314,6 @@ PLATFORMS
 
 DEPENDENCIES
   angularjs-rails
-  bootstrap3-rails!
   byebug
   capybara
   capybara-screenshot
