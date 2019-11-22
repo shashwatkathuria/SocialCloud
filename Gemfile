@@ -42,6 +42,7 @@ gem "mongoid-paperclip", :require => "mongoid_paperclip"
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
+  gem "factory_bot_rails"
 end
 
 group :development do
@@ -57,5 +58,6 @@ group :test do
   gem 'mongoid-rspec'
   gem 'shoulda-matchers'
   gem 'rails-controller-testing'
-  # gem 'database_cleaner'
+  gem 'database_cleaner'
+  gem 'faker'
 end
