@@ -16,10 +16,6 @@ class UsersController < ApplicationController
         end
     end
 
-    def show
-        @user = User.find(params[:id])
-    end
-
     def follow
 
       @user = User.where(username: params[:username]).first
@@ -84,7 +80,10 @@ class UsersController < ApplicationController
             redirect_to url_for action: "search", controller: "users", searchQuery: params[:searchQuery]
           end
         else
-          if params[:searchQuery] == ""
+          if params[:searchQuery] == nil
+            params[:searchQuery] = ""
+            @users = User.where("first_name like ? or last_name like ? or username like ?", "%" + params[:searchQuery] + "%", "%" + params[:searchQuery] + "%", "%" + params[:searchQuery] + "%")
+          elsif params[:searchQuery] == ""
             flash[:alert] = "No search query entered."
             redirect_to root_path
           else
