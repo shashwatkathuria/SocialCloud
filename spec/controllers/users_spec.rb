@@ -3,12 +3,15 @@ require 'mongoid_paperclip'
 require 'paperclip/matchers'
 require 'rails_helper'
 require 'shoulda/matchers'
+DatabaseCleaner.strategy = :transaction
+DatabaseCleaner.clean_with(:truncation)
 
 RSpec.describe UsersController, type: :controller do
   describe 'GET #index' do
     # render_views
     # render_views -- To also include render html alongwith response
     before(:all) {
+
       Faker::Config.random = Random.new(2)
       @user1 = create(:user1)
       @user2 = create(:user2)
@@ -108,3 +111,6 @@ RSpec.describe UsersController, type: :controller do
     end
   end
 end
+
+DatabaseCleaner.strategy = :transaction
+DatabaseCleaner.clean_with(:truncation)
