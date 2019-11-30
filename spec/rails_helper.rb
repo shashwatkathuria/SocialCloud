@@ -13,6 +13,8 @@ require 'devise'
 RSpec.configure do |config|
   # For Devise > 4.1.1
   config.include Devise::Test::ControllerHelpers, :type => :controller
+  config.include Devise::Test::ControllerHelpers, :type => :view
+  config.include Devise::Test::IntegrationHelpers, :type => :feature
   # Use the following instead if you are on Devise <= 4.1.1
   # config.include Devise::TestHelpers, :type => :controller
 end
@@ -85,3 +87,18 @@ end
 
 Mongoid.load!(File.expand_path('mongoid.yml', './config'))
 Mongo::Logger.logger.level = Logger::FATAL
+
+Mongoid.purge!
+
+require 'support/factory_bot'
+
+RSpec.configure do |config|
+
+  config.before(:suite) do
+    DatabaseCleaner.strategy = :transaction
+    DatabaseCleaner.clean_with(:truncation)
+  end
+
+end
+
+Paperclip.options[:log] = false
