@@ -42,8 +42,8 @@ RSpec.describe User, type: :model do
     context 'Checking Field Values ' do
       it { expect(@user1.first_name).to eq Faker::Name.first_name }
       it { expect(@user1.last_name).to eq Faker::Name.last_name }
-      it { expect(@user1.phone).to eq Faker::PhoneNumber.phone_number }
       it { expect(@user1.email).to eq Faker::Internet.email }
+      it { expect(@user1.phone).to eq Faker::PhoneNumber.phone_number }
       it { expect(@user1.username).to eq Faker::Internet.username }
     end
     context 'Checking Password' do
@@ -55,17 +55,18 @@ RSpec.describe User, type: :model do
     before(:all){
       Faker::Config.random = Random.new(2)
       @user2 = create(:user2)
+      p @user2
       Faker::Config.random = Random.new(2)
     }
-    # context 'Checking Field Values ' do
+    context 'Checking Field Values ' do
       it { expect(@user2.first_name).to eq Faker::Name.first_name }
       it { expect(@user2.last_name).to eq Faker::Name.last_name }
-      it { expect(@user2.phone).to eq Faker::PhoneNumber.phone_number }
       it { expect(@user2.email).to eq Faker::Internet.email }
+      it { expect(@user2.phone).to eq Faker::PhoneNumber.phone_number }
       it { expect(@user2.username).to eq Faker::Internet.username }
-    # end
-    # context 'Checking Password' do
+    end
+    context 'Checking Password' do
       it { expect(@user2.valid_password?('password2')).to be_truthy }
-    # end
+    end
   end
 end
