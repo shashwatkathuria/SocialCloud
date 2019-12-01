@@ -55,7 +55,6 @@ RSpec.describe User, type: :model do
     before(:all){
       Faker::Config.random = Random.new(2)
       @user2 = create(:user2)
-      p @user2
       Faker::Config.random = Random.new(2)
     }
     context 'Checking Field Values ' do
