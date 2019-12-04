@@ -6,7 +6,13 @@ require 'shoulda/matchers'
 
 RSpec.describe ApplicationController, type: :controller do
   describe 'Main Application Controller Configuration' do
-    it { should use_before_action :authenticate_user! }
-    it { should use_before_action :configure_permitted_parameters }
+
+    it 'Checking If Authentication Step Is Used' do
+      should use_before_action :authenticate_user!
+    end
+    it 'Checking If Configure Permitted Parameters Step Is Used' do
+      should use_before_action :configure_permitted_parameters
+    end
+
   end
 end

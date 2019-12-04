@@ -31,7 +31,7 @@ RSpec.describe Post, type: :model do
       Faker::Config.random = Random.new(1)
     }
     context 'Checking Field Values ' do
-      it { expect(@post1.user_id).to eq Faker::Number.number }
+      it { expect(@post1.user_id).to eq 1 }
       it { expect(@post1.time).to eq Time.new(2019, 1, 1, 0, 0, 0, 0) }
       it { expect(@post1.image_heading).to eq "Heading 1" }
       it { expect(@post1.image_caption).to eq "Caption 1" }
@@ -52,7 +52,7 @@ RSpec.describe Post, type: :model do
       Faker::Config.random = Random.new(2)
     }
     context 'Checking Field Values ' do
-      it { expect(@post2.user_id).to eq Faker::Number.number }
+      it { expect(@post2.user_id).to eq 2 }
       it { expect(@post2.time).to eq Time.new(2019, 1, 1, 0, 0, 0, 0) }
       it { expect(@post2.image_heading).to eq "Heading 2" }
       it { expect(@post2.image_caption).to eq "Caption 2" }
