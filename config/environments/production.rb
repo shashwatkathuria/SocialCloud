@@ -1,3 +1,12 @@
+# Compress JavaScripts and CSS
+class NoCompression
+    def compress(string)
+        # do nothing
+        string
+    end
+end
+
+
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
@@ -85,5 +94,10 @@ Rails.application.configure do
     logger.formatter = config.log_formatter
     config.logger = ActiveSupport::TaggedLogging.new(logger)
   end
+
+  config.assets.compress = true
+  config.assets.js_compressor = NoCompression.new
+  config.assets.css_compressor = NoCompression.new
+
 
 end
