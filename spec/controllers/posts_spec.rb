@@ -188,7 +188,7 @@ RSpec.describe PostsController, type: :controller do
   describe '#create' do
     context 'POST' do
       # render_views -- To also include render html alongwith response
-      before(:all) {
+      before(:each) {
         DatabaseCleaner.strategy = :transaction
         DatabaseCleaner.clean_with(:truncation)
         Mongoid.purge!
@@ -224,6 +224,13 @@ RSpec.describe PostsController, type: :controller do
           should use_before_action :authenticate_user!
         end
 
+        it 'Checking Post Count After Creating' do
+         sign_in @user1
+         post :create, params:{post:{image_heading:"Heading 3", image_caption:"Caption 3", post_image: @to_upload_file }}
+         expect(Post.all.count).to eq 3
+       end
+
+
        end
 
        context 'Not Logged In' do
@@ -245,6 +252,222 @@ RSpec.describe PostsController, type: :controller do
     end
   end
 
+  describe '#search' do
+
+    context 'POST' do
+      # render_views
+      # render_views -- To also include render html alongwith response
+      before(:all) {
+        DatabaseCleaner.strategy = :transaction
+        DatabaseCleaner.clean_with(:truncation)
+        Mongoid.purge!
+        Faker::Config.random = Random.new(2)
+        @user1 = create(:user1)
+        @user2 = create(:user2)
+        @post1 = create(:post1)
+        @post2 = create(:post2)
+        Faker::Config.random = Random.new(2)
+        @to_upload_file = Rack::Test::UploadedFile.new(Rails.root.join("spec", "factories", "post3.png"))
+
+        }
+
+       context 'Logged In' do
+         it 'Checking Response Status Code' do
+           sign_in @user1
+           post :search, params:{searchQuery: "Heading 1"}
+           expect(response).to have_http_status(:redirect)
+           should respond_with 302
+         end
+
+         it 'Checking Rendered Templates and Layouts' do
+            sign_in @user1
+            post :search, params:{searchQuery: "Heading 1"}
+            should_not render_template('search')
+            should_not render_with_layout('application')
+          end
+
+         it 'Checking If Authentication Step Is Used' do
+            sign_in @user1
+            post :search, params:{searchQuery: "Heading 1"}
+            should use_before_action :authenticate_user!
+         end
+
+       end
+
+       context 'Not Logged In' do
+         it 'Checking Response Status Code' do
+           post :search, params:{searchQuery: "Heading"}
+           expect(response).to have_http_status(:redirect)
+           should respond_with 302
+         end
+         it 'Checking Rendered Templates and Layouts' do
+            post :search, params:{searchQuery: "Heading"}
+            should_not render_template('search')
+            should_not render_with_layout('application')
+         end
+         it 'Checking If Authentication Step Is Used' do
+            post :search, params:{searchQuery: "Heading"}
+            should use_before_action :authenticate_user!
+         end
+       end
+    end
+
+    context 'GET' do
+      # render_views
+      # render_views -- To also include render html alongwith response
+      before(:all) {
+        DatabaseCleaner.strategy = :transaction
+        DatabaseCleaner.clean_with(:truncation)
+        Mongoid.purge!
+        Faker::Config.random = Random.new(2)
+        @user1 = create(:user1)
+        @user2 = create(:user2)
+        @post1 = create(:post1)
+        @post2 = create(:post2)
+        Faker::Config.random = Random.new(2)
+        @to_upload_file = Rack::Test::UploadedFile.new(Rails.root.join("spec", "factories", "post3.png"))
+
+        }
+
+       context 'Logged In' do
+         it 'Checking Response Status Code' do
+           sign_in @user1
+           get :search, params:{searchQuery: "Heading 1"}
+           expect(response).to have_http_status(:success)
+           should respond_with 200
+         end
+
+         it 'Checking Rendered Templates and Layouts' do
+            sign_in @user1
+            get :search, params:{searchQuery: "Heading 1"}
+            should render_template('search')
+            should render_with_layout('application')
+          end
+
+         it 'Checking If Authentication Step Is Used' do
+            sign_in @user1
+            get :search, params:{searchQuery: "Heading 1"}
+            should use_before_action :authenticate_user!
+         end
+
+       end
+
+       context 'Not Logged In' do
+         it 'Checking Response Status Code' do
+           get :search, params:{searchQuery: "Heading"}
+           expect(response).to have_http_status(:redirect)
+           should respond_with 302
+         end
+         it 'Checking Rendered Templates and Layouts' do
+            get :search, params:{searchQuery: "Heading"}
+            should_not render_template('new')
+            should_not render_with_layout('application')
+         end
+         it 'Checking If Authentication Step Is Used' do
+            get :search, params:{searchQuery: "Heading"}
+            should use_before_action :authenticate_user!
+         end
+       end
+    end
+  end
+
+  describe '#delete' do
+
+    context 'POST' do
+      # render_views
+      # render_views -- To also include render html alongwith response
+      before(:each) {
+        DatabaseCleaner.strategy = :transaction
+        DatabaseCleaner.clean_with(:truncation)
+        Mongoid.purge!
+        Faker::Config.random = Random.new(2)
+        @user1 = create(:user1)
+        @user2 = create(:user2)
+        @post1 = create(:post1)
+        @post2 = create(:post2)
+        Faker::Config.random = Random.new(2)
+        @to_upload_file = Rack::Test::UploadedFile.new(Rails.root.join("spec", "factories", "post3.png"))
+
+        }
+
+       context 'Logged In' do
+         context 'Deleting Logged In User\'s Post' do
+           it 'Checking Response Status Code' do
+             sign_in @user1
+             post :delete, params:{deleteID: @post1}
+             expect(response).to have_http_status(:redirect)
+             should respond_with 302
+           end
+
+           it 'Checking Rendered Templates and Layouts' do
+              sign_in @user1
+              post :delete, params:{deleteID: @post1}
+              should_not render_template('delete')
+              should_not render_with_layout('application')
+            end
+
+           it 'Checking If Authentication Step Is Used' do
+              sign_in @user1
+              post :delete, params:{deleteID: @post1}
+              should use_before_action :authenticate_user!
+           end
+
+           it 'Checking Post Count After Deleting' do
+              sign_in @user1
+              post :delete, params:{deleteID: @post1}
+              expect(Post.all.count).to eq 1
+           end
+         end
+
+         context 'Deleting Someone Else\'s Post' do
+           it 'Checking Response Status Code' do
+             sign_in @user1
+             post :delete, params:{deleteID: @post2}
+             expect(response).to have_http_status(:redirect)
+             should respond_with 302
+           end
+
+           it 'Checking Rendered Templates and Layouts' do
+              sign_in @user1
+              post :delete, params:{deleteID: @post2}
+              should_not render_template('delete')
+              should_not render_with_layout('application')
+            end
+
+           it 'Checking If Authentication Step Is Used' do
+              sign_in @user1
+              post :delete, params:{deleteID: @post2}
+              should use_before_action :authenticate_user!
+           end
+
+           it 'Checking Post Count After Deleting' do
+              sign_in @user1
+              post :delete, params:{deleteID: @post2}
+              expect(Post.all.count).to eq 2
+           end
+         end
+
+       end
+
+       context 'Not Logged In' do
+         it 'Checking Response Status Code' do
+           post :delete, params:{deleteID: @post1}
+           expect(response).to have_http_status(:redirect)
+           should respond_with 302
+         end
+         it 'Checking Rendered Templates and Layouts' do
+            post :delete, params:{deleteID: @post1}
+            should_not render_template('delete')
+            should_not render_with_layout('application')
+         end
+         it 'Checking If Authentication Step Is Used' do
+            post :delete, params:{deleteID: @post1}
+            should use_before_action :authenticate_user!
+         end
+       end
+
+    end
+  end
 
 
 
