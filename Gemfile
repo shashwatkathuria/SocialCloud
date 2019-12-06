@@ -60,4 +60,6 @@ group :test do
   gem 'rails-controller-testing'
   gem 'database_cleaner'
   gem 'faker'
+  gem 'capybara'
+  # gem 'selenium-webdriver'
 end
