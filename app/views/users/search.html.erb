@@ -3,12 +3,16 @@
   <div class="page-header" style="text-align:center;">
   <h2><span class="glyphicon glyphicon-list" aria-hidden="true"></span> Search Results </h2>
   </div>
-  <% for user in @users %>
-    <div class="well well-lg">
-          <h2><span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span> <%= user.first_name + " " + user.last_name %> <small>@<%= user.username %></small></h2>
-          <a href="<%= url_for action:"show_profile", controller: "users", username: user.username %>" class="btn transparentButton btn-default center-block" style="margin-top:8px;margin-bottom:8px;" role="button">Show <%= user.first_name + "'s" %> Profile <span class="glyphicon glyphicon-hand-right" aria-hidden="true"></span></a>
-    </div>
+  <% if @users.length > 0 %>
+    <% for user in @users %>
+      <div class="well well-lg">
+            <h2><span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span> <%= user.first_name + " " + user.last_name %> <small>@<%= user.username %></small></h2>
+            <a href="<%= url_for action:"show_profile", controller: "users", username: user.username %>" class="btn transparentButton btn-default center-block" style="margin-top:8px;margin-bottom:8px;" role="button">Show <%= user.first_name + "'s" %> Profile <span class="glyphicon glyphicon-hand-right" aria-hidden="true"></span></a>
+      </div>
 
+    <% end %>
+  <% else %>
+      No search results found.
   <% end %>
 
 </div>
