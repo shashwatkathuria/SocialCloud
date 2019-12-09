@@ -20,9 +20,7 @@ describe "Signing Up Process And Verifying New User Information", type: :feature
     @username = "UserName3"
     @password = "password3"
   end
-  # before(:each) do
-    # User.make(email: @user1.email, password: 'password1')
-  # end
+
   before(:all) do
     visit '/users/sign_up'
     within("#new_user") do
@@ -162,6 +160,133 @@ describe "Editing User Profile Process And Checking Updated Details", type: :fea
     visit '/users/sign_out'
     expect(page).to have_content 'Signed out successfully.'
     expect(page).to have_current_path root_path
+  end
+
+end
+
+describe "Searching User Process", type: :feature do
+  before(:all) do
+    DatabaseCleaner.strategy = :transaction
+    DatabaseCleaner.clean_with(:truncation)
+    Mongoid.purge!
+    Faker::Config.random = Random.new(3)
+    @user1 = create(:user1)
+    @user2 = create(:user2)
+    Faker::Config.random = Random.new(3)
+  end
+  before(:each) do
+    visit root_path
+  end
+
+  it "Checking Empty Search Query" do
+    find("input[name='searchQuery']").fill_in with: ""
+    find("button[type='submit']").click
+    expect(page).to have_content "No search query entered."
+    expect(page).to have_current_path root_path
+  end
+
+  it "Checking Valid Search Query" do
+    @query = Faker::Name.first_name
+    find("input[name='searchQuery']").fill_in with: @query
+    find("button[type='submit']").click
+    expect(page).to have_content @query
+    expect(page).to have_current_path '/search/' + @query
+  end
+
+  it "Checking Invalid Search Query" do
+    @query = "NothingLikeThisExists"
+    find("input[name='searchQuery']").fill_in with: @query
+    find("button[type='submit']").click
+    expect(page).to have_content 'No search results found.'
+    expect(page).to have_current_path '/search/' + @query
+  end
+
+end
+
+describe "Showing Profile of User Process", type: :feature do
+  before(:all) do
+    DatabaseCleaner.strategy = :transaction
+    DatabaseCleaner.clean_with(:truncation)
+    Mongoid.purge!
+    Faker::Config.random = Random.new(3)
+    @user1 = create(:user1)
+    @user2 = create(:user2)
+    @post1 = create(:post1)
+    @post2 = create(:post2)
+    Faker::Config.random = Random.new(3)
+  end
+  before(:each) do
+    visit '/users/' + @user1.username
+  end
+
+  it "Checking Page Route" do
+    expect(page).to have_current_path '/users/' + @user1.username
+  end
+
+  it "Checking Profile Details" do
+    expect(page).to have_content @user1.first_name + " " + @user1.last_name
+    expect(page).to have_content "@" + @user1.username
+  end
+
+  it "Checking Posts Details" do
+    expect(find("img[src='#{@post1.post_image.url}']").visible?).to be_truthy
+    expect(page).to have_content @post1.image_heading
+    expect(page).to have_content @post1.image_caption
+  end
+
+end
+
+describe "Following Other User Process", type: :feature do
+  before(:all) do
+    DatabaseCleaner.strategy = :transaction
+    DatabaseCleaner.clean_with(:truncation)
+    Mongoid.purge!
+    Faker::Config.random = Random.new(3)
+    @user1 = create(:user1)
+    @user2 = create(:user2)
+    Faker::Config.random = Random.new(3)
+    sign_in @user1
+    visit '/users/' + @user2.username
+    find("a[href='/users/follow/#{@user2.username}']").click
+  end
+
+  it "Checking Following of User Who Followed " do
+    expect(User.find(@user1.id).following.include? @user2.id).to be_truthy
+    expect(User.find(@user1.id).following.length).to eq 1
+  end
+
+  it "Checking Followers of User Followed " do
+    expect(User.find(@user2.id).followers.include? @user1.id).to be_truthy
+    expect(User.find(@user2.id).followers.length).to eq 1
+  end
+
+end
+
+describe "UnFollowing Other User Process", type: :feature do
+  before(:all) do
+    DatabaseCleaner.strategy = :transaction
+    DatabaseCleaner.clean_with(:truncation)
+    Mongoid.purge!
+    Faker::Config.random = Random.new(3)
+    @user1 = create(:user1)
+    @user2 = create(:user2)
+    Faker::Config.random = Random.new(3)
+    sign_in @user1
+    visit '/users/' + @user2.username
+    find("a[href='/users/follow/#{@user2.username}']").click
+
+    visit '/users/' + @user2.username
+    find("a[href='/users/unfollow/#{@user2.username}']").click
+  end
+
+  it "Checking Following of User Who UnFollowed " do
+    expect(User.find(@user1.id).following.include? @user2.id).to be_falsey
+    expect(User.find(@user1.id).following.length).to eq 0
+  end
+
+  it "Checking Followers of User UnFollowed " do
+    expect(User.find(@user2.id).followers.include? @user1.id).to be_falsey
+    expect(User.find(@user2.id).followers.length).to eq 0
   end
 
 end
