@@ -66,9 +66,6 @@ describe "Signing In Process And Visiting Profile Pages", type: :feature do
     @user2 = create(:user2)
     Faker::Config.random = Random.new(3)
   end
-  # before(:each) do
-    # User.make(email: @user1.email, password: 'password1')
-  # end
   before(:each) do
     visit '/users/sign_in'
     within("#new_user") do
