@@ -44,6 +44,7 @@ GEM
       tzinfo (~> 1.1)
     addressable (2.7.0)
       public_suffix (>= 2.0.2, < 5.0)
+    angularjs-rails (1.6.8)
     arel (7.1.4)
     bcrypt (3.1.13)
     binding_of_caller (0.8.0)
@@ -297,6 +298,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  angularjs-rails
   byebug
   capybara
   coffee-rails (~> 4.1.0)
