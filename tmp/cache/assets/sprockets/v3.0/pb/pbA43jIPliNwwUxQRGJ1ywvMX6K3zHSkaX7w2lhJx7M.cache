@@ -1,0 +1,9 @@
+I"ï(function() {
+  this.app = angular.module('socialCloudApp', ['profileDetails', 'userSearchDetails']);
+
+  $(document).on('turbolinks:load', function() {
+    return angular.bootstrap(document.body, ['socialCloudApp']);
+  });
+
+}).call(this);
+:ET

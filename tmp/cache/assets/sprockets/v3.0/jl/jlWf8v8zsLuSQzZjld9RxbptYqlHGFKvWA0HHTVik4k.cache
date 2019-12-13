@@ -1,0 +1,16 @@
+{:uriI"«file://app/assets/javascripts/social-cloud/profile-details/profile-details.template.html?type=text/html&id=c08b27b1af0061d01b384c93f895423e25c48620cf2b477bf24646ea66a74e2e:ET:load_pathI"app/assets/javascripts;T:filenameI"Vapp/assets/javascripts/social-cloud/profile-details/profile-details.template.html;T:	nameI":social-cloud/profile-details/profile-details.template;T:logical_pathI"?social-cloud/profile-details/profile-details.template.html;T:content_typeI"text/html;T:sourceI"Þ<div class="well well-lg" ng-info="ctrl.profileInfo.user">
+  <p><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Name : {{ $ctrl.profileInfo.user.first_name + " " + $ctrl.profileInfo.user.last_name }}</p>
+  <hr>
+  <p><span class="glyphicon glyphicon-user" aria-hidden="true"></span> User Name : {{ info.username }}</p>
+  <hr>
+  <p><span class="glyphicon glyphicon-earphone" aria-hidden="true"></span> Phone : <%= current_user.phone %></p>
+  <hr>
+  <p><span class="glyphicon glyphicon-inbox" aria-hidden="true"></span> Email : <%= current_user.email %></p>
+  <hr>
+  <p><span class="glyphicon glyphicon-certificate" aria-hidden="true"></span> Member Since : <%= time_ago_in_words(current_user.created_at) %></p>
+</div>
+;T:metadata{	:dependencieso:Set:
+@hash}
+I"environment-version;TTI"environment-paths;TTI"rails-env;TTI"2processors:type=text/html&file_type=text/html;TTI"dfile-digest://app/assets/javascripts/social-cloud/profile-details/profile-details.template.html;TTF:charsetI"
+utf-8;F:digest"%úÖYn7éf¼×~ãµšA•p>,âpHî >øé¢:lengthiÞ:dependencies_digest"%öö¹÷!4l€¦DBã ²©—FáÍS~plËürŒ£<:idI"Ec08b27b1af0061d01b384c93f895423e25c48620cf2b477bf24646ea66a74e2e;F:
+mtimel+M¦ò]

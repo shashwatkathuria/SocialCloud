@@ -1,0 +1,11 @@
+{:uriI"«file://app/assets/javascripts/social-cloud/profile-details/profile-details.template.html?type=text/html&id=76cf3e7a39ea922bd398ce356d93fb6a20693f943f5cbac21ced04bf9c6febcb:ET:load_pathI"app/assets/javascripts;T:filenameI"Vapp/assets/javascripts/social-cloud/profile-details/profile-details.template.html;T:	nameI":social-cloud/profile-details/profile-details.template;T:logical_pathI"?social-cloud/profile-details/profile-details.template.html;T:content_typeI"text/html;T:sourceI"~<ul>
+  <li ng-repeat="phone in $ctrl.phones">
+    <span>{{phone.name}}</span>
+    <p>{{phone.snippet}}</p>
+  </li>
+</ul>
+;T:metadata{	:dependencieso:Set:
+@hash}
+I"environment-version;TTI"environment-paths;TTI"rails-env;TTI"2processors:type=text/html&file_type=text/html;TTI"dfile-digest://app/assets/javascripts/social-cloud/profile-details/profile-details.template.html;TTF:charsetI"
+utf-8;F:digest"%Ğ@(±\ËêYâe×¼K¤ş†àn}+Â÷¶OP{:lengthi~:dependencies_digest"%W¡Zh.ìí&Dóš]EÙ™ NüùC1ÔÎ‘”ÕKëÇ2:idI"E76cf3e7a39ea922bd398ce356d93fb6a20693f943f5cbac21ced04bf9c6febcb;F:
+mtimel+D³ñ]

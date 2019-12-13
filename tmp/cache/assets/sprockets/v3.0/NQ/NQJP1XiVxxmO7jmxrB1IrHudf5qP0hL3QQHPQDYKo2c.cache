@@ -1,0 +1,11 @@
+{:uriI"³file://app/assets/javascripts/social-cloud/user-search-details/user-search-details.template.html?type=text/html&id=7b88a3594055e77fcd3e9c6b03154c35a0d67dfb70f6ab785efee011eff48d25:ET:load_pathI"app/assets/javascripts;T:filenameI"^app/assets/javascripts/social-cloud/user-search-details/user-search-details.template.html;T:	nameI"Bsocial-cloud/user-search-details/user-search-details.template;T:logical_pathI"Gsocial-cloud/user-search-details/user-search-details.template.html;T:content_typeI"text/html;T:sourceI" <div ng-if="$ctrl.searchResults.search_results.length > 0" class="well well-lg" ng-repeat="user in $ctrl.searchResults.search_results">
+      <h2><span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span> {{ user.first_name + " " + user.last_name }} <small>@{{ user.username }}</small></h2>
+      <a href="{{ user.show_profile }}" class="btn transparentButton btn-default center-block" style="margin-top:8px;margin-bottom:8px;" role="button">Show {{ user.first_name + "'s" }}  Profile <span class="glyphicon glyphicon-hand-right" aria-hidden="true"></span></a>
+</div>
+
+<p ng-if="$ctrl.searchResults.search_results.length == 0">No search results found.</p>
+;T:metadata{	:dependencieso:Set:
+@hash}
+I"environment-version;TTI"environment-paths;TTI"rails-env;TTI"2processors:type=text/html&file_type=text/html;TTI"lfile-digest://app/assets/javascripts/social-cloud/user-search-details/user-search-details.template.html;TTF:charsetI"
+utf-8;F:digest"%eí9®)°óSŒ6_7è·Å"@ýƒÓÝ/¡‘:lengthi :dependencies_digest"%Ÿö†)Þ9¾`yë™„8ÅFîŠ9V¯‘Ð!v°©*ZùÂ™:idI"E7b88a3594055e77fcd3e9c6b03154c35a0d67dfb70f6ab785efee011eff48d25;F:
+mtimel+Åò]

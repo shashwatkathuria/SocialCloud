@@ -1,0 +1,16 @@
+{:uriI"«file://app/assets/javascripts/social-cloud/profile-details/profile-details.template.html?type=text/html&id=6bd64f0df455950ebd30302cba01541486189416069f9362e36217e62df23f5d:ET:load_pathI"app/assets/javascripts;T:filenameI"Vapp/assets/javascripts/social-cloud/profile-details/profile-details.template.html;T:	nameI":social-cloud/profile-details/profile-details.template;T:logical_pathI"?social-cloud/profile-details/profile-details.template.html;T:content_typeI"text/html;T:sourceI"Ñ<div class="well well-lg" >
+  <p><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Name : {{ $ctrl.profileInfo.user.first_name + " " + $ctrl.profileInfo.user.last_name }}</p>
+  <hr>
+  <p><span class="glyphicon glyphicon-user" aria-hidden="true"></span> User Name : {{ $ctrl.profileInfo.user.username }}</p>
+  <hr>
+  <p><span class="glyphicon glyphicon-earphone" aria-hidden="true"></span> Phone : <%= current_user.phone %></p>
+  <hr>
+  <p><span class="glyphicon glyphicon-inbox" aria-hidden="true"></span> Email : <%= current_user.email %></p>
+  <hr>
+  <p><span class="glyphicon glyphicon-certificate" aria-hidden="true"></span> Member Since : <%= time_ago_in_words(current_user.created_at) %></p>
+</div>
+;T:metadata{	:dependencieso:Set:
+@hash}
+I"environment-version;TTI"environment-paths;TTI"rails-env;TTI"2processors:type=text/html&file_type=text/html;TTI"dfile-digest://app/assets/javascripts/social-cloud/profile-details/profile-details.template.html;TTF:charsetI"
+utf-8;F:digest"%aNÀÕ%Û‹uvX÷(iùª*İç¦Î¢BÄ°Äùs:lengthiÑ:dependencies_digest"%ÀD§[âÚñ“Ú®éÂ•</‹şÃP%±ÓËq~(:idI"E6bd64f0df455950ebd30302cba01541486189416069f9362e36217e62df23f5d;F:
+mtimel+h¦ò]
