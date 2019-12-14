@@ -1,83 +1,9 @@
 <div class="jumbotron" style="padding:10%;padding-top:1%;margin:10%;margin-top:0%;margin-bottom:0%;background:rgba(255,255,255,0.6);">
 
-  <% if current_user %>
     <div class="page-header" style="margin-top:0;text-align:center;">
       <h2><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Your Profile<br><small>Your information is displayed below.</small></h2>
     </div>
-
-    <div class="well well-lg">
-      <p><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Name : <%= current_user.first_name + " " + current_user.last_name %></p>
-      <hr>
-      <p><span class="glyphicon glyphicon-user" aria-hidden="true"></span> User Name : <%= current_user.username %></p>
-      <hr>
-      <p><span class="glyphicon glyphicon-earphone" aria-hidden="true"></span> Phone : <%= current_user.phone %></p>
-      <hr>
-      <p><span class="glyphicon glyphicon-inbox" aria-hidden="true"></span> Email : <%= current_user.email %></p>
-      <hr>
-      <p><span class="glyphicon glyphicon-certificate" aria-hidden="true"></span> Member Since : <%= time_ago_in_words(current_user.created_at) %></p>
-    </div>
-
-    <div class="well well-lg">
-      <p><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Followers </p>
-      <hr>
-      <% if @followers.length == 0 %>
-        <p>No Followers.</p>
-      <% end %>
-      <% for follower in @followers %>
-          <div class="row">
-            <div class="col-sm-4 col-md-4 col-lg-4">
-              <p style="margin:8px;">@<%= follower.username %></p>
-            </div>
-            <div class="col-sm-4 col-md-4 col-lg-4">
-              <a href="<%= url_for action:"show_profile", controller: "users", username: follower.username %>" class="btn transparentButton btn-default center-block" style="margin-top:8px;margin-bottom:8px;" role="button">Show <%= follower.first_name + "'s" %> Profile <span class="glyphicon glyphicon-hand-right" aria-hidden="true"></span></a>
-            </div>
-            <div class="col-sm-4 col-md-4 col-lg-4">
-              <% if current_user && current_user.id != follower.id %>
-                <% if current_user.following.include? follower.id %>
-                  <a href="<%= url_for action:"unfollow", controller: "users", username: follower.username %>" class="btn transparentButton btn-default center-block" style="margin-top:8px;margin-bottom:8px;" role="button">Unfollow</a>
-                <% else %>
-                  <a href="<%= url_for action:"follow", controller: "users", username: follower.username %>" class="btn transparentButton btn-default center-block" style="margin-top:8px;margin-bottom:8px;" role="button">Follow</a>
-                <% end %>
-              <% end %>
-            </div>
-          </div>
-      <% end %>
-      <hr>
-    </div>
-
-    <div class="well well-lg">
-      <p><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Following </p>
-      <hr>
-      <% if @following.length == 0 %>
-        <p>No Following.</p>
-      <% end %>
-
-      <% for following in @following %>
-          <div class="row">
-            <div class="col-sm-4 col-md-4 col-lg-4">
-              <p style="margin:8px;">@<%= following.username %></p>
-            </div>
-            <div class="col-sm-4 col-md-4 col-lg-4">
-              <a href="<%= url_for action:"show_profile", controller: "users", username: following.username %>" class="btn transparentButton btn-default center-block" style="margin-top:8px;margin-bottom:8px;" role="button">Show <%= following.first_name + "'s" %> Profile <span class="glyphicon glyphicon-hand-right" aria-hidden="true"></span></a>
-            </div>
-            <div class="col-sm-4 col-md-4 col-lg-4">
-              <% if current_user && current_user.id != following.id %>
-                <% if current_user.following.include? following.id %>
-                  <a href="<%= url_for action:"unfollow", controller: "users", username: following.username %>" class="btn transparentButton btn-default center-block" style="margin-top:8px;margin-bottom:8px;" role="button">Unfollow</a>
-                <% else %>
-                  <a href="<%= url_for action:"follow", controller: "users", username: following.username %>" class="btn transparentButton btn-default center-block" style="margin-top:8px;margin-bottom:8px;" role="button">Follow</a>
-                <% end %>
-              <% end %>
-            </div>
-          </div>
-      <% end %>
-      <hr>
-    </div>
-
-  <% else %>
-    <br>
-    <div class="alert alert-danger" style="text-align:center" role="alert">An error occured. Please login again.</div>
-
-  <% end %>
+    
+    <profile-details></profile-details>
 
 </div>
