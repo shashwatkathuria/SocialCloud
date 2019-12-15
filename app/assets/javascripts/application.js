@@ -13,4 +13,21 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
-//= require_tree .
+//= require angular
+//= require angular-animate
+//= require angular-resource
+
+//= require social-cloud/app.constants.js.erb
+//= require social-cloud/app.module.js
+
+//= require social-cloud/profile-details/profile-details.module.js
+//= require social-cloud/profile-details/profile-details.component.js
+
+//= require social-cloud/user-search-details/user-search-details.module.js
+//= require social-cloud/user-search-details/user-search-details.component.js
+
+//= require social-cloud/user-show-profile/user-show-profile.module.js
+//= require social-cloud/user-show-profile/user-show-profile.component.js
+
+
+// = require_tree .
