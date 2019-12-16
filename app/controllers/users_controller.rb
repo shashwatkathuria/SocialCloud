@@ -1,7 +1,9 @@
 class UsersController < ApplicationController
+    include ActionView::Helpers::DateHelper
+    include UsersHelper
     skip_before_action :authenticate_user!, only: [:search, :show_profile]
     def index
-        if current_user
+      if params[:format] == "json"
           @user = current_user
           @followers = []
           for followerID in current_user.followers
@@ -11,9 +13,17 @@ class UsersController < ApplicationController
           for followingID in current_user.following
             @following.push(User.find(followingID))
           end
-        else
-          redirect_to '/login'
+
+          @following = filterFollowDetailsForJson(@following, current_user.following)
+          @followers = filterFollowDetailsForJson(@followers, current_user.following)
+          respond_to do |format|
+          format.json {render json: {user: @user.as_json(only: [:first_name, :last_name, :username, :phone, :email]),
+                            member_since: time_ago_in_words(@user.created_at),
+                            following: @following,
+                            followers: @followers} }
+          end
         end
+
     end
 
     def follow
@@ -63,11 +73,29 @@ class UsersController < ApplicationController
     end
 
     def show_profile
-        @user = User.where(username: params[:username]).first
-        if @user == nil
-          flash[:alert] = "No such user by the username " + params[:username] + "."
-        else
-          @posts = Post.where(user_id: @user.id)
+        if params[:format] == "json"
+          @showUser = User.where(username: params[:username]).first
+          if @showUser == nil
+            flash[:alert] = "No such user by the username " + params[:username] + "."
+          else
+            @posts = []
+            Post.where(user_id: @showUser.id).each do |post|
+              @posts.push({image_caption: post.image_caption, image_heading: post.image_heading, url: post.post_image.url, time: time_ago_in_words(post.time) })
+            end
+          end
+
+          if current_user.following.include? @showUser.id
+            @link = url_for action:"unfollow", controller: "users", username: @showUser.username
+          else
+            @link = url_for action:"follow", controller: "users", username: @showUser.username
+          end
+
+          respond_to do |format|
+          format.json {render json: {user: @showUser.as_json(only: [:first_name, :last_name, :username]),
+                            link: @link,
+                            posts: @posts.as_json(except: :_id)} }
+          end
+
         end
     end
 
@@ -79,15 +107,24 @@ class UsersController < ApplicationController
           else
             redirect_to url_for action: "search", controller: "users", searchQuery: params[:searchQuery]
           end
-        else
-          if params[:searchQuery] == nil
-            params[:searchQuery] = ""
-            @users = User.where("first_name like ? or last_name like ? or username like ?", "%" + params[:searchQuery] + "%", "%" + params[:searchQuery] + "%", "%" + params[:searchQuery] + "%")
-          elsif params[:searchQuery] == ""
-            flash[:alert] = "No search query entered."
-            redirect_to root_path
-          else
-            @users = User.where("first_name like ? or last_name like ? or username like ?", "%" + params[:searchQuery] + "%", "%" + params[:searchQuery] + "%", "%" + params[:searchQuery] + "%")
+        else#if request.method == "GET"
+          if params[:format] == "json"
+
+            if params[:searchQuery] == nil
+              params[:searchQuery] = ""
+              @users = User.where("first_name like ? or last_name like ? or username like ?", "%" + params[:searchQuery] + "%", "%" + params[:searchQuery] + "%", "%" + params[:searchQuery] + "%")
+            elsif params[:searchQuery] == ""
+              flash[:alert] = "No search query entered."
+              redirect_to root_path
+            else
+              @users = User.where("first_name like ? or last_name like ? or username like ?", "%" + params[:searchQuery] + "%", "%" + params[:searchQuery] + "%", "%" + params[:searchQuery] + "%")
+            end
+
+            @users = filterSearchResultsForJson(@users)
+            respond_to do |format|
+              format.json {render json: {search_results: @users} }
+            end
+
           end
         end
     end
