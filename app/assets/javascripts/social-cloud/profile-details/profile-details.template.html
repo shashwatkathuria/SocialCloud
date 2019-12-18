@@ -1,0 +1,53 @@
+<div class="well well-lg" >
+  <p><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Name : {{ $ctrl.profileInfo.user.first_name + " " + $ctrl.profileInfo.user.last_name }}</p>
+  <hr>
+  <p><span class="glyphicon glyphicon-user" aria-hidden="true"></span> User Name : {{ $ctrl.profileInfo.user.username }}</p>
+  <hr>
+  <p><span class="glyphicon glyphicon-earphone" aria-hidden="true"></span> Phone : {{ $ctrl.profileInfo.user.phone }}</p>
+  <hr>
+  <p><span class="glyphicon glyphicon-inbox" aria-hidden="true"></span> Email : {{ $ctrl.profileInfo.user.email }}</p>
+  <hr>
+  <p><span class="glyphicon glyphicon-certificate" aria-hidden="true"></span> Member Since : {{ $ctrl.profileInfo.member_since }}</p>
+</div>
+
+<div class="well well-lg">
+  <p><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Followers </p>
+  <hr>
+
+    <p ng-if="$ctrl.profileInfo.followers.length == 0">No Followers.</p>
+
+    <div class="row" ng-repeat="follower in $ctrl.profileInfo.followers">
+      <div class="col-sm-4 col-md-4 col-lg-4">
+        <p style="margin:8px;">@{{ follower.username }}</p>
+      </div>
+      <div class="col-sm-4 col-md-4 col-lg-4">
+        <a href="{{ follower.show_profile }}" class="btn transparentButton btn-default center-block" style="margin-top:8px;margin-bottom:8px;" role="button">Show {{ follower.first_name + "'s" }} Profile <span class="glyphicon glyphicon-hand-right" aria-hidden="true"></span></a>
+      </div>
+      <div class="col-sm-4 col-md-4 col-lg-4">
+        <a href="{{ follower.link }}" class="btn transparentButton btn-default center-block" style="margin-top:8px;margin-bottom:8px;" role="button">{{ follower.link.includes('unfollow') ? 'Unfollow' : 'Follow'}}</a>
+      </div>
+    </div>
+
+  <hr>
+</div>
+
+<div class="well well-lg">
+  <p><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Following </p>
+  <hr>
+
+  <p ng-if="$ctrl.profileInfo.following.length == 0">No Following.</p>
+
+  <div class="row" ng-repeat="following in $ctrl.profileInfo.following">
+    <div class="col-sm-4 col-md-4 col-lg-4">
+      <p style="margin:8px;">@{{ following.username }}</p>
+    </div>
+    <div class="col-sm-4 col-md-4 col-lg-4">
+      <a href="{{ following.show_profile }}" class="btn transparentButton btn-default center-block" style="margin-top:8px;margin-bottom:8px;" role="button">Show {{ following.first_name + "'s" }} Profile <span class="glyphicon glyphicon-hand-right" aria-hidden="true"></span></a>
+    </div>
+    <div class="col-sm-4 col-md-4 col-lg-4">
+      <a href="{{ following.link }}" class="btn transparentButton btn-default center-block" style="margin-top:8px;margin-bottom:8px;" role="button">{{ following.link.includes('unfollow') ? 'Unfollow' : 'Follow'}}</a>
+    </div>
+  </div>
+
+  <hr>
+</div>
