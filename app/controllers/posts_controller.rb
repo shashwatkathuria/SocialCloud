@@ -1,14 +1,42 @@
 class PostsController < ApplicationController
+  include ActionView::Helpers::DateHelper
   def index
-    @posts = Post.where(user_id:current_user.id).order_by(time: :desc)
+    if params[:format] == "json"
+      @posts = []
+      Post.where(user_id:current_user.id).order_by(time: :desc).each do |post|
+        @posts.push({ id: post._id.to_s, delete_path: url_for(action: "delete", controller: "posts", deleteID: post._id.to_s), post_path: post_path(post), image_caption: post.image_caption, image_heading: post.image_heading, url: post.post_image.url, time: time_ago_in_words(post.time) })
+      end
+      respond_to do |format|
+        format.json {render json: {posts: @posts.as_json} }
+      end
+    end
   end
 
   def show
-      @post = Post.find(params[:id])
-      if @post.user_id != current_user.id
+      if params[:format] == "json"
+        begin
+          @post = Post.find(params[:id])
+
+          if @post.user_id != current_user.id
+            flash[:alert] = "Invalid post."
+            redirect_to posts_path
+          end
+
+          respond_to do |format|
+            format.json {render json: { id: @post._id.to_s, delete_path: url_for(action: "delete", controller: "posts", deleteID: @post._id.to_s), image_caption: @post.image_caption, image_heading: @post.image_heading, url: @post.post_image.url, time: time_ago_in_words(@post.time) } }
+          end
+
+        rescue
+          flash[:alert] = "Invalid post."
+          redirect_to posts_path
+        end
+      end
+
+      if Post.find(params[:id]).user_id != current_user.id
         flash[:alert] = "Invalid post."
         redirect_to posts_path
       end
+
   end
 
   def new
@@ -26,8 +54,17 @@ class PostsController < ApplicationController
     if request.method == "POST"
       redirect_to url_for action: "search", controller: "posts", searchQuery: params[:searchQuery]
     elsif request.method == "GET"
-      @searchQuery = params[:searchQuery]
-      @posts = Post.where(user_id:current_user.id).any_of({image_heading: /#{@searchQuery}/i}, {image_caption: /#{@searchQuery}/i}).order(:time=> 'asc')
+      if params[:format] == "json"
+        @searchQuery = params[:searchQuery]
+        @posts = []
+        Post.where(user_id:current_user.id).any_of({image_heading: /#{@searchQuery}/i}, {image_caption: /#{@searchQuery}/i}).order(:time=> 'desc').each do |post|
+          @posts.push({ id: post._id.to_s, delete_path: url_for(action: "delete", controller: "posts", deleteID: post._id.to_s), post_path: post_path(post), image_caption: post.image_caption, image_heading: post.image_heading, url: post.post_image.url, time: time_ago_in_words(post.time) })
+        end
+        respond_to do |format|
+          format.json {render json: {search_query: @searchQuery, search_results: @posts.as_json} }
+        end
+      end
+
     end
   end
 
