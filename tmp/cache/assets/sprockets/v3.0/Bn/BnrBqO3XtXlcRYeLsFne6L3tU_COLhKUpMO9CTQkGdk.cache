@@ -1,0 +1,22 @@
+{:uriI"¥file://app/assets/javascripts/social-cloud/post-details/post-details.template.html?type=text/html&id=af156ed7fb3117b3f01802e16c13eeda2b47e11d0546f76ab2b10ed5f52c204b:ET:load_pathI"app/assets/javascripts;T:filenameI"Papp/assets/javascripts/social-cloud/post-details/post-details.template.html;T:	nameI"4social-cloud/post-details/post-details.template;T:logical_pathI"9social-cloud/post-details/post-details.template.html;T:content_typeI"text/html;T:sourceI"<div class="row" ng-repeat="post in $ctrl.postsInfo.posts">
+  <div class="col-sm-12 col-md-12 col-lg-12">
+    <div class="thumbnail">
+      <div class="caption">
+          <h4><span style="color:orange;"><span class="glyphicon glyphicon-picture" aria-hidden="true"></span> {{ post.image_heading }}</span><hr> {{ post.image_caption }}</h4>
+          <p><a href="#" class="btn btn-default disabledTransparentButton disabled"  role="button"><span class="glyphicon glyphicon-time" aria-hidden="true"></span> Posted {{ post.time }} ago</a>
+      </div>
+      <img src="{{ post.url }}" alt="{{ post.image_caption }}">
+      <div class="caption">
+            <a ng-click="deleteWarning($event)" href="{{ post.delete_path }}" class="btn transparentButton btn-default" style="margin-top:8px;margin-bottom:8px;" role="button">Delete Post <span class="glyphicon glyphicon-picture" aria-hidden="true"></span></a>
+            <a href="{{ post.post_path }}" class="btn transparentButton btn-default" style="margin-top:8px;margin-bottom:8px;" role="button">Show Post <span class="glyphicon glyphicon-picture" aria-hidden="true"></span></a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<p style="text-align:center;" ng-if="$ctrl.postsInfo.posts.length == 0">Oops, looks like you have no posts right now!</p>
+;T:metadata{	:dependencieso:Set:
+@hash}
+I"environment-version;TTI"environment-paths;TTI"rails-env;TTI"2processors:type=text/html&file_type=text/html;TTI"^file-digest://app/assets/javascripts/social-cloud/post-details/post-details.template.html;TTF:charsetI"
+utf-8;F:digest"%õÑ|óS‡`°1şü,=U×étıXàîPb*K@’Ò”ìÊ:lengthi:dependencies_digest"%Î¡Å]S^Q­Õâ*)ÎÒ*æ£ı¬&Ö8{€7:idI"Eaf156ed7fb3117b3f01802e16c13eeda2b47e11d0546f76ab2b10ed5f52c204b;F:
+mtimel+™Ş]
