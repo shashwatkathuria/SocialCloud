@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   get 'users/follow/:username', to: "users#follow"
   get 'users/unfollow/:username', to: "users#unfollow"
 
-  post 'posts/delete'
+  get 'posts/delete/:deleteID', to: "posts#delete"
 
   devise_for :users
   devise_scope :user do
