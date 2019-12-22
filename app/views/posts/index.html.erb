@@ -13,12 +13,5 @@
       </div>
   </div>
 
-  <% if @posts.length >= 1 %>
-    <% for post in @posts %>
-      <%= render template: 'layouts/post', :locals => { post: post, index: true, search: false, show: false, show_profile: false } %>
-    <% end %>
-  <% else %>
-    Oops, looks like you have no posts till now!
-  <% end %>
-
+  <post-details></post-details>
 </div>
