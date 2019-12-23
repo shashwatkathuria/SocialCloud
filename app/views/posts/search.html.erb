@@ -1,14 +1,5 @@
 <div class="jumbotron" style="padding:10%;padding-top:1%;margin:10%;margin-top:0%;margin-bottom:0%;background:rgba(255,255,255,0.6);">
 
-  <div class="page-header" style="text-align:center;">
-  <h2>Search Results &nbsp<small>Following are the search results for <span style="color:orange;" >'<%= @searchQuery %>'</span></small></h2>
-  </div>
-  <% if @posts.length >= 1 %>
-    <% for post in @posts %>
-    <%= render template: 'layouts/post', :locals => { post: post, index: false, search: true, show: false, show_profile: false } %>
-    <% end %>
-  <% else %>
-    Sorry, nothing is matching with your search query!
-  <% end %>
+  <post-search-details></post-search-details>
 
 </div>
