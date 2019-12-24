@@ -29,5 +29,13 @@
 //= require social-cloud/user-show-profile/user-show-profile.module.js
 //= require social-cloud/user-show-profile/user-show-profile.component.js
 
+//= require social-cloud/post-details/post-details.module.js
+//= require social-cloud/post-details/post-details.component.js
+
+//= require social-cloud/post-search-details/post-search-details.module.js
+//= require social-cloud/post-search-details/post-search-details.component.js
+
+//= require social-cloud/post-show/post-show.module.js
+//= require social-cloud/post-show/post-show.component.js
 
 // = require_tree .
