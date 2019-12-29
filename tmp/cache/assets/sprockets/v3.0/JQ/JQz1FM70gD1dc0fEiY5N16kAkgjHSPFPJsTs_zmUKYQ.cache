@@ -1,0 +1,25 @@
+{:uriI"¯file://app/assets/javascripts/social-cloud/user-show-profile/user-show-profile.template.html?type=text/html&id=34c1ff49ce1824e9d83b4bf989d766e52a74b8520ce9d651e3bc519eb25beb05:ET:load_pathI"app/assets/javascripts;T:filenameI"Zapp/assets/javascripts/social-cloud/user-show-profile/user-show-profile.template.html;T:	nameI">social-cloud/user-show-profile/user-show-profile.template;T:logical_pathI"Csocial-cloud/user-show-profile/user-show-profile.template.html;T:content_typeI"text/html;T:sourceI"B<div class="well well-lg" >
+      <h2><span class="glyphicon glyphicon-picture" aria-hidden="true"></span> {{ $ctrl.userProfile.user.first_name + " " + $ctrl.userProfile.user.last_name }}</h2>
+      <hr>
+      <h2><small>@{{ $ctrl.userProfile.user.username }}</small></h2>
+      <br>
+      <a ng-if="$ctrl.userProfile.link" href="{{ $ctrl.userProfile.link }}" class="btn transparentButton btn-default center-block" style="margin-top:8px;margin-bottom:8px;" role="button">{{ $ctrl.userProfile.link.includes('unfollow') ? 'Unfollow' : 'Follow'}}</a>
+      <p ng-if="$ctrl.userProfile.posts.length == 0" style="text-align:center;" ><br>@{{ $ctrl.userProfile.user.username }} has no posts yet!</p>
+</div>
+
+<div class="row" ng-repeat="post in $ctrl.userProfile.posts">
+  <div class="col-sm-12 col-md-12 col-lg-12">
+    <div class="thumbnail">
+      <div class="caption">
+          <h3><span style="color:orange;"><span class="glyphicon glyphicon-picture" aria-hidden="true"></span> {{ post.image_heading }}</span><hr> {{ post.image_caption }}</h3>
+          <p><a href="#" class="btn btn-default disabledTransparentButton disabled"  role="button"><span class="glyphicon glyphicon-time" aria-hidden="true"></span> Posted {{ post.time }} ago</a>
+      </div>
+      <img ng-src="{{ post.url }}" alt="{{ post.image_caption }}">
+    </div>
+  </div>
+</div>
+;T:metadata{	:dependencieso:Set:
+@hash}
+I"environment-version;TTI"environment-paths;TTI"rails-env;TTI"2processors:type=text/html&file_type=text/html;TTI"hfile-digest://app/assets/javascripts/social-cloud/user-show-profile/user-show-profile.template.html;TTF:charsetI"
+utf-8;F:digest"%a#v¯J˜O•x»Ýò^˜ïè|û’0×‚é´bòý*6:lengthiB:dependencies_digest"%ÿç¢wZß±îƒ]ÄJ‰t–>ôÅf'«]-m˜æ:idI"E34c1ff49ce1824e9d83b4bf989d766e52a74b8520ce9d651e3bc519eb25beb05;F:
+mtimel+,Ó]
