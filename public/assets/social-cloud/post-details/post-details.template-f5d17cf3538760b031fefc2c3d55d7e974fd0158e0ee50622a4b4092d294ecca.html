@@ -1,0 +1,17 @@
+<div class="row" ng-repeat="post in $ctrl.postsInfo.posts">
+  <div class="col-sm-12 col-md-12 col-lg-12">
+    <div class="thumbnail">
+      <div class="caption">
+          <h4><span style="color:orange;"><span class="glyphicon glyphicon-picture" aria-hidden="true"></span> {{ post.image_heading }}</span><hr> {{ post.image_caption }}</h4>
+          <p><a href="#" class="btn btn-default disabledTransparentButton disabled"  role="button"><span class="glyphicon glyphicon-time" aria-hidden="true"></span> Posted {{ post.time }} ago</a>
+      </div>
+      <img src="{{ post.url }}" alt="{{ post.image_caption }}">
+      <div class="caption">
+            <a ng-click="deleteWarning($event)" href="{{ post.delete_path }}" class="btn transparentButton btn-default" style="margin-top:8px;margin-bottom:8px;" role="button">Delete Post <span class="glyphicon glyphicon-picture" aria-hidden="true"></span></a>
+            <a href="{{ post.post_path }}" class="btn transparentButton btn-default" style="margin-top:8px;margin-bottom:8px;" role="button">Show Post <span class="glyphicon glyphicon-picture" aria-hidden="true"></span></a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<p style="text-align:center;" ng-if="$ctrl.postsInfo.posts.length == 0">Oops, looks like you have no posts right now!</p>
