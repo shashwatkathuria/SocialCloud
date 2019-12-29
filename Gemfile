@@ -26,6 +26,7 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '>= 0.4.0', group: :doc
 
 gem 'angularjs-rails'
+gem 'bootstrap3-rails'
 
 gem 'devise'
 # Use ActiveModel has_secure_password
@@ -63,5 +64,7 @@ group :test do
   gem 'database_cleaner'
   gem 'faker'
   gem 'capybara'
-  # gem 'selenium-webdriver'
+  gem 'selenium-webdriver'
+  gem 'geckodriver-helper'
+  gem 'capybara-screenshot'
 end

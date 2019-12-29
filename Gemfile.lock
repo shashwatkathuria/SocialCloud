@@ -45,10 +45,14 @@ GEM
     addressable (2.7.0)
       public_suffix (>= 2.0.2, < 5.0)
     angularjs-rails (1.6.8)
+    archive-zip (0.12.0)
+      io-like (~> 0.3.0)
     arel (7.1.4)
     bcrypt (3.1.13)
     binding_of_caller (0.8.0)
       debug_inspector (>= 0.0.1)
+    bootstrap3-rails (3.2.0)
+      rails (>= 4.0.0)
     bson (4.6.0)
     builder (3.2.3)
     byebug (11.0.1)
@@ -60,6 +64,9 @@ GEM
       rack-test (>= 0.6.3)
       regexp_parser (~> 1.5)
       xpath (~> 3.2)
+    capybara-screenshot (1.0.23)
+      capybara (>= 1.0, < 4)
+      launchy
     childprocess (3.0.0)
     climate_control (0.2.0)
     coffee-rails (4.1.1)
@@ -90,6 +97,8 @@ GEM
     faker (2.7.0)
       i18n (>= 1.6, < 1.8)
     ffi (1.11.1)
+    geckodriver-helper (0.24.0)
+      archive-zip (~> 0.7)
     globalid (0.4.2)
       activesupport (>= 4.2.0)
     haml (5.1.2)
@@ -97,6 +106,7 @@ GEM
       tilt
     i18n (1.7.0)
       concurrent-ruby (~> 1.0)
+    io-like (0.3.0)
     jbuilder (2.9.1)
       activesupport (>= 4.2.0)
     jquery-rails (4.3.5)
@@ -120,6 +130,8 @@ GEM
     kaminari-mongoid (1.0.1)
       kaminari-core (~> 1.0)
       mongoid
+    launchy (2.4.3)
+      addressable (~> 2.3)
     loofah (2.3.1)
       crass (~> 1.0.2)
       nokogiri (>= 1.5.9)
@@ -304,13 +316,16 @@ PLATFORMS
 
 DEPENDENCIES
   angularjs-rails
+  bootstrap3-rails
   byebug
   capybara
+  capybara-screenshot
   coffee-rails (~> 4.1.0)
   database_cleaner
   devise
   factory_bot_rails
   faker
+  geckodriver-helper
   jbuilder (~> 2.0)
   jquery-rails
   kaminari-mongoid
