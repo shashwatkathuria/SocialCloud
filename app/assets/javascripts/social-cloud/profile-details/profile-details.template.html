@@ -21,10 +21,10 @@
         <p style="margin:8px;">@{{ follower.username }}</p>
       </div>
       <div class="col-sm-4 col-md-4 col-lg-4">
-        <a href="{{ follower.show_profile }}" class="btn transparentButton btn-default center-block" style="margin-top:8px;margin-bottom:8px;" role="button">Show {{ follower.first_name + "'s" }} Profile <span class="glyphicon glyphicon-hand-right" aria-hidden="true"></span></a>
+        <a ng-href="{{ follower.show_profile }}" class="btn transparentButton btn-default center-block" style="margin-top:8px;margin-bottom:8px;" role="button">Show {{ follower.first_name + "'s" }} Profile <span class="glyphicon glyphicon-hand-right" aria-hidden="true"></span></a>
       </div>
       <div class="col-sm-4 col-md-4 col-lg-4">
-        <a href="{{ follower.link }}" class="btn transparentButton btn-default center-block" style="margin-top:8px;margin-bottom:8px;" role="button">{{ follower.link.includes('unfollow') ? 'Unfollow' : 'Follow'}}</a>
+        <a ng-href="{{ follower.link }}" class="btn transparentButton btn-default center-block" style="margin-top:8px;margin-bottom:8px;" role="button">{{ follower.link.includes('unfollow') ? 'Unfollow' : 'Follow'}}</a>
       </div>
     </div>
 
@@ -42,10 +42,10 @@
       <p style="margin:8px;">@{{ following.username }}</p>
     </div>
     <div class="col-sm-4 col-md-4 col-lg-4">
-      <a href="{{ following.show_profile }}" class="btn transparentButton btn-default center-block" style="margin-top:8px;margin-bottom:8px;" role="button">Show {{ following.first_name + "'s" }} Profile <span class="glyphicon glyphicon-hand-right" aria-hidden="true"></span></a>
+      <a ng-href="{{ following.show_profile }}" class="btn transparentButton btn-default center-block" style="margin-top:8px;margin-bottom:8px;" role="button">Show {{ following.first_name + "'s" }} Profile <span class="glyphicon glyphicon-hand-right" aria-hidden="true"></span></a>
     </div>
     <div class="col-sm-4 col-md-4 col-lg-4">
-      <a href="{{ following.link }}" class="btn transparentButton btn-default center-block" style="margin-top:8px;margin-bottom:8px;" role="button">{{ following.link.includes('unfollow') ? 'Unfollow' : 'Follow'}}</a>
+      <a ng-href="{{ following.link }}" class="btn transparentButton btn-default center-block" style="margin-top:8px;margin-bottom:8px;" role="button">{{ following.link.includes('unfollow') ? 'Unfollow' : 'Follow'}}</a>
     </div>
   </div>
 

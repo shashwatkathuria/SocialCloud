@@ -3,7 +3,7 @@
       <hr>
       <h2><small>@{{ $ctrl.userProfile.user.username }}</small></h2>
       <br>
-      <a href="{{ $ctrl.userProfile.link }}" class="btn transparentButton btn-default center-block" style="margin-top:8px;margin-bottom:8px;" role="button">{{ $ctrl.userProfile.link.includes('unfollow') ? 'Unfollow' : 'Follow'}}</a>
+      <a ng-if="$ctrl.userProfile.link" ng-href="{{ $ctrl.userProfile.link }}" class="btn transparentButton btn-default center-block" style="margin-top:8px;margin-bottom:8px;" role="button">{{ $ctrl.userProfile.link.includes('unfollow') ? 'Unfollow' : 'Follow'}}</a>
       <p ng-if="$ctrl.userProfile.posts.length == 0" style="text-align:center;" ><br>@{{ $ctrl.userProfile.user.username }} has no posts yet!</p>
 </div>
 
@@ -12,9 +12,9 @@
     <div class="thumbnail">
       <div class="caption">
           <h3><span style="color:orange;"><span class="glyphicon glyphicon-picture" aria-hidden="true"></span> {{ post.image_heading }}</span><hr> {{ post.image_caption }}</h3>
-          <p><a href="#" class="btn btn-default disabledTransparentButton disabled"  role="button"><span class="glyphicon glyphicon-time" aria-hidden="true"></span> Posted {{ post.time }} ago</a>
+          <p><a ng-href="#" class="btn btn-default disabledTransparentButton disabled"  role="button"><span class="glyphicon glyphicon-time" aria-hidden="true"></span> Posted {{ post.time }} ago</a>
       </div>
-      <img src="{{ post.url }}" alt="<%= post.image_caption %>">
+      <img ng-src="{{ post.url }}" alt="{{ post.image_caption }}">
     </div>
   </div>
 </div>
