@@ -82,16 +82,22 @@ class UsersController < ApplicationController
             end
           end
 
-          if current_user.following.include? @showUser.id
-            @link = url_for action:"unfollow", controller: "users", username: @showUser.username
+          if current_user
+            if current_user.following.include? @showUser.id
+              @link = url_for action:"unfollow", controller: "users", username: @showUser.username
+            else
+              @link = url_for action:"follow", controller: "users", username: @showUser.username
+            end
+            respond_to do |format|
+              format.json {render json: {user: @showUser.as_json(only: [:first_name, :last_name, :username]),
+                                link: @link,
+                                posts: @posts.as_json(except: :_id)} }
+            end
           else
-            @link = url_for action:"follow", controller: "users", username: @showUser.username
-          end
-
-          respond_to do |format|
-          format.json {render json: {user: @showUser.as_json(only: [:first_name, :last_name, :username]),
-                            link: @link,
-                            posts: @posts.as_json(except: :_id)} }
+            respond_to do |format|
+              format.json {render json: {user: @showUser.as_json(only: [:first_name, :last_name, :username]),
+                                posts: @posts.as_json(except: :_id)} }
+            end
           end
 
         end
