@@ -109,3 +109,26 @@ RSpec.configure do |config|
 end
 
 require 'capybara/rspec'
+require 'capybara-screenshot/rspec'
+
+Capybara.server = :webrick
+
+Capybara.register_driver :selenium do |app|
+  Capybara::Selenium::Driver.new(app, browser: :firefox)
+end
+
+Capybara.default_max_wait_time = 10
+
+# if ENV["SLOW"].present?
+require "selenium-webdriver"
+module ::Selenium::WebDriver::Remote
+  class Bridge
+    alias old_execute execute
+
+    def execute(*args)
+      sleep(0.3)
+      old_execute(*args)
+    end
+  end
+end
+# end
