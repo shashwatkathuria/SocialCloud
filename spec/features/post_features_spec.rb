@@ -6,6 +6,9 @@ require 'shoulda/matchers'
 
 describe "Index Page of User\'s Posts Process", type: :feature do
   before(:all) do
+    Capybara.current_driver = :selenium
+  end
+  before(:all) do
     DatabaseCleaner.strategy = :transaction
     DatabaseCleaner.clean_with(:truncation)
     Mongoid.purge!
@@ -17,12 +20,12 @@ describe "Index Page of User\'s Posts Process", type: :feature do
     Faker::Config.random = Random.new(3)
   end
 
-  before(:each) do
+  before(:all) do
     sign_in @user1
     visit posts_path
   end
 
-  it 'Checking Posts Info' do
+  it 'Checking Posts Info and Page Route' do
     visit '/posts'
     expect(find("img[src='#{@post1.post_image.url}']").visible?).to be_truthy
     expect(page).to have_content @post1.image_heading
@@ -30,10 +33,7 @@ describe "Index Page of User\'s Posts Process", type: :feature do
     expect(find("img[src='#{@post2.post_image.url}']").visible?).to be_truthy
     expect(page).to have_content @post2.image_heading
     expect(page).to have_content @post2.image_caption
-  end
 
-  it 'Checking Route' do
-    visit '/posts'
     expect(page).to have_current_path posts_path
   end
 
@@ -41,6 +41,9 @@ end
 
 describe "Showing Post Process", type: :feature do
   before(:all) do
+    Capybara.current_driver = :selenium
+  end
+  before(:all) do
     DatabaseCleaner.strategy = :transaction
     DatabaseCleaner.clean_with(:truncation)
     Mongoid.purge!
@@ -52,21 +55,19 @@ describe "Showing Post Process", type: :feature do
     Faker::Config.random = Random.new(3)
   end
 
-  before(:each) do
+  before(:all) do
     sign_in @user1
     visit posts_path
     find("a[href='#{post_path(@post1)}']").click
   end
 
-  it 'Checking Post Info' do
+  it 'Checking Post Info and Page Route' do
     expect(find("img[src='#{@post1.post_image.url}']").visible?).to be_truthy
     expect(page).to have_content @post1.image_heading
     expect(page).to have_content @post1.image_caption
     expect(page).to_not have_content @post2.image_heading
     expect(page).to_not have_content @post2.image_caption
-  end
 
-  it 'Checking Route' do
     expect(page).to have_current_path post_path(@post1)
   end
 
@@ -74,6 +75,9 @@ end
 
 describe "Deleting Post Process", type: :feature do
   before(:all) do
+    Capybara.current_driver = :selenium
+  end
+  before(:all) do
     DatabaseCleaner.strategy = :transaction
     DatabaseCleaner.clean_with(:truncation)
     Mongoid.purge!
@@ -88,33 +92,30 @@ describe "Deleting Post Process", type: :feature do
   before(:all) do
     sign_in @user1
     visit posts_path
-    find("button", :text => "Delete Post", match: :first).click
+    find("a", :text => "Delete Post", match: :first).click
+    page.driver.browser.switch_to.alert.accept
   end
 
-  before(:each) do
-    sign_in @user1
-    visit posts_path
-  end
-
-  it 'Checking Total Number of Posts ' do
+  it 'Checking Total Number of Posts, Successful Post Deletion and Page Route ' do
+    sleep(1) # Waiting for transaction to complete
     expect(Post.where(user_id: @user1.id).count).to eq 1
-  end
 
-  it 'Checking Post Deletion' do
+    expect(page).to have_content "Post successfully deleted."
     expect(page).to_not have_content @post1.image_heading
     expect(page).to_not have_content @post1.image_caption
     expect(find("img[src='#{@post2.post_image.url}']").visible?).to be_truthy
     expect(page).to have_content @post2.image_heading
     expect(page).to have_content @post2.image_caption
-  end
 
-  it 'Checking Route' do
     expect(page).to have_current_path posts_path
   end
 
 end
 
 describe "Creating New Post Process", type: :feature do
+  before(:all) do
+    Capybara.current_driver = :selenium
+  end
   before(:all) do
     DatabaseCleaner.strategy = :transaction
     DatabaseCleaner.clean_with(:truncation)
@@ -135,25 +136,16 @@ describe "Creating New Post Process", type: :feature do
       fill_in 'post_image_caption', with: "Caption 3"
       attach_file('post[post_image]', Rails.root.join("spec", "factories", "post3.png"), visible: false)
     end
-    find("input[value='Create Post']", visible: false).click
+    all("label[class='btn btn-default standardButton center-block']")[1].click
   end
 
-  before(:each) do
-    sign_in @user1
-    visit posts_path
-  end
-
-  it 'Checking Total Number of Posts ' do
+  it 'Checking Total Number of Posts, Successful Post Addition and Page Route' do
     expect(Post.where(user_id: @user1.id).count).to eq 3
-  end
 
-  it 'Checking Post Addition' do
     expect(find("img[src='#{Post.where(user_id: @user1.id, image_heading: "Heading 3").first.post_image.url}']").visible?).to be_truthy
     expect(page).to have_content "Heading 3"
     expect(page).to have_content "Caption 3"
-  end
 
-  it 'Checking Route' do
     expect(page).to have_current_path posts_path
   end
 
@@ -161,6 +153,9 @@ end
 
 
 describe "Searching Post Process", type: :feature do
+  before(:all) do
+    Capybara.current_driver = :selenium
+  end
   before(:all) do
     DatabaseCleaner.strategy = :transaction
     DatabaseCleaner.clean_with(:truncation)
@@ -173,23 +168,21 @@ describe "Searching Post Process", type: :feature do
     Faker::Config.random = Random.new(3)
   end
 
-  before(:each) do
+  before(:all) do
     sign_in @user1
     visit posts_path
     find("input[placeholder='Search Post']").fill_in with: "2"
     all("button", :text => "Search")[1].click
   end
 
-  it 'Checking Search Results' do
+  it 'Checking Search Results and Page Route' do
     expect(find("img[src='#{@post2.post_image.url}']").visible?).to be_truthy
     expect(page).to have_content @post2.image_heading
     expect(page).to have_content @post2.image_caption
     expect(page).to_not have_content @post1.image_heading
     expect(page).to_not have_content @post1.image_caption
-  end
 
-  it 'Checking Route' do
-    expect(page).to have_current_path url_for action: 'search', controller: 'posts', searchQuery: "2"
+    expect(page).to have_current_path url_for(action: 'search', controller: 'posts', searchQuery: "2").remove("http://www.example.com")
   end
 
 end

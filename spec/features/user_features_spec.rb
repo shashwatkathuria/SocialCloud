@@ -6,6 +6,9 @@ require 'shoulda/matchers'
 
 describe "Signing Up Process And Verifying New User Information", type: :feature do
   before(:all) do
+    Capybara.use_default_driver
+  end
+  before(:all) do
     DatabaseCleaner.strategy = :transaction
     DatabaseCleaner.clean_with(:truncation)
     Mongoid.purge!
@@ -52,11 +55,13 @@ describe "Signing Up Process And Verifying New User Information", type: :feature
 
   end
 
-
 end
 
+describe "Signing In Process", type: :feature do
+  before(:all) do
+    Capybara.use_default_driver
+  end
 
-describe "Signing In Process And Visiting Profile Pages", type: :feature do
   before(:all) do
     DatabaseCleaner.strategy = :transaction
     DatabaseCleaner.clean_with(:truncation)
@@ -74,6 +79,9 @@ describe "Signing In Process And Visiting Profile Pages", type: :feature do
     end
     click_button 'Login'
   end
+  after(:each) do
+    visit '/users/sign_out'
+  end
 
   it "Checking Valid Sign In" do
     expect(page).to have_content 'Signed in successfully.'
@@ -84,23 +92,43 @@ describe "Signing In Process And Visiting Profile Pages", type: :feature do
     expect(page).to have_current_path root_path
   end
 
-  it 'Visits User\'s Profile Page Checks Valid Profile Details' do
-    visit '/users'
-    expect(page).to have_content @user1.first_name + " " +  @user1.last_name
-    expect(page).to have_content @user1.email
-    expect(page).to have_content @user1.phone
-    expect(page).to have_content @user1.username
-  end
-
   it 'Logs Out The User And Checks If Done Successfully' do
     visit '/users/sign_out'
     expect(page).to have_content 'Signed out successfully.'
     expect(page).to have_current_path root_path
   end
+end
+
+describe "Visiting Own Profile Process", type: :feature do
+  before(:all) do
+    Capybara.current_driver = :selenium
+  end
+
+  before(:all) do
+    DatabaseCleaner.strategy = :transaction
+    DatabaseCleaner.clean_with(:truncation)
+    Mongoid.purge!
+    Faker::Config.random = Random.new(3)
+    @user1 = create(:user1)
+    @user2 = create(:user2)
+    Faker::Config.random = Random.new(3)
+    sign_in @user1
+    visit '/users'
+  end
+    it 'Visits User\'s Profile Page Checks Valid Profile Details' do
+      expect(page).to have_content @user1.first_name + " " +  @user1.last_name
+      expect(page).to have_content @user1.email
+      expect(page).to have_content @user1.phone
+      expect(page).to have_content @user1.username
+    end
 
 end
 
 describe "Editing User Profile Process And Checking Updated Details", type: :feature do
+  before(:all) do
+    Capybara.use_default_driver
+  end
+
   before(:all) do
     DatabaseCleaner.strategy = :transaction
     DatabaseCleaner.clean_with(:truncation)
@@ -163,6 +191,9 @@ end
 
 describe "Searching User Process", type: :feature do
   before(:all) do
+    Capybara.current_driver = :selenium
+  end
+  before(:all) do
     DatabaseCleaner.strategy = :transaction
     DatabaseCleaner.clean_with(:truncation)
     Mongoid.purge!
@@ -175,22 +206,18 @@ describe "Searching User Process", type: :feature do
     visit root_path
   end
 
-  it "Checking Empty Search Query" do
+  it "Checking Empty, Valid and Invalid Search Queries" do
     find("input[name='searchQuery']").fill_in with: ""
     find("button[type='submit']").click
     expect(page).to have_content "No search query entered."
     expect(page).to have_current_path root_path
-  end
 
-  it "Checking Valid Search Query" do
     @query = Faker::Name.first_name
     find("input[name='searchQuery']").fill_in with: @query
     find("button[type='submit']").click
     expect(page).to have_content @query
     expect(page).to have_current_path '/search/' + @query
-  end
 
-  it "Checking Invalid Search Query" do
     @query = "NothingLikeThisExists"
     find("input[name='searchQuery']").fill_in with: @query
     find("button[type='submit']").click
@@ -201,6 +228,10 @@ describe "Searching User Process", type: :feature do
 end
 
 describe "Showing Profile of User Process", type: :feature do
+  before(:all) do
+    Capybara.current_driver = :selenium
+  end
+
   before(:all) do
     DatabaseCleaner.strategy = :transaction
     DatabaseCleaner.clean_with(:truncation)
@@ -216,16 +247,12 @@ describe "Showing Profile of User Process", type: :feature do
     visit '/users/' + @user1.username
   end
 
-  it "Checking Page Route" do
+  it "Checking Page Route, Profile Details and All User Posts Details" do
     expect(page).to have_current_path '/users/' + @user1.username
-  end
 
-  it "Checking Profile Details" do
     expect(page).to have_content @user1.first_name + " " + @user1.last_name
     expect(page).to have_content "@" + @user1.username
-  end
 
-  it "Checking Posts Details" do
     expect(find("img[src='#{@post1.post_image.url}']").visible?).to be_truthy
     expect(page).to have_content @post1.image_heading
     expect(page).to have_content @post1.image_caption
@@ -234,6 +261,9 @@ describe "Showing Profile of User Process", type: :feature do
 end
 
 describe "Following Other User Process", type: :feature do
+  before(:all) do
+    Capybara.current_driver = :selenium
+  end
   before(:all) do
     DatabaseCleaner.strategy = :transaction
     DatabaseCleaner.clean_with(:truncation)
@@ -244,7 +274,8 @@ describe "Following Other User Process", type: :feature do
     Faker::Config.random = Random.new(3)
     sign_in @user1
     visit '/users/' + @user2.username
-    find("a[href='/users/follow/#{@user2.username}']").click
+    find("a[href='#{page.current_url.remove(page.current_path)}/users/follow/#{@user2.username}']").click
+    sleep(1)
   end
 
   it "Checking Following of User Who Followed " do
@@ -261,6 +292,10 @@ end
 
 describe "UnFollowing Other User Process", type: :feature do
   before(:all) do
+    Capybara.current_driver = :selenium
+  end
+
+  before(:all) do
     DatabaseCleaner.strategy = :transaction
     DatabaseCleaner.clean_with(:truncation)
     Mongoid.purge!
@@ -270,10 +305,11 @@ describe "UnFollowing Other User Process", type: :feature do
     Faker::Config.random = Random.new(3)
     sign_in @user1
     visit '/users/' + @user2.username
-    find("a[href='/users/follow/#{@user2.username}']").click
-
+    find("a[href='#{page.current_url.remove(page.current_path)}/users/follow/#{@user2.username}']").click
+    sleep(1)
     visit '/users/' + @user2.username
-    find("a[href='/users/unfollow/#{@user2.username}']").click
+    find("a[href='#{page.current_url.remove(page.current_path)}/users/unfollow/#{@user2.username}']").click
+    sleep(1)
   end
 
   it "Checking Following of User Who UnFollowed " do
