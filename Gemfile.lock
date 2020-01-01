@@ -51,8 +51,6 @@ GEM
     bcrypt (3.1.13)
     binding_of_caller (0.8.0)
       debug_inspector (>= 0.0.1)
-    bootstrap3-rails (3.2.0)
-      rails (>= 4.0.0)
     bson (4.6.0)
     builder (3.2.3)
     byebug (11.0.1)
@@ -316,7 +314,6 @@ PLATFORMS
 
 DEPENDENCIES
   angularjs-rails
-  bootstrap3-rails
   byebug
   capybara
   capybara-screenshot
