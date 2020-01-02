@@ -14,7 +14,7 @@
           <h3><span style="color:orange;"><span class="glyphicon glyphicon-picture" aria-hidden="true"></span> {{ post.image_heading }}</span><hr> {{ post.image_caption }}</h3>
           <p><a ng-href="#" class="btn btn-default disabledTransparentButton disabled"  role="button"><span class="glyphicon glyphicon-time" aria-hidden="true"></span> Posted {{ post.time }} ago</a>
       </div>
-      <img ng-src="{{ post.url }}" alt="{{ post.image_caption }}">
+      <img ng-src="data:{{ post.image_content_type }};base64,{{ post.image_base64 }}" alt="{{ post.image_caption }}">
     </div>
   </div>
 </div>
