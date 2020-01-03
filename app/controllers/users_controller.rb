@@ -78,7 +78,7 @@ class UsersController < ApplicationController
           if @showUser != nil
             @posts = []
             Post.where(user_id: @showUser.id).each do |post|
-              @posts.push({image_caption: post.image_caption, image_heading: post.image_heading, url: post.post_image.url, time: time_ago_in_words(post.time) })
+              @posts.push({image_caption: post.image_caption, image_heading: post.image_heading, image_base64: post.image_base64, image_content_type: post.image_content_type, time: time_ago_in_words(post.time) })
             end
           end
 
@@ -106,7 +106,7 @@ class UsersController < ApplicationController
           flash[:alert] = "No such user by the username " + params[:username] + "."
           redirect_to root_path
         end
-        
+
     end
 
     def search
