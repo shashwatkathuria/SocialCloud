@@ -24,7 +24,7 @@
                   <h4><span style="color:orange;"><span class="glyphicon glyphicon-picture" aria-hidden="true"></span> <%= post.image_heading %> | <span class="glyphicon glyphicon-user" aria-hidden="true"></span> <%= @users.where(id:post.user_id).to_a[0].first_name %> </span> <hr> <%= post.image_caption %></h4>
                   <p><a href="#" class="btn btn-default disabledTransparentButton disabled"  role="button"><span class="glyphicon glyphicon-time" aria-hidden="true"></span> Posted <%= time_ago_in_words(post.time) %> ago</a>
               </div>
-              <img src="<%= post.post_image.url(:original) %>" alt="<%= post.image_caption %>">
+              <img src="data:<%= post.image_content_type %>;base64,<%= post.image_base64 %>" alt="<%= post.image_caption %>">
             </div>
           </div>
         </div>
@@ -41,7 +41,7 @@
               <div class="caption">
                   <h4><span style="color:orange;"><span class="glyphicon glyphicon-picture" aria-hidden="true"></span> <%= post.image_heading %> | <span class="glyphicon glyphicon-user" aria-hidden="true"></span> <%= @users.where(id:post.user_id).to_a[0].first_name %> </span> <hr> </h4>
               </div>
-              <img src="<%= post.post_image.url(:original) %>" style="height:300px;" alt="<%= post.image_caption %>">
+              <img src="data:<%= post.image_content_type %>;base64,<%= post.image_base64 %>" alt="<%= post.image_caption %>" style="height:300px;">
             </div>
           </div>
       <% end %>

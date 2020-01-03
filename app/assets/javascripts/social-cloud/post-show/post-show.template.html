@@ -5,7 +5,7 @@
           <h3><span style="color:orange;"><span class="glyphicon glyphicon-picture" aria-hidden="true"></span> {{ $ctrl.post.image_heading }}</span><hr> {{ $ctrl.post.image_caption }}</h3>
           <p><a ng-href="#" class="btn btn-default disabledTransparentButton disabled"  role="button"><span class="glyphicon glyphicon-time" aria-hidden="true"></span> Posted {{ $ctrl.post.time }} ago</a>
       </div>
-      <img ng-src="{{ $ctrl.post.url }}" alt="{{ $ctrl.post.image_caption }}">
+      <img ng-src="data:{{ $ctrl.post.image_content_type }};base64,{{ $ctrl.post.image_base64 }}" alt="{{ $ctrl.post.image_caption }}">
       <div class="caption">
             <a ng-click="deleteWarning($event)" ng-href="{{ $ctrl.post.delete_path }}" class="btn transparentButton btn-default" style="margin-top:8px;margin-bottom:8px;" role="button">Delete Post <span class="glyphicon glyphicon-picture" aria-hidden="true"></span></a>
       </div>
