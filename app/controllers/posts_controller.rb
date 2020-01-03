@@ -4,7 +4,7 @@ class PostsController < ApplicationController
     if params[:format] == "json"
       @posts = []
       Post.where(user_id:current_user.id).order_by(time: :desc).each do |post|
-        @posts.push({ id: post._id.to_s, delete_path: url_for(action: "delete", controller: "posts", deleteID: post._id.to_s), post_path: post_path(post), image_caption: post.image_caption, image_heading: post.image_heading, url: post.post_image.url, time: time_ago_in_words(post.time) })
+        @posts.push({ id: post._id.to_s, delete_path: url_for(action: "delete", controller: "posts", deleteID: post._id.to_s), post_path: post_path(post), image_caption: post.image_caption, image_heading: post.image_heading, image_base64: post.image_base64, image_content_type: post.image_content_type, time: time_ago_in_words(post.time) })
       end
       respond_to do |format|
         format.json {render json: {posts: @posts.as_json} }
@@ -23,7 +23,7 @@ class PostsController < ApplicationController
           end
 
           respond_to do |format|
-            format.json {render json: { id: @post._id.to_s, delete_path: url_for(action: "delete", controller: "posts", deleteID: @post._id.to_s), image_caption: @post.image_caption, image_heading: @post.image_heading, url: @post.post_image.url, time: time_ago_in_words(@post.time) } }
+            format.json {render json: { id: @post._id.to_s, delete_path: url_for(action: "delete", controller: "posts", deleteID: @post._id.to_s), image_caption: @post.image_caption, image_heading: @post.image_heading, image_base64: @post.image_base64, image_content_type: @post.image_content_type, time: time_ago_in_words(@post.time) } }
           end
 
         rescue
@@ -45,7 +45,9 @@ class PostsController < ApplicationController
 
   def create
     @params = params[:post]
-    @post = Post.new(user_id: current_user.id, image_heading: @params[:image_heading], image_caption: @params[:image_caption], post_image: @params[:post_image])
+    content = @params[:post_image].tempfile.open.read.force_encoding(Encoding::UTF_8)
+    content_type = @params[:post_image].content_type
+    @post = Post.new(user_id: current_user.id, image_heading: @params[:image_heading], image_caption: @params[:image_caption], image_base64: Base64.strict_encode64(content), image_content_type: content_type)
     @post.save
     redirect_to posts_path
   end
@@ -58,7 +60,7 @@ class PostsController < ApplicationController
         @searchQuery = params[:searchQuery]
         @posts = []
         Post.where(user_id:current_user.id).any_of({image_heading: /#{@searchQuery}/i}, {image_caption: /#{@searchQuery}/i}).order(:time=> 'desc').each do |post|
-          @posts.push({ id: post._id.to_s, delete_path: url_for(action: "delete", controller: "posts", deleteID: post._id.to_s), post_path: post_path(post), image_caption: post.image_caption, image_heading: post.image_heading, url: post.post_image.url, time: time_ago_in_words(post.time) })
+          @posts.push({ id: post._id.to_s, delete_path: url_for(action: "delete", controller: "posts", deleteID: post._id.to_s), post_path: post_path(post), image_caption: post.image_caption, image_heading: post.image_heading, image_base64: post.image_base64, image_content_type: post.image_content_type, time: time_ago_in_words(post.time) })
         end
         respond_to do |format|
           format.json {render json: {search_query: @searchQuery, search_results: @posts.as_json} }
