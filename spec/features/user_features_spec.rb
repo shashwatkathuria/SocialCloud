@@ -252,8 +252,7 @@ describe "Showing Profile of User Process", type: :feature do
 
     expect(page).to have_content @user1.first_name + " " + @user1.last_name
     expect(page).to have_content "@" + @user1.username
-
-    expect(find("img[src='#{@post1.post_image.url}']").visible?).to be_truthy
+    expect(find("img")[:src]).to eq "data:#{ @post1.image_content_type };base64,#{ @post1.image_base64 }"
     expect(page).to have_content @post1.image_heading
     expect(page).to have_content @post1.image_caption
   end

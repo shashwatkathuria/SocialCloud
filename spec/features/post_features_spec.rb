@@ -27,10 +27,10 @@ describe "Index Page of User\'s Posts Process", type: :feature do
 
   it 'Checking Posts Info and Page Route' do
     visit '/posts'
-    expect(find("img[src='#{@post1.post_image.url}']").visible?).to be_truthy
+    expect(all("img")[0][:src]).to eq "data:#{ @post1.image_content_type };base64,#{ @post1.image_base64 }"
     expect(page).to have_content @post1.image_heading
     expect(page).to have_content @post1.image_caption
-    expect(find("img[src='#{@post2.post_image.url}']").visible?).to be_truthy
+    expect(all("img")[1][:src]).to eq "data:#{ @post2.image_content_type };base64,#{ @post2.image_base64 }"
     expect(page).to have_content @post2.image_heading
     expect(page).to have_content @post2.image_caption
 
@@ -62,7 +62,7 @@ describe "Showing Post Process", type: :feature do
   end
 
   it 'Checking Post Info and Page Route' do
-    expect(find("img[src='#{@post1.post_image.url}']").visible?).to be_truthy
+    expect(find("img")[:src]).to eq "data:#{ @post1.image_content_type };base64,#{ @post1.image_base64 }"
     expect(page).to have_content @post1.image_heading
     expect(page).to have_content @post1.image_caption
     expect(page).to_not have_content @post2.image_heading
@@ -103,7 +103,7 @@ describe "Deleting Post Process", type: :feature do
     expect(page).to have_content "Post successfully deleted."
     expect(page).to_not have_content @post1.image_heading
     expect(page).to_not have_content @post1.image_caption
-    expect(find("img[src='#{@post2.post_image.url}']").visible?).to be_truthy
+    expect(find("img")[:src]).to eq "data:#{ @post2.image_content_type };base64,#{ @post2.image_base64 }"
     expect(page).to have_content @post2.image_heading
     expect(page).to have_content @post2.image_caption
 
@@ -142,7 +142,8 @@ describe "Creating New Post Process", type: :feature do
   it 'Checking Total Number of Posts, Successful Post Addition and Page Route' do
     expect(Post.where(user_id: @user1.id).count).to eq 3
 
-    expect(find("img[src='#{Post.where(user_id: @user1.id, image_heading: "Heading 3").first.post_image.url}']").visible?).to be_truthy
+    @createdPost = Post.where(user_id: @user1.id, image_heading: "Heading 3").first
+    expect(all("img")[0][:src]).to eq "data:#{ @createdPost.image_content_type };base64,#{ @createdPost.image_base64 }"
     expect(page).to have_content "Heading 3"
     expect(page).to have_content "Caption 3"
 
@@ -176,7 +177,7 @@ describe "Searching Post Process", type: :feature do
   end
 
   it 'Checking Search Results and Page Route' do
-    expect(find("img[src='#{@post2.post_image.url}']").visible?).to be_truthy
+    expect(find("img")[:src]).to eq "data:#{ @post2.image_content_type };base64,#{ @post2.image_base64 }"
     expect(page).to have_content @post2.image_heading
     expect(page).to have_content @post2.image_caption
     expect(page).to_not have_content @post1.image_heading

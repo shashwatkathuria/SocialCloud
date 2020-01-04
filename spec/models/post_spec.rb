@@ -16,12 +16,8 @@ RSpec.describe Post, type: :model do
     it { is_expected.to have_field(:time).of_type(Time) }
     it { is_expected.to have_field(:image_heading).of_type(String) }
     it { is_expected.to have_field(:image_caption).of_type(String) }
-  end
-  context 'Checking Attachment ' do
-    it { should have_attached_file(:post_image) }
-  end
-  context 'Verifying Attachment Types' do
-    it { should validate_attachment_content_type(:post_image).allowing('image/png', 'image/gif', 'image/jpeg', 'image/jpg') }
+    it { is_expected.to have_field(:image_content_type).of_type(String) }
+    it { is_expected.to have_field(:image_base64).of_type(String) }
   end
 
   context 'Post1 Factory Bot Object' do
@@ -37,10 +33,10 @@ RSpec.describe Post, type: :model do
       it { expect(@post1.image_caption).to eq "Caption 1" }
     end
     context 'Checking Image MD5 Fingerprint' do
-      it { expect(@post1.post_image_fingerprint).to eq Digest::MD5.hexdigest(File.read(File.join(Rails.root, "spec/factories/post1.png"))) }
+      it { expect(Digest::MD5.hexdigest(@post1.image_base64)).to eq Digest::MD5.hexdigest(Base64.strict_encode64(File.read(File.join(Rails.root, "spec/factories/post1.png")))) }
     end
     context 'Checking Image Content Type ' do
-      it { expect(@post1.post_image_content_type).to eq 'image/png' }
+      it { expect(@post1.image_content_type).to eq 'image/png' }
     end
 
   end
@@ -58,10 +54,10 @@ RSpec.describe Post, type: :model do
       it { expect(@post2.image_caption).to eq "Caption 2" }
     end
     context 'Checking Image MD5 Fingerprint' do
-      it { expect(@post2.post_image_fingerprint).to eq Digest::MD5.hexdigest(File.read(File.join(Rails.root, "spec/factories/post2.png"))) }
+      it { expect(Digest::MD5.hexdigest(@post2.image_base64)).to eq Digest::MD5.hexdigest(Base64.strict_encode64(File.read(File.join(Rails.root, "spec/factories/post2.png")))) }
     end
     context 'Checking Image Content Type ' do
-      it { expect(@post2.post_image_content_type).to eq 'image/png' }
+      it { expect(@post2.image_content_type).to eq 'image/png' }
     end
 
   end
