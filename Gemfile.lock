@@ -171,7 +171,7 @@ GEM
       mimemagic (~> 0.3.0)
       terrapin (~> 0.6.0)
     public_suffix (4.0.1)
-    rack (2.0.7)
+    rack (2.1.1)
     rack-pjax (1.1.0)
       nokogiri (~> 1.5)
       rack (>= 1.1)
@@ -329,6 +329,7 @@ DEPENDENCIES
   mongoid
   mongoid-paperclip
   mongoid-rspec
+  rack (>= 2.0.8)
   rails
   rails-controller-testing
   rails_admin (~> 2.0)
