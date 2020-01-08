@@ -18,7 +18,7 @@ TECHNOLOGIES USED
 - Ruby on Rails 5.0.7.2
 - Ruby 2.5.1
 - AngularJS - 1.6.8 ( Javascript Framework )
-- SQLLite / PostgreSQL / MongoDB
+- SQLLite / PostgreSQL / MongoDB (v3.6.3)
 - Bootstrap ( HTML / CSS / Javascript )
 
 ----------------------------
@@ -58,4 +58,12 @@ Following are the users for the application(master branch - development mode):
 - email: cristiano@gmail.com username: cristiano password: ronaldo
 - email: akshay@gmail.com username: akshaygupta password: akshay
 - email: john@gmail.com username: johncena password: johncena
+
+----------------
+NOTE
+-----------------
+
+MongoDB needs to be installed on machine and configured using mongoid.
+Refer to mongoid.yml inside config folder and mongoid documentation for further details.
+
 --------------
