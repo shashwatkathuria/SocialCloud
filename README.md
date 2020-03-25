@@ -41,7 +41,7 @@ For testing:
 
 App folder contains the main application logical component.
 - In assets folder all the javascript, manifest of javascript and bootstrap etc can be found
-alongwith the angularjs module and other declarations.
+alongwith the angularJS module and other declarations.
 - In controllers folder all the controllers regarding posts, users, welcome(root page), etc can be found.
 - In models folder all the structure of user and post class can be found.
 - In views folder all the html can be found alongwith layouts, etc.
