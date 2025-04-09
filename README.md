@@ -1,4 +1,4 @@
-# SocialCloud ![Status completed](https://img.shields.io/badge/Status-finished-2eb3c1.svg) ![Ruby On Rails 5.0.7.2](https://img.shields.io/badge/RubyOnRails-5.0.7.2-red.svg) ![Ruby 2.5.1](https://img.shields.io/badge/Ruby-2.5.1-blue.svg) ![AngularJS 1.6.8](https://img.shields.io/badge/AngularJS-1.6.8-green.svg)  ![forthebadge made-with-ruby](https://forthebadge.com/images/badges/made-with-ruby.svg) ![forthebadge made-with-javascript](https://forthebadge.com/images/badges/made-with-javascript.svg)
+# SocialCloud ![Status completed](https://img.shields.io/badge/Status-finished-2eb3c1.svg) ![Ruby On Rails 7.1.5.1](https://img.shields.io/badge/RubyOnRails-7.1.5.1-red.svg) ![Ruby 3.3.0](https://img.shields.io/badge/Ruby-3.3.0-blue.svg) ![AngularJS 1.6.8](https://img.shields.io/badge/AngularJS-1.6.8-green.svg)  ![forthebadge made-with-ruby](https://forthebadge.com/images/badges/made-with-ruby.svg) ![forthebadge made-with-javascript](https://forthebadge.com/images/badges/made-with-javascript.svg)
 ----------------------------
 ABOUT THE PROJECT
 ----------------------------
