@@ -1,26 +1,0 @@
-{:uriI"³file://app/assets/javascripts/social-cloud/post-search-details/post-search-details.template.html?type=text/html&id=15e65f55d9b32d00505fa7a17686ed214310bc7b5e0b9a983c6a336afe028d99:ET:load_pathI"app/assets/javascripts;T:filenameI"^app/assets/javascripts/social-cloud/post-search-details/post-search-details.template.html;T:	nameI"Bsocial-cloud/post-search-details/post-search-details.template;T:logical_pathI"Gsocial-cloud/post-search-details/post-search-details.template.html;T:content_typeI"text/html;T:sourceI"<div class="page-header" style="text-align:center;">
-<h2>Search Results &nbsp<small>Following are the search results for <span style="color:orange;" >'{{ $ctrl.searchResults.search_query }}'</span></small></h2>
-</div>
-
-<div class="row" ng-repeat="post in $ctrl.searchResults.search_results">
-  <div class="col-sm-12 col-md-12 col-lg-12">
-    <div class="thumbnail">
-      <div class="caption">
-          <h3><span style="color:orange;"><span class="glyphicon glyphicon-picture" aria-hidden="true"></span> {{ post.image_heading }}</span><hr> {{ post.image_caption }}</h3>
-          <p><a href="#" class="btn btn-default disabledTransparentButton disabled"  role="button"><span class="glyphicon glyphicon-time" aria-hidden="true"></span> Posted {{ post.time }} ago</a>
-      </div>
-      <img src="{{ post.url }}" alt="{{ post.image_caption }}">
-      <div class="caption">
-            <a ng-click="deleteWarning($event)" href="{{ post.delete_path }}" class="btn transparentButton btn-default" style="margin-top:8px;margin-bottom:8px;" role="button">Delete Post <span class="glyphicon glyphicon-picture" aria-hidden="true"></span></a>
-            <a href="{{ post.post_path }}" class="btn transparentButton btn-default" style="margin-top:8px;margin-bottom:8px;" role="button">Show Post <span class="glyphicon glyphicon-picture" aria-hidden="true"></span></a>
-      </div>
-    </div>
-  </div>
-</div>
-
-<p style="text-align:center;" ng-if="$ctrl.searchResults.search_results.length == 0">Sorry, nothing is matching with your search query!</p>
-;T:metadata{	:dependencieso:Set:
-@hash}
-I"environment-version;TTI"environment-paths;TTI"rails-env;TTI"2processors:type=text/html&file_type=text/html;TTI"lfile-digest://app/assets/javascripts/social-cloud/post-search-details/post-search-details.template.html;TTF:charsetI"
-utf-8;F:digest"%”œPÉuş	ôòÑ:ÒÍ®¥´ÈoïËİ9ÅÃfØGx:lengthi:dependencies_digest"%ñÄ‰lôÿ¦ã,,pıƒ«ŞYAc+eQd»„™:idI"E15e65f55d9b32d00505fa7a17686ed214310bc7b5e0b9a983c6a336afe028d99;F:
-mtimel+ˆŞ]

@@ -1,37 +1,0 @@
-{:uriI"Øfile://app/assets/javascripts/social-cloud/user-show-profile/user-show-profile.template.html?type=text/html&id=524ab92d087716b01c79489df2db92e60d32cc702c3d1ad63f952802d4713ead:ET:load_pathI"app/assets/javascripts;T:filenameI"Zapp/assets/javascripts/social-cloud/user-show-profile/user-show-profile.template.html;T:	nameI">social-cloud/user-show-profile/user-show-profile.template;T:logical_pathI"Csocial-cloud/user-show-profile/user-show-profile.template.html;T:content_typeI"text/html;T:sourceI"À<div class="row" ng-repeat="post in $ctrl.userProfile.posts">
-  <div class="col-sm-12 col-md-12 col-lg-12">
-    <div class="thumbnail">
-      <div class="caption">
-          <h3><span style="color:orange;"><span class="glyphicon glyphicon-picture" aria-hidden="true"></span> {{ post.image_heading }}</span><hr> {{ post.image_caption }}</h3>
-          <p><a href="#" class="btn btn-default disabledTransparentButton disabled"  role="button"><span class="glyphicon glyphicon-time" aria-hidden="true"></span> Posted {{ post.time }} ago</a>
-      </div>
-      <img src="{{ post.url }}" alt="<%= post.image_caption %>">
-      <div class="caption">
-        <!-- <% if !show_profile %>
-          <% if show %>
-          <div class="col-md-5 col-md-offset-5">
-          <% end %>
-            <%= form_for :post,  url: posts_delete_path, html: { class:"navbar-form navbar-left" }, data: {confirm: "Are you sure that you want to delete this post?"} do |f| %>
-              <div class="form-group">
-                <input type="hidden" name="deleteID" class="form-control" value="<%= post.id.to_s %>">
-              </div>
-              <button type="submit" class="btn transparentButton btn-default" >Delete Post&nbsp<span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
-            <% end %>
-          <% if show %>
-            </div>
-            <br>
-            <br>
-          <% end %>
-          <% if not show %>
-            <a href="<%= post_path(post) %>" class="btn transparentButton btn-default" style="margin-top:8px;margin-bottom:8px;" role="button">Show Post <span class="glyphicon glyphicon-picture" aria-hidden="true"></span></a>
-          <% end %>
-        <% end %> -->
-      </div>
-    </div>
-  </div>
-</div>
-;T:metadata{	:dependencieso:Set:
-@hash}
-I"environment-version;TTI"environment-paths;TTI"rails-env;TTI"2processors:type=text/html&file_type=text/html;TTI"hfile-digest://app/assets/javascripts/social-cloud/user-show-profile/user-show-profile.template.html;TTF:charsetI"
-utf-8;F:digest"%ı/¥ 0π√º˝kT⁄´\ÎØ‹Zù©4‹,§0É-Öq6:lengthiÀ:dependencies_digest"%x)â?ë◊¡“G•p£'¸Z©0K${^í€ mu‹l:idI"E524ab92d087716b01c79489df2db92e60d32cc702c3d1ad63f952802d4713ead;F:
-mtimel+ñ·Ú]

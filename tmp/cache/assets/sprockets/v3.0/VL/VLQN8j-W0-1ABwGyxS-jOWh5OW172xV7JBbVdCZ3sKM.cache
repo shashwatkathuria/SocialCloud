@@ -1,26 +1,0 @@
-{:uriI"¯file://app/assets/javascripts/social-cloud/user-show-profile/user-show-profile.template.html?type=text/html&id=9118507a4c95b02da420f914c4e1cd9b72c8d0d538100494e45a62a0664573de:ET:load_pathI"app/assets/javascripts;T:filenameI"Zapp/assets/javascripts/social-cloud/user-show-profile/user-show-profile.template.html;T:	nameI">social-cloud/user-show-profile/user-show-profile.template;T:logical_pathI"Csocial-cloud/user-show-profile/user-show-profile.template.html;T:content_typeI"text/html;T:sourceI"ü<div class="well well-lg" >
-      <h2><span class="glyphicon glyphicon-picture" aria-hidden="true"></span> {{ $ctrl.userProfile.user.first_name + " " + $ctrl.userProfile.user.last_name }}</h2>
-      <hr>
-      <h2><small>@{{ $ctrl.userProfile.user.username }}</small></h2>
-      <br>
-      <a href="{{ $ctrl.userProfile.link }}" class="btn transparentButton btn-default center-block" style="margin-top:8px;margin-bottom:8px;" role="button">{{ $ctrl.userProfile.link.includes('unfollow') ? 'Unfollow' : 'Follow'}}</a>
-</div>
-
-<div class="row" ng-repeat="post in $ctrl.userProfile.posts">
-  <div class="col-sm-12 col-md-12 col-lg-12">
-    <div class="thumbnail">
-      <div class="caption">
-          <h3><span style="color:orange;"><span class="glyphicon glyphicon-picture" aria-hidden="true"></span> {{ post.image_heading }}</span><hr> {{ post.image_caption }}</h3>
-          <p><a href="#" class="btn btn-default disabledTransparentButton disabled"  role="button"><span class="glyphicon glyphicon-time" aria-hidden="true"></span> Posted {{ post.time }} ago</a>
-      </div>
-      <img src="{{ post.url }}" alt="<%= post.image_caption %>">
-    </div>
-  </div>
-</div>
-
-<p ng-if="$ctrl.userProfile.posts.length == 0">@{{ $ctrl.userProfile.user.username }} has no posts yet!</p>
-;T:metadata{	:dependencieso:Set:
-@hash}
-I"environment-version;TTI"environment-paths;TTI"rails-env;TTI"2processors:type=text/html&file_type=text/html;TTI"hfile-digest://app/assets/javascripts/social-cloud/user-show-profile/user-show-profile.template.html;TTF:charsetI"
-utf-8;F:digest"%©BB.È` ÓEJª˜8Ûñ$®ˆm9Õ®Ö<²Áƒ¼:lengthiü:dependencies_digest"%gÒ¼8®ÐR‰à+Øã©ð^$ìÊy°ÐÒÐ‡°_0:idI"E9118507a4c95b02da420f914c4e1cd9b72c8d0d538100494e45a62a0664573de;F:
-mtimel+æò]

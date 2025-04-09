@@ -6,8 +6,8 @@ class User < ApplicationRecord
 
   validates_uniqueness_of :username
   # validates_uniqueness_of :email => already taken care of by devise
-  serialize :followers, Array
-  serialize :following, Array
+  serialize :followers, type: Array
+  serialize :following, type: Array
 
 
   attr_writer :login

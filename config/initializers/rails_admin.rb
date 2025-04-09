@@ -1,4 +1,5 @@
 RailsAdmin.config do |config|
+  config.asset_source = :importmap
 
   ### Popular gems integration
 

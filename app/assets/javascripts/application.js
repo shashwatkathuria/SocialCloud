@@ -12,12 +12,11 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require turbolinks
 //= require angular
 //= require angular-animate
 //= require angular-resource
 
-//= require social-cloud/app.constants.js.erb
+//= require social-cloud/app.constants.js
 //= require social-cloud/app.module.js
 
 //= require social-cloud/profile-details/profile-details.module.js

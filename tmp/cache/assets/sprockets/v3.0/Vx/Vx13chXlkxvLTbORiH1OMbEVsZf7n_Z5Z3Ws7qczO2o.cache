@@ -1,46 +1,0 @@
-{:uriI"«file://app/assets/javascripts/social-cloud/profile-details/profile-details.template.html?type=text/html&id=3cf3364733a99f1702e13615321a922ec5b504c80828e493dcb6af5bb907881e:ET:load_pathI"app/assets/javascripts;T:filenameI"Vapp/assets/javascripts/social-cloud/profile-details/profile-details.template.html;T:	nameI":social-cloud/profile-details/profile-details.template;T:logical_pathI"?social-cloud/profile-details/profile-details.template.html;T:content_typeI"text/html;T:sourceI"
-	<div class="well well-lg" >
-  <p><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Name : {{ $ctrl.profileInfo.user.first_name + " " + $ctrl.profileInfo.user.last_name }}</p>
-  <hr>
-  <p><span class="glyphicon glyphicon-user" aria-hidden="true"></span> User Name : {{ $ctrl.profileInfo.user.username }}</p>
-  <hr>
-  <p><span class="glyphicon glyphicon-earphone" aria-hidden="true"></span> Phone : {{ $ctrl.profileInfo.user.phone }}</p>
-  <hr>
-  <p><span class="glyphicon glyphicon-inbox" aria-hidden="true"></span> Email : {{ $ctrl.profileInfo.user.email }}</p>
-  <hr>
-  <p><span class="glyphicon glyphicon-certificate" aria-hidden="true"></span> Member Since : {{ $ctrl.profileInfo.member_since }}</p>
-</div>
-
-<div class="well well-lg">
-  <p><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Followers </p>
-  <hr>
-  <% if @followers.length == 0 %>
-    <p ng-if="$ctrl.profileInfo.followers.length == 0">No Followers.</p>
-  <% end %>
-  <% for follower in @followers %>
-      <div class="row">
-        <div class="col-sm-4 col-md-4 col-lg-4">
-          <p style="margin:8px;">@<%= follower.username %></p>
-        </div>
-        <div class="col-sm-4 col-md-4 col-lg-4">
-          <a href="<%= url_for action:"show_profile", controller: "users", username: follower.username %>" class="btn transparentButton btn-default center-block" style="margin-top:8px;margin-bottom:8px;" role="button">Show <%= follower.first_name + "'s" %> Profile <span class="glyphicon glyphicon-hand-right" aria-hidden="true"></span></a>
-        </div>
-        <div class="col-sm-4 col-md-4 col-lg-4">
-          <% if current_user && current_user.id != follower.id %>
-            <% if current_user.following.include? follower.id %>
-              <a href="<%= url_for action:"unfollow", controller: "users", username: follower.username %>" class="btn transparentButton btn-default center-block" style="margin-top:8px;margin-bottom:8px;" role="button">Unfollow</a>
-            <% else %>
-              <a href="<%= url_for action:"follow", controller: "users", username: follower.username %>" class="btn transparentButton btn-default center-block" style="margin-top:8px;margin-bottom:8px;" role="button">Follow</a>
-            <% end %>
-          <% end %>
-        </div>
-      </div>
-  <% end %>
-  <hr>
-</div>
-;T:metadata{	:dependencieso:Set:
-@hash}
-I"environment-version;TTI"environment-paths;TTI"rails-env;TTI"2processors:type=text/html&file_type=text/html;TTI"dfile-digest://app/assets/javascripts/social-cloud/profile-details/profile-details.template.html;TTF:charsetI"
-utf-8;F:digest"%©ÆuüNXWoV!ñÉ	ÀÔªÔ%"œoðâ#gÛ9ƒuy[:lengthi
-	:dependencies_digest"%G…¸oI«p×m.¥$é¶³aA*î "ùâÄN¸÷™Ú‡Ý†:idI"E3cf3364733a99f1702e13615321a922ec5b504c80828e493dcb6af5bb907881e;F:
-mtimel+ø§ò]

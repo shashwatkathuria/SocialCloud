@@ -15,8 +15,8 @@ Heroku, MongoDB and MongoDB Atlas.
 TECHNOLOGIES USED
 ----------------------------
 
-- Ruby on Rails 5.0.7.2
-- Ruby 2.5.1
+- Ruby on Rails 7.1.5.1
+- Ruby 3.3.0
 - AngularJS - 1.6.8 ( Javascript Framework )
 - SQLLite / PostgreSQL / MongoDB (v3.6.3)
 - Bootstrap ( HTML / CSS / Javascript )

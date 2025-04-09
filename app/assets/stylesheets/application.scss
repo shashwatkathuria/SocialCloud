@@ -1,0 +1,120 @@
+// Entry point for your Sass build
+
+@import "contact_us";
+@import "posts";
+@import "users";
+@import "welcome";
+
+.navbar-transparent li a {
+  color: white;
+}
+
+.dropdown-menu li a {
+  color: black !important;
+}
+
+.thumbnail {
+  background-color: black !important;
+  border-radius: 10px !important;
+}
+
+img {
+  border-radius: 10px !important;
+}
+
+.caption {
+  color: white !important;
+  text-align: center !important;
+}
+
+.center_div {
+  margin: 0 auto !important;
+  width: 44% !important;
+}
+
+.navbar-transparent li a:hover,
+.navbar-transparent li a:active {
+  color: black;
+}
+
+.well-lg,
+.well-sm {
+  background-color: black !important;
+  color: orange !important;
+}
+
+.well-lg hr,
+.well-sm hr {
+  border-color: yellow;
+}
+
+.jumbotron {
+  border-radius: 30px !important;
+}
+
+[hidden] {
+  display: none !important;
+}
+
+.dontHighlightNavBarLink:hover {
+  color: white !important;
+  background-color: transparent !important;
+}
+
+#brandLogo {
+  color: white;
+}
+
+#brandLogo:hover {
+  color: orange;
+}
+
+.transparentButton {
+  color: white !important;
+  background-color: transparent !important;
+}
+
+.transparentButton:hover {
+  color: orange !important;
+}
+
+.disabledTransparentButton {
+  color: orange !important;
+  background-color: transparent !important;
+}
+
+.navbar-toggle .icon-bar {
+  background-color: white;
+}
+
+.contactUsButton,
+.standardButton {
+  color: black !important;
+  background-color: orange !important;
+}
+
+.contactUsButton:hover {
+  color: gray !important;
+}
+
+.standardButton:hover {
+  color: white !important;
+}
+
+.buttonLink {
+  color: black !important;
+  text-decoration: none;
+}
+
+.buttonLink:hover {
+  color: blue !important;
+}
+
+.whiteLink {
+  color: white !important;
+  text-decoration: none;
+}
+
+.whiteLink:hover {
+  color: orange !important;
+}
