@@ -297,3 +297,14 @@ test:
         read:
           mode: :primary
         max_pool_size: 1
+
+production:
+  clients:
+    default:
+      # Use the URI provided by MongoDB Atlas via an Environment Variable
+      uri: <%= ENV['MONGODB_URI'] %>
+      options:
+        # Recommended for cloud environments to avoid boot hangs
+        server_selection_timeout: 5
+        # Ensures compatibility with modern MongoDB Atlas clusters
+        connect_timeout: 10

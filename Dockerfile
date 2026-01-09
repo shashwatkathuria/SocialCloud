@@ -16,8 +16,10 @@ WORKDIR /rails
 
 # Install base packages
 RUN apt-get update -qq && \
-    apt-get install --no-install-recommends -y curl libjemalloc2 libvips libpq-dev && \
+    apt-get install --no-install-recommends -y curl libjemalloc2 libvips libpq-dev openssh-server && \
     ln -s /usr/lib/$(uname -m)-linux-gnu/libjemalloc.so.2 /usr/local/lib/libjemalloc.so && \
+    echo "root:Docker!" | chpasswd && \
+    printf "Port 2222\nListenAddress 0.0.0.0\nLoginGraceTime 180\nPermitRootLogin yes\nPasswordAuthentication yes\nSubsystem sftp internal-sftp\n" > /etc/ssh/sshd_config && \
     rm -rf /var/lib/apt/lists /var/cache/apt/archives
 
 # Set production environment variables and enable jemalloc for reduced memory usage and latency.
@@ -62,7 +64,6 @@ FROM base
 # Run and own only the runtime files as a non-root user for security
 RUN groupadd --system --gid 1000 rails && \
     useradd rails --uid 1000 --gid 1000 --create-home --shell /bin/bash
-USER 1000:1000
 
 # Copy built artifacts: gems, application
 COPY --chown=rails:rails --from=build "${BUNDLE_PATH}" "${BUNDLE_PATH}"
@@ -72,5 +73,5 @@ COPY --chown=rails:rails --from=build /rails /rails
 ENTRYPOINT ["/rails/bin/docker-entrypoint"]
 
 # Start server via Thruster by default, this can be overwritten at runtime
-EXPOSE 8080
+EXPOSE 8080 2222
 CMD ["./bin/thrust", "./bin/rails", "server", "-p", "8080", "-b", "0.0.0.0"]

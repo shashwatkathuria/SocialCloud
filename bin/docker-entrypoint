@@ -1,8 +1,12 @@
-#!/bin/bash -e
+#!/bin/bash
+set -e
 
-# If running the rails server then create or migrate existing database
-if [ "${@: -2:1}" == "./bin/rails" ] && [ "${@: -1:1}" == "server" ]; then
-  ./bin/rails db:prepare
-fi
+# Start SSH service
+service ssh start || echo "SSH failed"
 
+# Run migrations every time the container starts
+echo "Running database preparation..."
+./bin/rails db:prepare
+
+# Proceed to start the app
 exec "${@}"
