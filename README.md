@@ -26,14 +26,19 @@ INSTRUCTIONS TO RUN THE PROJECT
 ----------------------------
 
 Type the following commands in sequential order:
-
-              bundle update      (To update all gems)
-              bundle install     (To install all gems)
-              rails s
+```
+bundle install     (To install all gems)
+rails s            (To start the server)
+```
 
 For testing:
 ```
 bundle exec rspec spec (From root directory)
+```
+
+For starting the rails console:
+```
+rails c
 ```
 
 For creating db:
