@@ -94,4 +94,5 @@ Refer to mongoid.yml inside config folder and mongoid documentation for further 
 
 Ruby (preferably via rvm - ruby version manager) and Rails also need to be installed 
 on the system.
+
 --------------
