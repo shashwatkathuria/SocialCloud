@@ -32,25 +32,29 @@ Type the following commands in sequential order:
               rails s
 
 For testing:
-
-              bundle exec rspec spec (From root directory)    
+```
+bundle exec rspec spec (From root directory)
+```
 
 For creating db:
-              1. db:create
-              2. db:migrate
-              The above commands create and apply the tables for User class. For MongoDB (Post Class), the db is created on the go.
+```
+1. db:create
+2. db:migrate
+The above commands create and apply the tables for User class.
+For MongoDB (Post Class), the db is created on the go.
+```
 
 For deleting db:
-              1. db:drop 
-              [1. Deletes users, stored in SQL DB]
-              2. mongo
-              3. use social_cloud_development
-              4. db.dropDatabase()
-              [2., 3., 4. delete posts, stored in MongoDB] 
-              OR
-              rails c
-              - User.delete_all
-              - Post.delete_all               
+```
+1. db:drop [1. Deletes users, stored in SQL DB]
+2. mongo
+3. use social_cloud_development
+4. db.dropDatabase() [2., 3., 4. delete posts, stored in MongoDB] 
+OR
+rails c
+- User.delete_all
+- Post.delete_all
+```       
 
 ----------------------------
 # Main Components of Application
