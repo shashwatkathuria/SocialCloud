@@ -1,4 +1,4 @@
-# SocialCloud ![Status completed](https://img.shields.io/badge/Status-finished-2eb3c1.svg) ![Ruby On Rails 5.0.7.2](https://img.shields.io/badge/RubyOnRails-5.0.7.2-red.svg) ![Ruby 2.5.1](https://img.shields.io/badge/Ruby-2.5.1-blue.svg) ![AngularJS 1.6.8](https://img.shields.io/badge/AngularJS-1.6.8-green.svg)  ![forthebadge made-with-ruby](https://forthebadge.com/images/badges/made-with-ruby.svg) ![forthebadge made-with-javascript](https://forthebadge.com/images/badges/made-with-javascript.svg)
+# SocialCloud ![Status completed](https://img.shields.io/badge/Status-finished-2eb3c1.svg) ![Ruby On Rails 8.1.1](https://img.shields.io/badge/RubyOnRails-8.1.1-red.svg) ![Ruby 3.3.4](https://img.shields.io/badge/Ruby-3.3.4-blue.svg) ![AngularJS 1.8.0](https://img.shields.io/badge/AngularJS-1.8.0-green.svg) ![MongoDB 4.4.23](https://img.shields.io/badge/MongoDB-4.4.23-green.svg)  ![forthebadge made-with-ruby](https://forthebadge.com/images/badges/made-with-ruby.svg) ![forthebadge made-with-javascript](https://forthebadge.com/images/badges/made-with-javascript.svg)
 ----------------------------
 ABOUT THE PROJECT
 ----------------------------
@@ -15,10 +15,10 @@ Heroku, MongoDB and MongoDB Atlas.
 TECHNOLOGIES USED
 ----------------------------
 
-- Ruby on Rails 5.0.7.2
-- Ruby 2.5.1
-- AngularJS - 1.6.8 ( Javascript Framework )
-- SQLLite / PostgreSQL / MongoDB (v3.6.3)
+- Ruby on Rails 8.1.1
+- Ruby 3.3.4
+- AngularJS - 1.8.0 ( Javascript Framework )
+- SQLLite / PostgreSQL / MongoDB (v4.4.23)
 - Bootstrap ( HTML / CSS / Javascript )
 
 ----------------------------
@@ -33,7 +33,24 @@ Type the following commands in sequential order:
 
 For testing:
 
-              bundle exec rspec spec (From root directory)               
+              bundle exec rspec spec (From root directory)    
+
+For creating db:
+              1. db:create
+              2. db:migrate
+              The above commands create and apply the tables for User class. For MongoDB (Post Class), the db is created on the go.
+
+For deleting db:
+              1. db:drop 
+              [1. Deletes users, stored in SQL DB]
+              2. mongo
+              3. use social_cloud_development
+              4. db.dropDatabase()
+              [2., 3., 4. delete posts, stored in MongoDB] 
+              OR
+              rails c
+              - User.delete_all
+              - Post.delete_all               
 
 ----------------------------
 # Main Components of Application
@@ -55,9 +72,9 @@ Spec folder contains the application testing component.
 Following are the users for the application(master branch - development mode):
 
 - email: shashwat@gmail.com username: shashwatkathuria password: shashwat
-- email: cristiano@gmail.com username: cristiano password: ronaldo
-- email: akshay@gmail.com username: akshaygupta password: akshay
-- email: john@gmail.com username: johncena password: johncena
+- email: user1@gmail.com username: user1 password: password
+- email: user2@gmail.com username: user2 password: password
+- email: user3@gmail.com username: user3 password: password
 
 ----------------
 NOTE
@@ -66,4 +83,6 @@ NOTE
 MongoDB needs to be installed on machine and configured using mongoid.
 Refer to mongoid.yml inside config folder and mongoid documentation for further details.
 
+Ruby (preferably via rvm - ruby version manager) and Rails also need to be installed 
+on the system.
 --------------

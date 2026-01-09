@@ -1,0 +1,12 @@
+{:uriI"÷file:///home/shashwatkathuria/Desktop/Coding%20Related%20Stuff/SocialCloud/app/assets/javascripts/social-cloud/user-search-details/user-search-details.template.html?type=text/html&id=3aa316d11277e78473abf1cfa4719ce7e58ee87856a87cacb67d400a7aa15ecb:ET:load_pathI"app/assets/javascripts;T:filenameI"^app/assets/javascripts/social-cloud/user-search-details/user-search-details.template.html;T:	nameI"Bsocial-cloud/user-search-details/user-search-details.template;T:logical_pathI"Gsocial-cloud/user-search-details/user-search-details.template.html;T:content_typeI"text/html;T:sourceI"£<div ng-if="$ctrl.searchResults.search_results.length > 0" class="well well-lg" ng-repeat="user in $ctrl.searchResults.search_results">
+      <h2><span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span> {{ user.first_name + " " + user.last_name }} <small>@{{ user.username }}</small></h2>
+      <a ng-href="{{ user.show_profile }}" class="btn transparentButton btn-default center-block" style="margin-top:8px;margin-bottom:8px;" role="button">Show {{ user.first_name + "'s" }}  Profile <span class="glyphicon glyphicon-hand-right" aria-hidden="true"></span></a>
+</div>
+
+<p ng-if="$ctrl.searchResults.search_results.length == 0">No search results found.</p>
+;T:metadata{
+:dependencieso:Set:
+@hash}
+I"environment-version;TTI"environment-paths;TTI"rails-env;TTI"2processors:type=text/html&file_type=text/html;TTI"«file-digest:///home/shashwatkathuria/Desktop/Coding%20Related%20Stuff/SocialCloud/app/assets/javascripts/social-cloud/user-search-details/user-search-details.template.html;TTF:charsetI"
+utf-8;F:digest"%_ùT3†íJN3SlšÃ³c„E££g¨`%{Z”@ïÜ:lengthi£:environment_versionI"1.0;T:dependencies_digest"%,yœ_Ô"„{«pÖ=e|{¡‰
+cÍã§÷ï$¼R:idI"E3aa316d11277e78473abf1cfa4719ce7e58ee87856a87cacb67d400a7aa15ecb;F

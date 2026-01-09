@@ -1,6 +1,4 @@
 require 'spec_helper'
-require 'mongoid_paperclip'
-require 'paperclip/matchers'
 require 'rails_helper'
 require 'shoulda/matchers'
 
@@ -9,9 +7,7 @@ RSpec.describe UsersController, type: :controller do
     # render_views
     # render_views -- To also include render html alongwith response
     context 'GET ' do
-      before(:all) {
-        DatabaseCleaner.strategy = :transaction
-        DatabaseCleaner.clean_with(:truncation)
+      before(:each) {
         Faker::Config.random = Random.new(2)
         @user1 = create(:user1)
         @user2 = create(:user2)
@@ -20,16 +16,17 @@ RSpec.describe UsersController, type: :controller do
       }
       context 'Logged In' do
         it 'Checking Response Status Code' do
-          sign_in @user1
-          get :index
+          sign_in @user1, scope: :user
+          get :index, params: { format: :json }
           expect(response).to have_http_status(:success)
           should respond_with 200
         end
-        it 'Checking Rendered Templates and Layouts' do
-           sign_in @user1
-           get :index
-           should render_template('index')
-           should render_with_layout('application')
+        it 'Checking Rendered JSON' do
+           sign_in @user1, scope: :user
+           get :index, params: { format: :json }
+           json = JSON.parse(response.body)
+           expect(json).to have_key('user')
+           expect(json['user']['email']).to eq(@user1.email)
         end
         it 'Checking If Authentication Step Is Used' do
          sign_in @user1
@@ -60,9 +57,7 @@ RSpec.describe UsersController, type: :controller do
     # render_views
     # render_views -- To also include render html alongwith response
     context 'GET ' do
-      before(:all) {
-        DatabaseCleaner.strategy = :transaction
-        DatabaseCleaner.clean_with(:truncation)
+      before(:each) {
         Faker::Config.random = Random.new(3)
         @user1 = create(:user1)
         @user2 = create(:user2)
@@ -86,9 +81,7 @@ RSpec.describe UsersController, type: :controller do
     end
 
     context 'POST ' do
-      before(:all) {
-        DatabaseCleaner.strategy = :transaction
-        DatabaseCleaner.clean_with(:truncation)
+      before(:each) {
         Faker::Config.random = Random.new(3)
         @user1 = create(:user1)
         @user2 = create(:user2)
@@ -116,9 +109,7 @@ RSpec.describe UsersController, type: :controller do
     # render_views
     # render_views -- To also include render html alongwith response
     context 'GET ' do
-      before(:all) {
-        DatabaseCleaner.strategy = :transaction
-        DatabaseCleaner.clean_with(:truncation)
+      before(:each) {
         Faker::Config.random = Random.new(4)
         @user1 = create(:user1)
         @user2 = create(:user2)
@@ -147,9 +138,7 @@ RSpec.describe UsersController, type: :controller do
     # render_views -- To also include render html alongwith response
     context 'GET ' do
       context 'Logged In' do
-        before(:all) {
-          DatabaseCleaner.strategy = :transaction
-          DatabaseCleaner.clean_with(:truncation)
+        before(:each) {
           Faker::Config.random = Random.new(5)
           @user1 = create(:user1)
           @user2 = create(:user2)
@@ -174,9 +163,7 @@ RSpec.describe UsersController, type: :controller do
         end
       end
       context 'Not Logged In' do
-        before(:all) {
-          DatabaseCleaner.strategy = :transaction
-          DatabaseCleaner.clean_with(:truncation)
+        before(:each) {
           Faker::Config.random = Random.new(5)
           @user1 = create(:user1)
           @user2 = create(:user2)
@@ -205,36 +192,32 @@ RSpec.describe UsersController, type: :controller do
     # render_views -- To also include render html alongwith response
     context 'GET ' do
       context 'Logged In' do
-        before(:all) {
-          DatabaseCleaner.strategy = :transaction
-          DatabaseCleaner.clean_with(:truncation)
+        before(:each) {
           Faker::Config.random = Random.new(5)
           @user1 = create(:user1)
           @user2 = create(:user2)
           Faker::Config.random = Random.new(5)
         }
         it 'Checking Response Status Code' do
-          sign_in @user1
+          sign_in @user1, scope: :user
           get :unfollow, params: {username:@user2.username}
           expect(response).to have_http_status(:redirect)
           should respond_with 302
         end
         it 'Checking Rendered Templates and Layouts' do
-          sign_in @user1
+          sign_in @user1, scope: :user
           get :unfollow, params: {username:@user2.username}
           should_not render_template('unfollow')
           should_not render_with_layout('application')
         end
         it 'Checking If Authentication Step Is Used' do
-          sign_in @user1
+          sign_in @user1, scope: :user
           get :unfollow, params: {username:@user2.username}
           should use_before_action :authenticate_user!
         end
       end
       context 'Not Logged In' do
-        before(:all) {
-          DatabaseCleaner.strategy = :transaction
-          DatabaseCleaner.clean_with(:truncation)
+        before(:each) {
           Faker::Config.random = Random.new(5)
           @user1 = create(:user1)
           @user2 = create(:user2)
@@ -259,6 +242,3 @@ RSpec.describe UsersController, type: :controller do
   end
 
 end
-
-DatabaseCleaner.strategy = :transaction
-DatabaseCleaner.clean_with(:truncation)

@@ -1,20 +1,0 @@
-{:uriI"üfile://app/assets/javascripts/social-cloud/post-show/post-show.template.html?type=text/html&id=216847cd28447cefb07c5f74e6077feaff75743f1ff014abd1677b4ae3eb62d6:ET:load_pathI"app/assets/javascripts;T:filenameI"Japp/assets/javascripts/social-cloud/post-show/post-show.template.html;T:	nameI".social-cloud/post-show/post-show.template;T:logical_pathI"3social-cloud/post-show/post-show.template.html;T:content_typeI"text/html;T:sourceI"π<div class="row" style="margin:5%">
-  <div class="col-sm-12 col-md-12 col-lg-12">
-    <div class="thumbnail">
-      <div class="caption">
-          <h3><span style="color:orange;"><span class="glyphicon glyphicon-picture" aria-hidden="true"></span> {{ $ctrl.post.image_heading }}</span><hr> {{ $ctrl.post.image_caption }}</h3>
-          <p><a href="#" class="btn btn-default disabledTransparentButton disabled"  role="button"><span class="glyphicon glyphicon-time" aria-hidden="true"></span> Posted {{ $ctrl.post.time }} ago</a>
-      </div>
-      <img src="{{ $ctrl.post.url }}" alt="{{ $ctrl.post.image_caption }}">
-      <div class="caption">
-            <a ng-click="deleteWarning($event)" href="{{ $ctrl.post.delete_path }}" class="btn transparentButton btn-default" style="margin-top:8px;margin-bottom:8px;" role="button">Delete Post <span class="glyphicon glyphicon-picture" aria-hidden="true"></span></a>
-      </div>
-    </div>
-  </div>
-</div>
-;T:metadata{	:dependencieso:Set:
-@hash}
-I"environment-version;TTI"environment-paths;TTI"rails-env;TTI"2processors:type=text/html&file_type=text/html;TTI"Xfile-digest://app/assets/javascripts/social-cloud/post-show/post-show.template.html;TTF:charsetI"
-utf-8;F:digest"%Öœ{ ^NI∑˚Ècl€∫% »«˝j«∆™yé?Û:lengthiπ:dependencies_digest"%Ï»AµuÕΩ(ŸK[h’°•WeHé‰≈=‘Â%Æ:idI"E216847cd28447cefb07c5f74e6077feaff75743f1ff014abd1677b4ae3eb62d6;F:
-mtimel+
-ﬁ]

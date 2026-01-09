@@ -1,6 +1,4 @@
 require 'spec_helper'
-require 'mongoid_paperclip'
-require 'paperclip/matchers'
 require 'rails_helper'
 require 'shoulda/matchers'
 require 'rack/test'
@@ -9,7 +7,7 @@ RSpec.describe PostsController, type: :controller do
   describe '#index' do
     context 'GET' do
       # render_views -- To also include render html alongwith response
-      before(:all) {
+      before(:each) {
         Faker::Config.random = Random.new(2)
         @user1 = create(:user1)
         @user2 = create(:user2)
@@ -58,10 +56,7 @@ RSpec.describe PostsController, type: :controller do
   describe '#show' do
     context 'GET' do
       # render_views -- To also include render html alongwith response
-      before(:all) {
-        DatabaseCleaner.strategy = :transaction
-        DatabaseCleaner.clean_with(:truncation)
-        Mongoid.purge!
+      before(:each) {
         Faker::Config.random = Random.new(2)
         @user1 = create(:user1)
         @user2 = create(:user2)
@@ -132,10 +127,7 @@ RSpec.describe PostsController, type: :controller do
   describe '#new' do
     context 'GET' do
       # render_views -- To also include render html alongwith response
-      before(:all) {
-        DatabaseCleaner.strategy = :transaction
-        DatabaseCleaner.clean_with(:truncation)
-        Mongoid.purge!
+      before(:each) {
         Faker::Config.random = Random.new(2)
         @user1 = create(:user1)
         @user2 = create(:user2)
@@ -189,9 +181,6 @@ RSpec.describe PostsController, type: :controller do
     context 'POST' do
       # render_views -- To also include render html alongwith response
       before(:each) {
-        DatabaseCleaner.strategy = :transaction
-        DatabaseCleaner.clean_with(:truncation)
-        Mongoid.purge!
         Faker::Config.random = Random.new(2)
         @user1 = create(:user1)
         @user2 = create(:user2)
@@ -257,10 +246,7 @@ RSpec.describe PostsController, type: :controller do
     context 'POST' do
       # render_views
       # render_views -- To also include render html alongwith response
-      before(:all) {
-        DatabaseCleaner.strategy = :transaction
-        DatabaseCleaner.clean_with(:truncation)
-        Mongoid.purge!
+      before(:each) {
         Faker::Config.random = Random.new(2)
         @user1 = create(:user1)
         @user2 = create(:user2)
@@ -315,10 +301,7 @@ RSpec.describe PostsController, type: :controller do
     context 'GET' do
       # render_views
       # render_views -- To also include render html alongwith response
-      before(:all) {
-        DatabaseCleaner.strategy = :transaction
-        DatabaseCleaner.clean_with(:truncation)
-        Mongoid.purge!
+      before(:each) {
         Faker::Config.random = Random.new(2)
         @user1 = create(:user1)
         @user2 = create(:user2)
@@ -377,9 +360,6 @@ RSpec.describe PostsController, type: :controller do
       # render_views
       # render_views -- To also include render html alongwith response
       before(:each) {
-        DatabaseCleaner.strategy = :transaction
-        DatabaseCleaner.clean_with(:truncation)
-        Mongoid.purge!
         Faker::Config.random = Random.new(2)
         @user1 = create(:user1)
         @user2 = create(:user2)

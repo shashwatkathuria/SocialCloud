@@ -1,7 +1,5 @@
 require 'rails/mongoid'
 require 'spec_helper'
-require 'mongoid_paperclip'
-require 'paperclip/matchers'
 require 'rails_helper'
 require 'shoulda/matchers'
 

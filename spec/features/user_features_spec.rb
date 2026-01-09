@@ -1,17 +1,10 @@
 require 'spec_helper'
-require 'mongoid_paperclip'
-require 'paperclip/matchers'
 require 'rails_helper'
 require 'shoulda/matchers'
 
 describe "Signing Up Process And Verifying New User Information", type: :feature do
   before(:all) do
-    Capybara.use_default_driver
-  end
-  before(:all) do
-    DatabaseCleaner.strategy = :transaction
-    DatabaseCleaner.clean_with(:truncation)
-    Mongoid.purge!
+    Capybara.current_driver = :selenium_chrome
     Faker::Config.random = Random.new(3)
     @user1 = create(:user1)
     @user2 = create(:user2)
@@ -35,7 +28,10 @@ describe "Signing Up Process And Verifying New User Information", type: :feature
       fill_in 'user_password', with: @password
       fill_in 'user_password_confirmation', with: @password
     end
-    click_button 'Sign Up'
+    accept_alert do
+      click_button 'Sign Up'
+    end
+    sleep 2
   end
 
   it 'Checks If User Is Created Successfully' do
@@ -59,13 +55,10 @@ end
 
 describe "Signing In Process", type: :feature do
   before(:all) do
-    Capybara.use_default_driver
+    Capybara.current_driver = :selenium_chrome
   end
 
   before(:all) do
-    DatabaseCleaner.strategy = :transaction
-    DatabaseCleaner.clean_with(:truncation)
-    Mongoid.purge!
     Faker::Config.random = Random.new(3)
     @user1 = create(:user1)
     @user2 = create(:user2)
@@ -101,13 +94,10 @@ end
 
 describe "Visiting Own Profile Process", type: :feature do
   before(:all) do
-    Capybara.current_driver = :selenium
+    Capybara.current_driver = :selenium_chrome
   end
 
   before(:all) do
-    DatabaseCleaner.strategy = :transaction
-    DatabaseCleaner.clean_with(:truncation)
-    Mongoid.purge!
     Faker::Config.random = Random.new(3)
     @user1 = create(:user1)
     @user2 = create(:user2)
@@ -126,13 +116,7 @@ end
 
 describe "Editing User Profile Process And Checking Updated Details", type: :feature do
   before(:all) do
-    Capybara.use_default_driver
-  end
-
-  before(:all) do
-    DatabaseCleaner.strategy = :transaction
-    DatabaseCleaner.clean_with(:truncation)
-    Mongoid.purge!
+    Capybara.current_driver = :selenium_chrome
     Faker::Config.random = Random.new(3)
     @user1 = create(:user1)
     @user2 = create(:user2)
@@ -158,7 +142,8 @@ describe "Editing User Profile Process And Checking Updated Details", type: :fea
       fill_in 'user_password_confirmation', with: "password11"
       fill_in 'user_current_password', with: @password
     end
-    find("input[value='Update User']", visible: false).click
+    button = find("input[value='Update User']", visible: false)
+    page.execute_script('arguments[0].click();', button)
   end
 
   it "Checking Valid Update of Details" do
@@ -191,12 +176,7 @@ end
 
 describe "Searching User Process", type: :feature do
   before(:all) do
-    Capybara.current_driver = :selenium
-  end
-  before(:all) do
-    DatabaseCleaner.strategy = :transaction
-    DatabaseCleaner.clean_with(:truncation)
-    Mongoid.purge!
+    Capybara.current_driver = :selenium_chrome
     Faker::Config.random = Random.new(3)
     @user1 = create(:user1)
     @user2 = create(:user2)
@@ -229,13 +209,7 @@ end
 
 describe "Showing Profile of User Process", type: :feature do
   before(:all) do
-    Capybara.current_driver = :selenium
-  end
-
-  before(:all) do
-    DatabaseCleaner.strategy = :transaction
-    DatabaseCleaner.clean_with(:truncation)
-    Mongoid.purge!
+    Capybara.current_driver = :selenium_chrome
     Faker::Config.random = Random.new(3)
     @user1 = create(:user1)
     @user2 = create(:user2)
@@ -261,12 +235,7 @@ end
 
 describe "Following Other User Process", type: :feature do
   before(:all) do
-    Capybara.current_driver = :selenium
-  end
-  before(:all) do
-    DatabaseCleaner.strategy = :transaction
-    DatabaseCleaner.clean_with(:truncation)
-    Mongoid.purge!
+    Capybara.current_driver = :selenium_chrome
     Faker::Config.random = Random.new(3)
     @user1 = create(:user1)
     @user2 = create(:user2)
@@ -291,13 +260,7 @@ end
 
 describe "UnFollowing Other User Process", type: :feature do
   before(:all) do
-    Capybara.current_driver = :selenium
-  end
-
-  before(:all) do
-    DatabaseCleaner.strategy = :transaction
-    DatabaseCleaner.clean_with(:truncation)
-    Mongoid.purge!
+    Capybara.current_driver = :selenium_chrome
     Faker::Config.random = Random.new(3)
     @user1 = create(:user1)
     @user2 = create(:user2)

@@ -12,7 +12,7 @@
 # the additional setup, and require it from the spec files that actually need
 # it.
 #
-# See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
+# See https://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 RSpec.configure do |config|
   # rspec-expectations config goes here. You can use an alternate
   # assertion/expectation library such as wrong or the stdlib/minitest
@@ -61,9 +61,7 @@ RSpec.configure do |config|
 
   # Limits the available syntax to the non-monkey patched syntax that is
   # recommended. For more details, see:
-  #   - http://rspec.info/blog/2012/06/rspecs-new-expectation-syntax/
-  #   - http://www.teaisaweso.me/blog/2013/05/27/rspecs-new-message-expectation-syntax/
-  #   - http://rspec.info/blog/2014/05/notable-changes-in-rspec-3/#zero-monkey-patching-mode
+  # https://rspec.info/features/3-12/rspec-core/configuration/zero-monkey-patching-mode/
   config.disable_monkey_patching!
 
   # Many RSpec users commonly either run the entire suite or an individual
@@ -94,41 +92,3 @@ RSpec.configure do |config|
   Kernel.srand config.seed
 =end
 end
-
-# require_relative './../app/models/*.rb'
-require 'active_record'
-require 'mongoid-rspec'
-RSpec.configure do |config|
-  config.include Mongoid::Matchers
-end
-
-require 'paperclip/matchers'
-
-RSpec.configure do |config|
-  config.include Paperclip::Shoulda::Matchers
-end
-
-require 'capybara/rspec'
-require 'capybara-screenshot/rspec'
-
-Capybara.server = :webrick
-
-Capybara.register_driver :selenium do |app|
-  Capybara::Selenium::Driver.new(app, browser: :firefox)
-end
-
-Capybara.default_max_wait_time = 10
-
-# if ENV["SLOW"].present?
-require "selenium-webdriver"
-module ::Selenium::WebDriver::Remote
-  class Bridge
-    alias old_execute execute
-
-    def execute(*args)
-      sleep(0.3)
-      old_execute(*args)
-    end
-  end
-end
-# end

@@ -1,88 +1,62 @@
 Rails.application.routes.draw do
-  get 'posts/index'
-
-  get 'posts/new'
-
-  post 'posts/create'
-
-  get 'posts/search/:searchQuery', to: "posts#search"
-  post 'posts/search'
-  get 'posts/search', to: "welcome#index"
-  get 'users/follow/:username', to: "users#follow"
-  get 'users/unfollow/:username', to: "users#unfollow"
-
-  get 'posts/delete/:deleteID', to: "posts#delete"
+  namespace :admin do
+    resources :users
+    root to: "users#index"
+  end
 
   devise_for :users
+
+  get "up", to: "rails/health#show", as: :rails_health_check
+
+  # POSTS
+  get  "posts/index"
+  get  "posts/new"
+  post "posts/create"
+
+  get  "posts/search/:searchQuery", to: "posts#search"
+  post "posts/search"
+  get  "posts/search", to: "welcome#index"
+
+  get  "posts/delete/:deleteID", to: "posts#delete"
+
+  # USERS
+  get "users/follow/:username",   to: "users#follow"
+  get "users/unfollow/:username", to: "users#unfollow"
+
   devise_scope :user do
-    get '/users/sign_out' => 'devise/sessions#destroy'
+    get "/users/sign_out", to: "devise/sessions#destroy"
   end
-  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
-  get '/contact_us' => 'contact_us#index'
 
-  get 'welcome/index'
-  get '/signup' => 'users#new'
+  get "/contact_us", to: "contact_us#index"
 
-  resources :users, only: [:index, :new, :create, :search]
-  resources :posts, only: [:index, :new, :create, :delete, :show]
-  # The priority is based upon order of creation: first created -> highest priority.
-  # See how all your routes lay out with "rake routes".
+  get "welcome/index"
+  get "/signup", to: "users#new"
 
-  # You can have the root of your site routed with "root"
-  root 'welcome#index'
-  post '/search', to: "users#search"
-  get '/search/:searchQuery', to: "users#search"
+  # USERS RESOURCES
+  resources :users, only: [:index, :new, :create] do
+    collection do
+      get  :search
+      post :search
+    end
+  end
 
-  get 'users/:username', to: "users#show_profile"
-  # post '/users' => 'users#create'
+  # POSTS RESOURCES
+  resources :posts, only: [:index, :new, :create, :show] do
+    member do
+      get :delete
+    end
+  end
 
-  # Example of regular route:
-  #   get 'products/:id' => 'catalog#view'
+  # ROOT
+  root to: "welcome#index"
 
-  # Example of named route that can be invoked with purchase_url(id: product.id)
-  #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
+  # GLOBAL SEARCH (THIS CREATES search_path)
+  post "/search", to: "users#search"
+  get  "/search/:searchQuery", to: "users#search"
 
-  # Example resource route (maps HTTP verbs to controller actions automatically):
-  #   resources :products
+  # PROFILE PAGE
+  get "users/:username", to: "users#show_profile"
 
-  # Example resource route with options:
-  #   resources :products do
-  #     member do
-  #       get 'short'
-  #       post 'toggle'
-  #     end
-  #
-  #     collection do
-  #       get 'sold'
-  #     end
-  #   end
-
-  # Example resource route with sub-resources:
-  #   resources :products do
-  #     resources :comments, :sales
-  #     resource :seller
-  #   end
-
-  # Example resource route with more complex sub-resources:
-  #   resources :products do
-  #     resources :comments
-  #     resources :sales do
-  #       get 'recent', on: :collection
-  #     end
-  #   end
-
-  # Example resource route with concerns:
-  #   concern :toggleable do
-  #     post 'toggle'
-  #   end
-  #   resources :posts, concerns: :toggleable
-  #   resources :photos, concerns: :toggleable
-
-  # Example resource route within a namespace:
-  #   namespace :admin do
-  #     # Directs /admin/products/* to Admin::ProductsController
-  #     # (app/controllers/admin/products_controller.rb)
-  #     resources :products
-  #   end
-  get '*path' => redirect('/404.html')
+  # FALLBACK
+  get "*path", to: redirect("/404.html")
 end

@@ -8,6 +8,6 @@ angular.module('socialCloudApp', ['profileDetails', 'userSearchDetails', 'userSh
     });
 });
 
-$(document).on('turbolinks:load', function() {
-  return angular.bootstrap(document.body, ['socialCloudApp']);
+$(document).ready(function() {
+  angular.bootstrap(document.body, ['socialCloudApp']);
 });

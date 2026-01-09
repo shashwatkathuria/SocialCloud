@@ -1,6 +1,4 @@
 require 'spec_helper'
-require 'mongoid_paperclip'
-require 'paperclip/matchers'
 require 'rails_helper'
 require 'shoulda/matchers'
 
@@ -21,7 +19,7 @@ RSpec.describe Post, type: :model do
   end
 
   context 'Post1 Factory Bot Object' do
-    before(:all){
+    before(:each){
       Faker::Config.random = Random.new(1)
       @post1 = create(:post1)
       Faker::Config.random = Random.new(1)
@@ -42,7 +40,7 @@ RSpec.describe Post, type: :model do
   end
 
   context 'Post2 Factory Bot Object' do
-    before(:all){
+    before(:each){
       Faker::Config.random = Random.new(2)
       @post2 = create(:post2)
       Faker::Config.random = Random.new(2)
