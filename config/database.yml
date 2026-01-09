@@ -24,7 +24,30 @@ test:
 # Store production database in the storage/ directory, which by default
 # is mounted as a persistent Docker volume in config/deploy.yml.
 production:
-  adapter: postgresql
-  url: <%= ENV["DATABASE_URL"] %>
-  pool: <%= ENV.fetch("RAILS_MAX_THREADS", 5) %>
-  sslmode: require
+  primary: &primary_production
+    adapter: postgresql
+    encoding: unicode
+    host: <%= ENV['DB_HOST'] %>
+    database: <%= ENV['DB_DATABASE'] %>
+    username: <%= ENV['DB_USERNAME'] %>
+    password: <%= ENV['DB_PASSWORD'] %>
+    port: <%= ENV.fetch("DB_PORT") { 5432 } %>
+    sslmode: 'require'
+    pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+
+  # REDEFINE HOST EXPLICITLY for sub-databases to avoid socket errors
+  cable:
+    <<: *primary_production
+    host: <%= ENV['DB_HOST'] %>
+    database: <%= ENV['DB_DATABASE'] %>
+
+  cache:
+    <<: *primary_production
+    host: <%= ENV['DB_HOST'] %>
+    database: <%= ENV['DB_DATABASE'] %>
+
+  queue:
+    <<: *primary_production
+    host: <%= ENV['DB_HOST'] %>
+    database: <%= ENV['DB_DATABASE'] %>
+
