@@ -1,5 +1,6 @@
 source "https://rubygems.org"
 
+ruby "3.3.4"
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 8.1.1"
 # Use sqlite3 as the database for Active Record
@@ -87,4 +88,8 @@ group :test do
   gem "database_cleaner-mongoid" # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
   gem "capybara"
   gem "selenium-webdriver"
+end
+
+group :production do
+  gem "pg"
 end

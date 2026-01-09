@@ -9199,3 +9199,67 @@ MONGODB | localhost:27017 req:48 | social_cloud_development.find | SUCCEEDED | 0
 Completed 200 OK in 39ms (Views: 22.2ms | ActiveRecord: 1.1ms (3 queries, 0 cached) | MongoDB: 7.2ms | GC: 0.0ms)
 
 
+Started GET "/" for 127.0.0.1 at 2026-01-09 16:11:14 +0530
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='SocialCloud'*/[0m
+DEPRECATION WARNING: resource received a hash argument only. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block in <main> at /home/shashwatkathuria/Desktop/Coding Related Stuff/Repositories/SocialCloud/config/routes.rb:7)
+DEPRECATION WARNING: resource received a hash argument path. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block in <main> at /home/shashwatkathuria/Desktop/Coding Related Stuff/Repositories/SocialCloud/config/routes.rb:7)
+DEPRECATION WARNING: resource received a hash argument path_names. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block in <main> at /home/shashwatkathuria/Desktop/Coding Related Stuff/Repositories/SocialCloud/config/routes.rb:7)
+DEPRECATION WARNING: resource received a hash argument controller. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block in <main> at /home/shashwatkathuria/Desktop/Coding Related Stuff/Repositories/SocialCloud/config/routes.rb:7)
+Processing by WelcomeController#index as HTML
+MONGODB | Topology type 'unknown' initializing.
+MONGODB | There was a change in the members of the 'Unknown' topology.
+MONGODB | Server localhost:27017 initializing.
+MONGODB | Waiting for up to 30.00 seconds for servers to be scanned: #<Cluster topology=Unknown[localhost:27017] servers=[#<Server address=localhost:27017 UNKNOWN>]>
+MONGODB | Server description for localhost:27017 changed from 'unknown' to 'standalone'.
+MONGODB | Topology type 'Unknown' changed to type 'Single'.
+MONGODB | localhost:27017 req:6 conn:1:1 sconn:442 | social_cloud_development.find | STARTED | {"find"=>"posts", "filter"=>{}, "$db"=>"social_cloud_development", "lsid"=>{"id"=><BSON::Binary:0x41340 type=uuid data=0xecb8cefa3822468a...>}}
+MONGODB | localhost:27017 req:6 | social_cloud_development.find | SUCCEEDED | 0.011s
+  Rendering layout layouts/application.html.erb
+  Rendering welcome/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 3 /*action='index',application='SocialCloud',controller='welcome'*/[0m
+  ↳ app/views/welcome/index.html.erb:43
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 /*action='index',application='SocialCloud',controller='welcome'*/[0m
+  ↳ app/views/welcome/index.html.erb:43
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 2 /*action='index',application='SocialCloud',controller='welcome'*/[0m
+  ↳ app/views/welcome/index.html.erb:43
+  Rendered welcome/index.html.erb within layouts/application (Duration: 20.4ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 117.2ms | GC: 0.0ms)
+Completed 200 OK in 447ms (Views: 116.6ms | ActiveRecord: 3.0ms (3 queries, 0 cached) | MongoDB: 10.5ms | GC: 134.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2026-01-09 16:11:17 +0530
+Processing by WelcomeController#index as HTML
+MONGODB | localhost:27017 req:7 conn:1:1 sconn:442 | social_cloud_development.find | STARTED | {"find"=>"posts", "filter"=>{}, "$db"=>"social_cloud_development", "lsid"=>{"id"=><BSON::Binary:0x41340 type=uuid data=0xecb8cefa3822468a...>}}
+MONGODB | localhost:27017 req:7 | social_cloud_development.find | SUCCEEDED | 0.009s
+  Rendering layout layouts/application.html.erb
+  Rendering welcome/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 3 /*action='index',application='SocialCloud',controller='welcome'*/[0m
+  ↳ app/views/welcome/index.html.erb:43
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 4 /*action='index',application='SocialCloud',controller='welcome'*/[0m
+  ↳ app/views/welcome/index.html.erb:43
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 /*action='index',application='SocialCloud',controller='welcome'*/[0m
+  ↳ app/views/welcome/index.html.erb:43
+  Rendered welcome/index.html.erb within layouts/application (Duration: 6.5ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 21.2ms | GC: 0.0ms)
+Completed 200 OK in 70ms (Views: 50.5ms | ActiveRecord: 0.4ms (3 queries, 0 cached) | MongoDB: 9.5ms | GC: 28.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2026-01-09 16:11:18 +0530
+Processing by WelcomeController#index as HTML
+MONGODB | localhost:27017 req:8 conn:1:1 sconn:442 | social_cloud_development.find | STARTED | {"find"=>"posts", "filter"=>{}, "$db"=>"social_cloud_development", "lsid"=>{"id"=><BSON::Binary:0x41340 type=uuid data=0xecb8cefa3822468a...>}}
+MONGODB | localhost:27017 req:8 | social_cloud_development.find | SUCCEEDED | 0.012s
+  Rendering layout layouts/application.html.erb
+  Rendering welcome/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 /*action='index',application='SocialCloud',controller='welcome'*/[0m
+  ↳ app/views/welcome/index.html.erb:43
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 3 /*action='index',application='SocialCloud',controller='welcome'*/[0m
+  ↳ app/views/welcome/index.html.erb:43
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1[0m
+  ↳ app/views/welcome/index.html.erb:43
+  Rendered welcome/index.html.erb within layouts/application (Duration: 7.3ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 21.0ms | GC: 0.4ms)
+Completed 200 OK in 42ms (Views: 22.7ms | ActiveRecord: 0.3ms (3 queries, 0 cached) | MongoDB: 11.7ms | GC: 0.4ms)
+
+
+MONGODB | Server description for localhost:27017 changed from 'standalone' to 'standalone'.
+MONGODB | There was a change in the members of the 'Single' topology.
